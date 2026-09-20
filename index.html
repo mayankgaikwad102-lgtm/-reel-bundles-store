@@ -5,29 +5,54 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Reel Bundles — Premium Content Collection</title>
-<meta name="description" content="Premium reel bundles for creators, theme pages and entrepreneurs. Get high-quality content collections for just ₹29 each.">
-<meta name="theme-color" content="#07080d">
+
+<meta
+  name="description"
+  content="Premium reel bundles for creators and theme pages. Choose from curated content collections for ₹29 each."
+>
+
+<meta
+  name="keywords"
+  content="reel bundles, Instagram reels, content bundles, anime edits, luxury reels, 3D facts, stickman reels, AI content, gaming reels"
+>
+
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#080807">
+
+<link rel="canonical" href="https://reelbundlestore.netlify.app/">
 
 <meta property="og:title" content="Reel Bundles — Premium Content Collection">
-<meta property="og:description" content="Premium reel bundles for creators. Every bundle ₹29.">
+<meta
+  property="og:description"
+  content="Premium reel bundles for creators. Every bundle ₹29."
+>
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://reelbundlestore.netlify.app/">
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
 :root{
-  --bg:#07080d;
-  --bg2:#0b0d14;
-  --panel:#0d1019;
-  --panel2:#111522;
-  --line:rgba(255,255,255,.12);
+  --bg:#080807;
+  --bg2:#0d0d0b;
+  --panel:#11110f;
+  --panel2:#151512;
+  --panel3:#1a1915;
+
+  --gold:#c6a56a;
+  --gold2:#d8bd8a;
+  --gold3:#8b6a3f;
+
+  --text:#f4f1e9;
+  --muted:#9b9a92;
+  --muted2:#73736d;
+
+  --line:rgba(216,189,138,.16);
   --line2:rgba(255,255,255,.07);
-  --text:#f5f3ef;
-  --muted:#9b9da8;
-  --purple:#8b2cff;
-  --purple2:#a63cff;
-  --purple3:#651bd7;
-  --green:#65d58b;
-  --yellow:#ffd21f;
-  --danger:#ff687d;
+
+  --green:#73c998;
+  --danger:#d87878;
+
   --max:1420px;
 }
 
@@ -43,7 +68,8 @@ html{
 
 body{
   background:
-    linear-gradient(180deg,#06070b 0%,#090b11 45%,#07080d 100%);
+    radial-gradient(circle at 80% 0%,rgba(198,165,106,.07),transparent 30%),
+    linear-gradient(180deg,#080807 0%,#0b0b09 45%,#080807 100%);
   color:var(--text);
   font-family:
     Inter,
@@ -53,6 +79,11 @@ body{
     sans-serif;
   line-height:1.5;
   overflow-x:hidden;
+}
+
+body::selection{
+  background:var(--gold);
+  color:#080807;
 }
 
 button,
@@ -89,8 +120,8 @@ img{
   z-index:1000;
   height:76px;
   border-bottom:1px solid var(--line2);
-  background:rgba(7,8,13,.92);
-  backdrop-filter:blur(18px);
+  background:rgba(8,8,7,.91);
+  backdrop-filter:blur(20px);
 }
 
 .header-inner{
@@ -98,40 +129,40 @@ img{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:28px;
+  gap:25px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:11px;
-  min-width:max-content;
 }
 
 .brand-mark{
-  width:38px;
-  height:38px;
-  border:1px solid rgba(166,60,255,.7);
+  width:39px;
+  height:39px;
+  border:1px solid var(--gold);
   display:grid;
   place-items:center;
-  border-radius:8px;
-  background:#120b1c;
-  color:#b964ff;
-  font-size:20px;
+  background:
+    linear-gradient(145deg,#171611,#0c0c0a);
+  color:var(--gold2);
+  font-size:18px;
+  font-weight:900;
 }
 
 .brand-title{
   font-size:17px;
   line-height:1;
-  font-weight:800;
+  font-weight:850;
   letter-spacing:.02em;
 }
 
 .brand-sub{
-  color:#858792;
+  color:#77766f;
   font-size:8px;
-  letter-spacing:.16em;
-  margin-top:4px;
+  letter-spacing:.18em;
+  margin-top:5px;
 }
 
 .nav{
@@ -141,28 +172,28 @@ img{
 }
 
 .nav a{
-  color:#d5d5dc;
+  color:#c4c2ba;
   font-size:13px;
   transition:.2s ease;
 }
 
 .nav a:hover{
-  color:#c27aff;
+  color:var(--gold2);
 }
 
 .header-actions{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:9px;
 }
 
 .btn{
   border:1px solid var(--line);
-  background:#0c0f17;
+  background:#11110f;
   color:var(--text);
-  min-height:42px;
+  min-height:44px;
   padding:0 20px;
-  border-radius:6px;
+  border-radius:4px;
   transition:
     transform .2s ease,
     border-color .2s ease,
@@ -171,21 +202,29 @@ img{
 
 .btn:hover{
   transform:translateY(-2px);
-  border-color:rgba(166,60,255,.65);
+  border-color:var(--gold);
 }
 
 .btn-primary{
-  background:linear-gradient(135deg,#7d20e8,#a83cff);
-  border-color:#a83cff;
+  background:
+    linear-gradient(135deg,#a88950,#d0b378);
+  border-color:#d8bd8a;
+  color:#100e09;
+  font-weight:800;
 }
 
 .btn-primary:hover{
-  background:linear-gradient(135deg,#8c28f4,#b347ff);
+  background:
+    linear-gradient(135deg,#b9985b,#e0c995);
+}
+
+.btn-secondary{
+  background:#11110f;
 }
 
 .cart-btn{
   position:relative;
-  min-width:45px;
+  min-width:47px;
   padding:0 13px;
 }
 
@@ -198,9 +237,10 @@ img{
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:#a13cff;
+  background:var(--gold);
+  color:#111;
   font-size:10px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .mobile-menu{
@@ -212,135 +252,118 @@ img{
 ========================================================= */
 
 .hero{
-  min-height:650px;
+  min-height:670px;
   display:grid;
   grid-template-columns:1.05fr .95fr;
   align-items:center;
-  gap:40px;
-  padding:80px 0 60px;
+  gap:45px;
+  padding:80px 0 65px;
   position:relative;
 }
 
 .hero-copy{
-  max-width:690px;
+  max-width:700px;
 }
 
 .eyebrow{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  border:1px solid rgba(166,60,255,.35);
-  background:#100c18;
-  color:#c98aff;
-  padding:7px 11px;
-  font-size:11px;
-  letter-spacing:.1em;
+  gap:9px;
+  border:1px solid var(--line);
+  background:#11100d;
+  color:var(--gold2);
+  padding:8px 12px;
+  font-size:10px;
+  letter-spacing:.13em;
   text-transform:uppercase;
-  margin-bottom:24px;
+  margin-bottom:25px;
 }
 
 .eyebrow-dot{
   width:6px;
   height:6px;
-  background:#a63cff;
+  background:var(--gold);
   border-radius:50%;
+  box-shadow:0 0 14px rgba(198,165,106,.5);
 }
 
 .hero h1{
   font-size:clamp(46px,6vw,82px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  max-width:780px;
+  line-height:.96;
+  letter-spacing:-.06em;
+  max-width:800px;
 }
 
 .hero h1 span{
-  color:#a43cff;
+  color:var(--gold2);
 }
 
 .hero-description{
-  color:#aeb0ba;
+  color:#aaa9a1;
   max-width:650px;
-  margin-top:24px;
+  margin-top:25px;
   font-size:17px;
 }
 
 .hero-actions{
   display:flex;
-  gap:12px;
-  margin-top:30px;
+  gap:11px;
+  margin-top:31px;
   flex-wrap:wrap;
 }
 
-.hero-proof{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-top:30px;
+.hero-note{
+  color:#73726c;
+  font-size:11px;
+  margin-top:17px;
 }
 
-.avatars{
-  display:flex;
-}
-
-.avatar{
-  width:30px;
-  height:30px;
-  margin-right:-7px;
-  border:2px solid #080910;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#252735;
-  font-size:10px;
-}
-
-.rating{
-  color:#aeb0b9;
-  font-size:12px;
-}
-
-.rating strong{
-  color:#fff;
-}
-
-.stars{
-  color:var(--yellow);
-  letter-spacing:2px;
-  font-size:12px;
-}
-
-/* Hero visual */
+/* HERO VISUAL */
 
 .hero-visual{
-  min-height:470px;
+  min-height:500px;
   position:relative;
   display:grid;
   place-items:center;
+}
+
+.hero-glow{
+  position:absolute;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(198,165,106,.12),
+    rgba(198,165,106,.03) 45%,
+    transparent 70%
+  );
+  filter:blur(10px);
 }
 
 .hero-ring{
   width:430px;
   height:130px;
   position:absolute;
-  bottom:45px;
-  border:2px solid rgba(147,42,255,.7);
+  bottom:52px;
+  border:1px solid rgba(198,165,106,.48);
   border-radius:50%;
   transform:perspective(500px) rotateX(62deg);
 }
 
-.hero-ring:nth-child(2){
+.hero-ring:nth-of-type(2){
   width:330px;
   height:90px;
-  bottom:70px;
-  opacity:.55;
+  bottom:77px;
+  opacity:.45;
 }
 
 .phone{
   width:255px;
   height:490px;
-  border:8px solid #1b1c24;
+  border:8px solid #24231e;
   border-radius:35px;
-  background:#0b0c12;
+  background:#0c0c0a;
   transform:
     perspective(1000px)
     rotateY(-16deg)
@@ -349,6 +372,9 @@ img{
   position:relative;
   overflow:hidden;
   z-index:3;
+  box-shadow:
+    25px 30px 80px rgba(0,0,0,.55),
+    0 0 60px rgba(198,165,106,.08);
   transition:transform .5s ease;
 }
 
@@ -364,7 +390,7 @@ img{
 .phone-notch{
   width:90px;
   height:20px;
-  background:#08090d;
+  background:#070706;
   border-radius:0 0 14px 14px;
   position:absolute;
   top:0;
@@ -377,11 +403,11 @@ img{
   height:100%;
   padding:34px 13px 15px;
   background:
-    linear-gradient(180deg,#151021,#080910);
+    linear-gradient(180deg,#16150f,#090908);
 }
 
 .phone-logo{
-  font-weight:800;
+  font-weight:850;
   font-size:15px;
   margin-bottom:15px;
 }
@@ -397,7 +423,7 @@ img{
   border:1px solid rgba(255,255,255,.1);
   overflow:hidden;
   position:relative;
-  background:#11131c;
+  background:#11110f;
 }
 
 .phone-card img{
@@ -409,15 +435,16 @@ img{
 .float-icon{
   position:absolute;
   z-index:5;
-  border:1px solid rgba(166,60,255,.55);
-  background:#120d1c;
+  border:1px solid rgba(216,189,138,.5);
+  background:#17150f;
   width:58px;
   height:58px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  color:#bd6bff;
-  font-size:25px;
+  color:var(--gold2);
+  font-size:24px;
+  box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
 
 .float-icon.one{
@@ -435,16 +462,15 @@ img{
   right:-10px;
   width:43px;
   height:43px;
-  color:#ff62a6;
 }
 
 /* =========================================================
-   TRUST BAR
+   TRUST
 ========================================================= */
 
 .trust-bar{
   border:1px solid var(--line);
-  background:#0b0e16;
+  background:#0f0f0c;
   display:grid;
   grid-template-columns:repeat(5,1fr);
   margin-bottom:80px;
@@ -466,17 +492,17 @@ img{
 
 .trust-number{
   font-size:20px;
-  font-weight:800;
+  font-weight:850;
 }
 
 .trust-label{
-  color:#92949f;
+  color:#7e7d76;
   font-size:11px;
   margin-top:2px;
 }
 
 /* =========================================================
-   SECTION
+   SECTIONS
 ========================================================= */
 
 .section{
@@ -485,36 +511,37 @@ img{
 
 .section-head{
   text-align:center;
-  max-width:720px;
+  max-width:740px;
   margin:0 auto 38px;
 }
 
 .section-kicker{
-  color:#ad52ff;
-  font-size:12px;
+  color:var(--gold);
+  font-size:11px;
   text-transform:uppercase;
-  letter-spacing:.16em;
-  font-weight:700;
-  margin-bottom:10px;
+  letter-spacing:.18em;
+  font-weight:800;
+  margin-bottom:11px;
 }
 
 .section-title{
   font-size:clamp(30px,4vw,48px);
   line-height:1.05;
-  letter-spacing:-.04em;
+  letter-spacing:-.045em;
 }
 
 .section-title span{
-  color:#a63cff;
+  color:var(--gold2);
 }
 
 .section-sub{
-  color:#9496a1;
-  margin-top:12px;
+  color:#898881;
+  margin-top:13px;
+  font-size:14px;
 }
 
 /* =========================================================
-   PRODUCT GRID
+   PRODUCTS
 ========================================================= */
 
 .products-grid{
@@ -524,43 +551,50 @@ img{
 }
 
 .product-card{
-  background:#0d1018;
+  background:#11110f;
   border:1px solid var(--line);
   position:relative;
   overflow:hidden;
   transition:
     transform .22s ease,
-    border-color .22s ease;
+    border-color .22s ease,
+    box-shadow .22s ease;
 }
 
 .product-card:hover{
   transform:translateY(-5px);
-  border-color:rgba(166,60,255,.65);
+  border-color:rgba(216,189,138,.6);
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .product-image{
   position:relative;
   aspect-ratio:.72;
   overflow:hidden;
-  background:#0a0b10;
+  background:#0a0a08;
 }
 
 .product-image img{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:transform .45s ease;
+}
+
+.product-card:hover .product-image img{
+  transform:scale(1.035);
 }
 
 .product-number{
   position:absolute;
   top:10px;
   left:10px;
-  width:27px;
-  height:27px;
+  width:28px;
+  height:28px;
   display:grid;
   place-items:center;
-  background:#d5aaff;
-  color:#38115c;
+  background:var(--gold2);
+  color:#17130c;
   font-weight:900;
   font-size:12px;
   z-index:2;
@@ -578,7 +612,7 @@ img{
 }
 
 .product-description{
-  color:#90929c;
+  color:#85847d;
   font-size:11px;
   margin-top:9px;
   min-height:48px;
@@ -593,7 +627,7 @@ img{
 }
 
 .price{
-  color:#c06aff;
+  color:var(--gold2);
   font-weight:900;
   font-size:18px;
 }
@@ -607,15 +641,22 @@ img{
   min-height:34px;
   padding:0 10px;
   border:1px solid var(--line);
-  background:#11141d;
+  background:#161612;
   color:#eee;
   font-size:11px;
-  border-radius:4px;
+  border-radius:3px;
+  transition:.2s ease;
+}
+
+.small-btn:hover{
+  border-color:var(--gold);
 }
 
 .small-btn.primary{
-  background:#8d28ec;
-  border-color:#a63cff;
+  background:#a88950;
+  border-color:#d8bd8a;
+  color:#11100c;
+  font-weight:800;
 }
 
 /* =========================================================
@@ -630,7 +671,7 @@ img{
 
 .why-card{
   border:1px solid var(--line);
-  background:#0d1018;
+  background:#11110f;
   padding:25px;
 }
 
@@ -639,9 +680,9 @@ img{
   height:42px;
   display:grid;
   place-items:center;
-  border:1px solid rgba(166,60,255,.35);
-  color:#bb67ff;
-  background:#130e1b;
+  border:1px solid rgba(216,189,138,.35);
+  color:var(--gold2);
+  background:#17150f;
   margin-bottom:18px;
 }
 
@@ -650,67 +691,9 @@ img{
 }
 
 .why-card p{
-  color:#92949e;
+  color:#85847d;
   font-size:12px;
   margin-top:7px;
-}
-
-/* =========================================================
-   REVIEWS
-========================================================= */
-
-.reviews-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.review{
-  border:1px solid var(--line);
-  background:#0c0f16;
-  padding:22px;
-}
-
-.review-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.reviewer{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.reviewer-avatar{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:#252835;
-  display:grid;
-  place-items:center;
-  font-size:12px;
-}
-
-.reviewer-name{
-  font-weight:700;
-  font-size:13px;
-}
-
-.reviewer-handle{
-  color:#777a85;
-  font-size:10px;
-}
-
-.review-text{
-  color:#a9abb5;
-  font-size:13px;
-  margin-top:18px;
-}
-
-.review .stars{
-  margin-top:13px;
 }
 
 /* =========================================================
@@ -744,8 +727,13 @@ img{
   font-weight:700;
 }
 
+.faq-question span{
+  color:var(--gold);
+  font-size:20px;
+}
+
 .faq-answer{
-  color:#92949f;
+  color:#85847d;
   font-size:13px;
   padding:0 30px 20px 0;
   display:none;
@@ -760,10 +748,11 @@ img{
 ========================================================= */
 
 .cta{
-  border:1px solid rgba(166,60,255,.45);
+  border:1px solid rgba(216,189,138,.35);
   background:
-    linear-gradient(100deg,#160b20,#0d1018 65%);
-  padding:35px 40px;
+    radial-gradient(circle at 90% 0%,rgba(198,165,106,.1),transparent 35%),
+    linear-gradient(100deg,#17140e,#0e0e0c 65%);
+  padding:38px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -775,8 +764,8 @@ img{
 }
 
 .cta p{
-  color:#9597a1;
-  margin-top:5px;
+  color:#85847d;
+  margin-top:6px;
 }
 
 /* =========================================================
@@ -786,7 +775,7 @@ img{
 footer{
   border-top:1px solid var(--line);
   padding:55px 0 25px;
-  background:#07080c;
+  background:#070706;
 }
 
 .footer-grid{
@@ -796,18 +785,19 @@ footer{
 }
 
 .footer-description{
-  color:#858791;
+  color:#77766f;
   font-size:12px;
-  max-width:300px;
+  max-width:320px;
   margin-top:15px;
 }
 
 .footer-title{
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
   text-transform:uppercase;
-  letter-spacing:.1em;
+  letter-spacing:.12em;
   margin-bottom:15px;
+  color:#d5d1c7;
 }
 
 .footer-links{
@@ -816,19 +806,19 @@ footer{
 }
 
 .footer-links a{
-  color:#858791;
+  color:#77766f;
   font-size:12px;
 }
 
 .footer-links a:hover{
-  color:#b95cff;
+  color:var(--gold2);
 }
 
 .footer-bottom{
   border-top:1px solid var(--line2);
   margin-top:40px;
   padding-top:20px;
-  color:#62646d;
+  color:#5f5e58;
   font-size:11px;
   display:flex;
   justify-content:space-between;
@@ -836,7 +826,7 @@ footer{
 }
 
 /* =========================================================
-   PRODUCT DETAIL
+   PAGES
 ========================================================= */
 
 .page{
@@ -847,8 +837,68 @@ footer{
   display:block;
 }
 
+.page-content{
+  max-width:900px;
+  margin:auto;
+  padding:55px 0 100px;
+}
+
+.page-kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:11px;
+  font-weight:800;
+}
+
+.page-title{
+  font-size:clamp(36px,5vw,62px);
+  line-height:1;
+  letter-spacing:-.05em;
+  margin-top:9px;
+}
+
+.page-updated{
+  color:#66655f;
+  font-size:11px;
+  margin-top:12px;
+}
+
+.legal-section{
+  margin-top:35px;
+}
+
+.legal-section h2{
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.legal-section p,
+.legal-section li{
+  color:#94928a;
+  font-size:13px;
+}
+
+.legal-section p + p{
+  margin-top:12px;
+}
+
+.legal-section ul{
+  padding-left:20px;
+  display:grid;
+  gap:8px;
+}
+
+/* =========================================================
+   PRODUCT DETAIL
+========================================================= */
+
+.detail-wrap{
+  padding-bottom:80px;
+}
+
 .breadcrumb{
-  color:#727581;
+  color:#686760;
   font-size:11px;
   padding:28px 0;
 }
@@ -857,12 +907,11 @@ footer{
   display:grid;
   grid-template-columns:420px 1fr;
   gap:55px;
-  padding-bottom:80px;
 }
 
 .detail-image{
   border:1px solid var(--line);
-  background:#0b0d13;
+  background:#0b0b09;
   aspect-ratio:.72;
   overflow:hidden;
 }
@@ -874,7 +923,7 @@ footer{
 }
 
 .detail-number{
-  color:#c16aff;
+  color:var(--gold);
   text-transform:uppercase;
   letter-spacing:.12em;
   font-size:11px;
@@ -889,14 +938,14 @@ footer{
 }
 
 .detail-price{
-  color:#bb5eff;
+  color:var(--gold2);
   font-size:30px;
   font-weight:900;
   margin-top:20px;
 }
 
 .detail-description{
-  color:#a1a3ad;
+  color:#99978f;
   max-width:700px;
   margin-top:18px;
 }
@@ -923,7 +972,7 @@ footer{
 }
 
 .info-row span:first-child{
-  color:#777a84;
+  color:#706f68;
 }
 
 .detail-section{
@@ -937,7 +986,7 @@ footer{
 
 .detail-section p,
 .detail-section li{
-  color:#999ba5;
+  color:#99978f;
   font-size:13px;
 }
 
@@ -949,18 +998,18 @@ footer{
 
 .detail-section li::before{
   content:"✓";
-  color:#65d58b;
+  color:var(--gold);
   margin-right:9px;
 }
 
 /* =========================================================
-   CART DRAWER
+   CART
 ========================================================= */
 
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.74);
   z-index:2000;
   display:none;
 }
@@ -976,7 +1025,7 @@ footer{
   right:0;
   width:min(440px,100%);
   height:100%;
-  background:#0b0d14;
+  background:#0c0c0a;
   border-left:1px solid var(--line);
   transform:translateX(100%);
   transition:transform .3s ease;
@@ -1004,7 +1053,7 @@ footer{
   width:35px;
   height:35px;
   border:1px solid var(--line);
-  background:#11141c;
+  background:#151512;
   color:#fff;
   border-radius:4px;
 }
@@ -1037,7 +1086,7 @@ footer{
 }
 
 .cart-item-price{
-  color:#ba5cff;
+  color:var(--gold2);
   font-size:12px;
   margin-top:3px;
 }
@@ -1045,8 +1094,12 @@ footer{
 .remove{
   background:none;
   border:0;
-  color:#777;
+  color:#77766f;
   font-size:11px;
+}
+
+.remove:hover{
+  color:var(--danger);
 }
 
 .cart-footer{
@@ -1062,23 +1115,33 @@ footer{
   margin-bottom:15px;
 }
 
+.email-label{
+  display:block;
+  color:#85847d;
+  font-size:11px;
+  margin-bottom:7px;
+}
+
 .email-box{
   width:100%;
   height:48px;
   padding:0 14px;
   border:1px solid var(--line);
-  background:#090b11;
+  background:#080807;
   color:#fff;
   outline:none;
   margin-bottom:10px;
 }
 
 .email-box:focus{
-  border-color:#9c39f1;
+  border-color:var(--gold);
 }
 
-.full{
-  width:100%;
+.delivery-note{
+  color:#64635d;
+  font-size:10px;
+  line-height:1.5;
+  margin-bottom:12px;
 }
 
 /* =========================================================
@@ -1091,12 +1154,14 @@ footer{
   left:50%;
   transform:translate(-50%,120px);
   z-index:5000;
-  background:#12151e;
-  border:1px solid rgba(166,60,255,.5);
+  background:#151512;
+  border:1px solid rgba(216,189,138,.5);
   padding:13px 18px;
   font-size:12px;
   opacity:0;
   transition:.3s ease;
+  max-width:calc(100% - 30px);
+  text-align:center;
 }
 
 .toast.show{
@@ -1111,7 +1176,7 @@ footer{
 .loader{
   position:fixed;
   inset:0;
-  background:#07080d;
+  background:#080807;
   z-index:9999;
   display:grid;
   place-items:center;
@@ -1136,7 +1201,7 @@ footer{
 .loader-line{
   width:140px;
   height:2px;
-  background:#171922;
+  background:#1b1a16;
   margin:17px auto 0;
   overflow:hidden;
 }
@@ -1146,20 +1211,26 @@ footer{
   display:block;
   height:100%;
   width:40%;
-  background:#a63cff;
+  background:var(--gold);
   animation:load 1s infinite ease-in-out;
 }
 
 @keyframes load{
-  0%{transform:translateX(-100%)}
-  100%{transform:translateX(350%)}
+  0%{
+    transform:translateX(-100%);
+  }
+
+  100%{
+    transform:translateX(350%);
+  }
 }
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width:1150px){
+
   .products-grid{
     grid-template-columns:repeat(3,1fr);
   }
@@ -1172,12 +1243,17 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .hero-copy{
+    max-width:800px;
+  }
+
   .hero-visual{
     min-height:500px;
   }
 }
 
 @media(max-width:800px){
+
   .nav,
   .header-actions .btn-primary{
     display:none;
@@ -1219,36 +1295,74 @@ footer{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .reviews-grid{
-    grid-template-columns:1fr;
-  }
-
   .detail{
     grid-template-columns:1fr;
     gap:30px;
   }
 
   .detail-image{
-    max-width:400px;
+    max-width:430px;
+    width:100%;
+    margin:auto;
   }
 
   .footer-grid{
     grid-template-columns:1fr 1fr;
+    gap:35px;
   }
 
   .cta{
     flex-direction:column;
     align-items:flex-start;
+    padding:30px 25px;
   }
 }
 
-@media(max-width:500px){
+@media(max-width:520px){
+
+  .container{
+    width:calc(100% - 20px);
+  }
+
+  .header{
+    height:68px;
+  }
+
+  .brand-title{
+    font-size:15px;
+  }
+
+  .brand-sub{
+    font-size:7px;
+  }
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero-visual{
+    min-height:430px;
+  }
+
+  .phone{
+    width:220px;
+    height:430px;
+  }
+
+  .hero-ring{
+    width:340px;
+  }
+
   .products-grid{
     gap:8px;
   }
 
   .product-content{
-    padding:10px;
+    padding:11px;
   }
 
   .product-name{
@@ -1260,16 +1374,11 @@ footer{
   }
 
   .product-actions{
-    width:100%;
+    flex-direction:column;
   }
 
   .small-btn{
-    flex:1;
-  }
-
-  .hero-visual{
-    transform:scale(.8);
-    margin:-30px 0;
+    width:100%;
   }
 
   .why-grid{
@@ -1283,15 +1392,9 @@ footer{
   .footer-bottom{
     flex-direction:column;
   }
-}
 
-@media(prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    scroll-behavior:auto!important;
-    animation-duration:.001ms!important;
-    transition-duration:.001ms!important;
+  .page-content{
+    padding:40px 0 70px;
   }
 }
 </style>
@@ -1299,9 +1402,9 @@ footer{
 
 <body>
 
-<!-- =====================================================
+<!-- =======================================================
      LOADER
-===================================================== -->
+======================================================= -->
 
 <div class="loader" id="loader">
   <div class="loader-inner">
@@ -1310,478 +1413,525 @@ footer{
   </div>
 </div>
 
-<!-- =====================================================
+<!-- =======================================================
      HEADER
-===================================================== -->
+======================================================= -->
 
 <header class="header">
   <div class="container header-inner">
 
     <a href="#home" class="brand">
-      <div class="brand-mark">◈</div>
+
+      <div class="brand-mark">R</div>
+
       <div>
         <div class="brand-title">REEL BUNDLES</div>
-        <div class="brand-sub">PREMIUM CONTENT COLLECTION</div>
+        <div class="brand-sub">CONTENT COLLECTIONS</div>
       </div>
+
     </a>
 
     <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#why">Why Us</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#products">Collections</a>
+      <a href="#why">Why Reel Bundles</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <a href="#products" class="btn btn-primary">Get All Bundles</a>
 
-      <button class="btn cart-btn" onclick="openCart()" aria-label="Open cart">
-        🛒
+      <button
+        class="btn btn-primary"
+        onclick="openCart()"
+      >
+        Cart
         <span class="cart-count" id="cartCount">0</span>
       </button>
 
-      <button class="btn mobile-menu" onclick="openCart()">☰</button>
+      <button
+        class="btn mobile-menu"
+        onclick="openCart()"
+      >
+        ☰
+      </button>
+
     </div>
 
   </div>
 </header>
 
-<!-- =====================================================
+<!-- =======================================================
      HOME
-===================================================== -->
+======================================================= -->
 
 <main id="home" class="page active">
 
-<section class="hero container">
+  <!-- HERO -->
 
-  <div class="hero-copy">
+  <section class="container hero">
 
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      Premium Content Collection
-    </div>
+    <div class="hero-copy">
 
-    <h1>
-      Premium Reel Bundles
-      <br>
-      <span>Built for Viral Growth</span>
-    </h1>
-
-    <p class="hero-description">
-      High-quality content collections for creators, theme pages
-      and entrepreneurs. Pick your niche, download your bundle
-      and create faster.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#products" class="btn btn-primary">
-        Explore All Bundles
-      </a>
-
-      <a href="#products" class="btn">
-        Everything from ₹29
-      </a>
-    </div>
-
-    <div class="hero-proof">
-      <div class="avatars">
-        <div class="avatar">A</div>
-        <div class="avatar">N</div>
-        <div class="avatar">R</div>
-        <div class="avatar">S</div>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        PREMIUM CONTENT COLLECTIONS
       </div>
 
-      <div class="rating">
-        <div class="stars">★★★★★</div>
-        <strong>4.9/5</strong> from creators
+      <h1>
+        Build your content library.
+        <span>One bundle at a time.</span>
+      </h1>
+
+      <p class="hero-description">
+        Explore ready-to-use reel collections across entertainment,
+        anime, luxury, facts, animation, AI, cars and gaming.
+        Every listed bundle is ₹29.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          href="#products"
+          class="btn btn-primary"
+        >
+          Explore Collections
+        </a>
+
+        <button
+          class="btn btn-secondary"
+          onclick="openCart()"
+        >
+          View Cart
+        </button>
+
       </div>
-    </div>
 
-  </div>
-
-  <div class="hero-visual">
-
-    <div class="hero-ring"></div>
-    <div class="hero-ring"></div>
-
-    <div class="float-icon one">♡</div>
-    <div class="float-icon two">◈</div>
-    <div class="float-icon three">♥</div>
-
-    <div class="phone">
-
-      <div class="phone-notch"></div>
-
-      <div class="phone-screen">
-
-        <div class="phone-logo">Reel Bundles</div>
-
-        <div class="phone-grid" id="phoneGrid"></div>
-
+      <div class="hero-note">
+        Digital delivery by email after successful payment.
       </div>
 
     </div>
 
-  </div>
+    <div class="hero-visual">
 
-</section>
+      <div class="hero-glow"></div>
 
-<div class="container">
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
 
-  <div class="trust-bar">
+      <div class="phone">
 
-    <div class="trust-item">
-      <div>
-        <div class="trust-number">10,000+</div>
-        <div class="trust-label">Content Pieces</div>
+        <div class="phone-notch"></div>
+
+        <div class="phone-screen">
+
+          <div class="phone-logo">
+            REEL BUNDLES
+          </div>
+
+          <div
+            class="phone-grid"
+            id="phoneGrid"
+          ></div>
+
+        </div>
+
       </div>
+
+      <div class="float-icon one">✦</div>
+      <div class="float-icon two">▶</div>
+      <div class="float-icon three">↗</div>
+
     </div>
 
-    <div class="trust-item">
-      <div>
-        <div class="trust-number">10</div>
-        <div class="trust-label">Niche Collections</div>
+  </section>
+
+  <!-- TRUST -->
+
+  <section class="container">
+
+    <div class="trust-bar">
+
+      <div class="trust-item">
+        <div>
+          <div class="trust-number">10</div>
+          <div class="trust-label">Content Collections</div>
+        </div>
       </div>
+
+      <div class="trust-item">
+        <div>
+          <div class="trust-number">₹29</div>
+          <div class="trust-label">Per Bundle</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div>
+          <div class="trust-number">Digital</div>
+          <div class="trust-label">Product Delivery</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div>
+          <div class="trust-number">Email</div>
+          <div class="trust-label">Delivery Method</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div>
+          <div class="trust-number">Secure</div>
+          <div class="trust-label">Razorpay Checkout</div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="trust-item">
-      <div>
-        <div class="trust-number">₹29</div>
-        <div class="trust-label">Per Bundle</div>
-      </div>
-    </div>
+  </section>
 
-    <div class="trust-item">
-      <div>
-        <div class="trust-number">1-Time</div>
-        <div class="trust-label">Payment</div>
-      </div>
-    </div>
+  <!-- PRODUCTS -->
 
-    <div class="trust-item">
-      <div>
-        <div class="trust-number">Instant</div>
-        <div class="trust-label">Digital Delivery</div>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-<!-- PRODUCTS -->
-
-<section class="section" id="products">
-
-  <div class="container">
+  <section
+    class="container section"
+    id="products"
+  >
 
     <div class="section-head">
-      <div class="section-kicker">The Collection</div>
+
+      <div class="section-kicker">
+        THE COLLECTION
+      </div>
 
       <h2 class="section-title">
-        Explore Our <span>Premium Bundles</span>
+        Choose your
+        <span>content.</span>
       </h2>
 
       <p class="section-sub">
-        Handpicked content collections for creators,
-        theme pages and social media projects.
+        Browse the collections below. Open any bundle to see
+        what it contains and add it to your cart.
       </p>
+
     </div>
 
-    <div class="products-grid" id="productsGrid"></div>
+    <div
+      class="products-grid"
+      id="productsGrid"
+    ></div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- WHY -->
 
-<!-- WHY -->
-
-<section class="section" id="why">
-
-  <div class="container">
+  <section
+    class="container section"
+    id="why"
+  >
 
     <div class="section-head">
-      <div class="section-kicker">Why Reel Bundles</div>
+
+      <div class="section-kicker">
+        WHY REEL BUNDLES
+      </div>
 
       <h2 class="section-title">
-        Create More. <span>Search Less.</span>
+        Built for
+        <span>faster content creation.</span>
       </h2>
 
       <p class="section-sub">
-        Organised content collections designed to save creators time.
+        Spend less time searching for material and more time
+        turning ideas into short-form content.
       </p>
+
     </div>
 
     <div class="why-grid">
 
       <article class="why-card">
-        <div class="why-icon">◷</div>
-        <h3>Save Time</h3>
+
+        <div class="why-icon">01</div>
+
+        <h3>Multiple Niches</h3>
+
         <p>
-          Spend less time hunting for content and more time creating.
+          Choose from entertainment, anime, luxury, facts,
+          animation, AI, cars and gaming collections.
         </p>
+
       </article>
 
       <article class="why-card">
-        <div class="why-icon">↗</div>
-        <h3>More Content</h3>
-        <p>
-          Large niche-specific collections in one place.
-        </p>
-      </article>
 
-      <article class="why-card">
-        <div class="why-icon">◇</div>
+        <div class="why-icon">02</div>
+
         <h3>Simple Pricing</h3>
+
         <p>
-          Every listed bundle is just ₹29. No complicated tiers.
+          Every listed bundle is ₹29, making it easy to
+          choose individual collections or several together.
         </p>
+
       </article>
 
       <article class="why-card">
-        <div class="why-icon">∞</div>
-        <h3>Digital Access</h3>
+
+        <div class="why-icon">03</div>
+
+        <h3>Digital Delivery</h3>
+
         <p>
-          After verified payment, your purchased download links are
-          delivered to your email.
+          After successful payment, the delivery information
+          is sent to the email address entered at checkout.
         </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-icon">04</div>
+
+        <h3>Content Variety</h3>
+
+        <p>
+          Different collections are designed for different
+          styles of theme-page and short-form content.
+        </p>
+
       </article>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- FAQ -->
 
-<!-- REVIEWS -->
-
-<section class="section" id="reviews">
-
-  <div class="container">
+  <section
+    class="container section"
+    id="faq"
+  >
 
     <div class="section-head">
-      <div class="section-kicker">Creator Feedback</div>
+
+      <div class="section-kicker">
+        QUESTIONS
+      </div>
 
       <h2 class="section-title">
-        What Creators <span>Say</span>
+        Frequently asked
+        <span>questions.</span>
       </h2>
 
-      <p class="section-sub">
-        Replace these sample cards with your verified customer reviews
-        before using them commercially.
-      </p>
-    </div>
-
-    <div class="reviews-grid">
-
-      <article class="review">
-        <div class="review-top">
-          <div class="reviewer">
-            <div class="reviewer-avatar">A</div>
-            <div>
-              <div class="reviewer-name">Customer Review</div>
-              <div class="reviewer-handle">Verified buyer</div>
-            </div>
-          </div>
-        </div>
-
-        <p class="review-text">
-          Your verified customer feedback can appear here.
-        </p>
-
-        <div class="stars">★★★★★</div>
-      </article>
-
-      <article class="review">
-        <div class="review-top">
-          <div class="reviewer">
-            <div class="reviewer-avatar">N</div>
-            <div>
-              <div class="reviewer-name">Customer Review</div>
-              <div class="reviewer-handle">Verified buyer</div>
-            </div>
-          </div>
-        </div>
-
-        <p class="review-text">
-          Your verified customer feedback can appear here.
-        </p>
-
-        <div class="stars">★★★★★</div>
-      </article>
-
-      <article class="review">
-        <div class="review-top">
-          <div class="reviewer">
-            <div class="reviewer-avatar">R</div>
-            <div>
-              <div class="reviewer-name">Customer Review</div>
-              <div class="reviewer-handle">Verified buyer</div>
-            </div>
-          </div>
-        </div>
-
-        <p class="review-text">
-          Your verified customer feedback can appear here.
-        </p>
-
-        <div class="stars">★★★★★</div>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FAQ -->
-
-<section class="section" id="faq">
-
-  <div class="container">
-
-    <div class="section-head">
-      <div class="section-kicker">Questions</div>
-
-      <h2 class="section-title">
-        Frequently Asked <span>Questions</span>
-      </h2>
     </div>
 
     <div class="faq">
 
       <div class="faq-item">
+
         <button class="faq-question">
-          How much does a bundle cost?
+          What do I receive after purchasing?
           <span>+</span>
         </button>
 
         <div class="faq-answer">
-          Every bundle currently listed on the website costs ₹29.
+          You receive access information for the purchased
+          digital collection by email after successful payment.
         </div>
+
       </div>
 
       <div class="faq-item">
+
         <button class="faq-question">
-          How do I receive my bundle?
+          How is the bundle delivered?
           <span>+</span>
         </button>
 
         <div class="faq-answer">
-          After successful payment verification, the download link
-          for your purchased bundle is sent to the email address
-          entered during checkout.
+          Delivery is handled digitally by email. The email
+          address you enter during checkout is used for delivery.
         </div>
+
       </div>
 
       <div class="faq-item">
+
+        <button class="faq-question">
+          How much does each bundle cost?
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          Every listed bundle on the store is ₹29.
+        </div>
+
+      </div>
+
+      <div class="faq-item">
+
         <button class="faq-question">
           Can I buy multiple bundles?
           <span>+</span>
         </button>
 
         <div class="faq-answer">
-          Yes. Add multiple bundles to your cart and complete them
-          together through checkout.
+          Yes. Add multiple different bundles to your cart
+          before checkout. The cart total is calculated automatically.
         </div>
+
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">
-          Is payment secure?
-          <span>+</span>
-        </button>
 
-        <div class="faq-answer">
-          Payments are processed through Razorpay. The website
-          does not store your card or UPI credentials.
-        </div>
-      </div>
-
-      <div class="faq-item">
         <button class="faq-question">
           Do you provide refunds?
           <span>+</span>
         </button>
 
         <div class="faq-answer">
-          Please review the Refund Policy before purchasing.
-          The final commercial refund terms should be clearly
-          defined by the store owner before launch.
+          Digital purchases are final and non-refundable,
+          subject to any rights that cannot legally be excluded.
+          If you experience a genuine payment or delivery issue,
+          contact businesscore28@gmail.com for review.
         </div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+          Is payment secure?
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          Checkout is handled through Razorpay. Reel Bundles
+          does not collect or store your card or UPI credentials
+          on this website.
+        </div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+          Are the files copyright-free?
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          You should review the rights and permitted use of
+          any third-party material before using it commercially.
+          Purchasing a collection does not transfer ownership
+          of third-party intellectual property.
+        </div>
+
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- CTA -->
 
-<section class="section" id="contact">
-
-  <div class="container">
+  <section class="container section">
 
     <div class="cta">
 
       <div>
-        <h2>Got Questions?</h2>
+
+        <h2>
+          Ready to build your content library?
+        </h2>
+
         <p>
-          Contact us before purchasing if you need help choosing a bundle.
+          Browse the collections and choose what fits your content workflow.
         </p>
+
       </div>
 
-      <a class="btn btn-primary"
-         href="mailto:reelbundles.contact@gmail.com">
-        Contact Us
+      <a
+        href="#products"
+        class="btn btn-primary"
+      >
+        Browse Bundles
       </a>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 </main>
 
-<!-- =====================================================
+<!-- =======================================================
      PRODUCT DETAIL PAGE
-===================================================== -->
+======================================================= -->
 
-<main id="productPage" class="page">
+<section
+  id="productPage"
+  class="page"
+>
 
-  <div class="container">
+  <div class="container detail-wrap">
 
     <div class="breadcrumb">
-      Home → Products → <span id="detailBreadcrumb">Bundle</span>
+      Home / Collections /
+      <span id="detailBreadcrumb"></span>
     </div>
 
     <div class="detail">
 
       <div class="detail-image">
-        <img id="detailImage" alt="">
+
+        <img
+          id="detailImage"
+          src=""
+          alt=""
+        >
+
       </div>
 
       <div>
 
-        <div class="detail-number" id="detailNumber"></div>
+        <div
+          class="detail-number"
+          id="detailNumber"
+        ></div>
 
         <h1 id="detailTitle"></h1>
 
-        <div class="detail-price">₹29</div>
+        <div class="detail-price">
+          ₹29
+        </div>
 
-        <p class="detail-description" id="detailDescription"></p>
+        <p
+          class="detail-description"
+          id="detailDescription"
+        ></p>
 
         <div class="detail-actions">
 
-          <button class="btn btn-primary" id="detailBuy">
-            Buy Now — ₹29
+          <button
+            class="btn btn-primary"
+            id="detailBuy"
+          >
+            Buy Now
           </button>
 
-          <button class="btn" id="detailCart">
+          <button
+            class="btn"
+            id="detailCart"
+          >
             Add to Cart
           </button>
+
+          <a
+            href="#products"
+            class="btn"
+          >
+            Back to Collections
+          </a>
 
         </div>
 
@@ -1793,17 +1943,17 @@ footer{
           </div>
 
           <div class="info-row">
-            <span>Delivery</span>
-            <strong>Email after verification</strong>
-          </div>
-
-          <div class="info-row">
             <span>Format</span>
-            <strong>Digital Download</strong>
+            <strong>Digital</strong>
           </div>
 
           <div class="info-row">
-            <span>Payment</span>
+            <span>Delivery</span>
+            <strong>Email</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Checkout</span>
             <strong>Razorpay</strong>
           </div>
 
@@ -1811,15 +1961,13 @@ footer{
 
         <div class="detail-section">
 
-          <h2>What You Can Use It For</h2>
+          <h2>What this collection is for</h2>
 
-          <ul>
-            <li>Social media content projects</li>
-            <li>Video editing and creative projects</li>
-            <li>Theme-page content</li>
-            <li>Short-form video concepts</li>
-            <li>Content creation workflows</li>
-          </ul>
+          <p>
+            This collection is intended to give creators a
+            ready-made pool of material for short-form content
+            projects, theme pages and editing workflows.
+          </p>
 
         </div>
 
@@ -1827,12 +1975,27 @@ footer{
 
           <h2>Important</h2>
 
-          <p>
-            You are responsible for ensuring that your intended use
-            complies with applicable copyright, platform and licensing
-            requirements. Purchasing a digital collection does not
-            transfer ownership of third-party intellectual property.
-          </p>
+          <ul>
+
+            <li>
+              Digital product delivered electronically.
+            </li>
+
+            <li>
+              The email entered during checkout is used for delivery.
+            </li>
+
+            <li>
+              Purchasing the collection does not transfer third-party
+              intellectual-property ownership.
+            </li>
+
+            <li>
+              Review applicable platform and copyright rules before
+              commercial use.
+            </li>
+
+          </ul>
 
         </div>
 
@@ -1842,109 +2005,426 @@ footer{
 
   </div>
 
-</main>
+</section>
 
-<!-- =====================================================
-     LEGAL PAGES
-===================================================== -->
+<!-- =======================================================
+     TERMS
+======================================================= -->
 
-<main id="termsPage" class="page">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">Legal</div>
-      <h1 class="section-title">Terms & Conditions</h1>
+<section
+  id="termsPage"
+  class="page"
+>
+
+  <div class="container page-content">
+
+    <div class="page-kicker">LEGAL</div>
+
+    <h1 class="page-title">Terms & Conditions</h1>
+
+    <div class="page-updated">
+      Last updated: September 2026
     </div>
 
-    <div class="detail-section">
-      <h2>Digital Products</h2>
+    <div class="legal-section">
+
+      <h2>1. About the Store</h2>
+
       <p>
-        Reel Bundles sells digital content collections. Access is
-        delivered electronically after successful payment verification.
+        Reel Bundles provides digital content collections
+        intended for creators and short-form content workflows.
       </p>
+
     </div>
 
-    <div class="detail-section">
-      <h2>Customer Responsibility</h2>
+    <div class="legal-section">
+
+      <h2>2. Digital Products</h2>
+
       <p>
-        Customers are responsible for complying with applicable laws,
-        copyright requirements, platform rules and any third-party
-        rights applicable to content they use.
+        Products sold through this website are digital products.
+        No physical goods are shipped.
       </p>
+
     </div>
 
-    <div class="detail-section">
-      <h2>Payments</h2>
+    <div class="legal-section">
+
+      <h2>3. Pricing</h2>
+
       <p>
-        Payments are processed through the payment provider shown
-        during checkout.
+        The listed price for each available bundle is ₹29 unless
+        the website explicitly displays otherwise.
       </p>
+
     </div>
+
+    <div class="legal-section">
+
+      <h2>4. Delivery</h2>
+
+      <p>
+        Delivery is performed electronically using the email
+        address supplied during checkout. Delivery depends on
+        successful payment verification.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>5. Refunds</h2>
+
+      <p>
+        Digital purchases are final and non-refundable, subject
+        to any rights that cannot legally be excluded.
+        Genuine payment or delivery problems may be reported to
+        businesscore28@gmail.com.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>6. Intellectual Property</h2>
+
+      <p>
+        Purchasing a digital collection does not automatically
+        transfer ownership of any third-party intellectual property.
+        Buyers are responsible for determining whether their intended
+        use complies with applicable copyright, trademark, publicity,
+        licensing and platform rules.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>7. Acceptable Use</h2>
+
+      <p>
+        You agree not to use the website for unlawful purposes,
+        fraud, abuse, infringement or activities prohibited by
+        applicable law.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>8. Contact</h2>
+
+      <p>
+        For questions regarding an order or delivery issue:
+        businesscore28@gmail.com
+      </p>
+
+    </div>
+
   </div>
-</main>
 
-<main id="privacyPage" class="page">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">Legal</div>
-      <h1 class="section-title">Privacy Policy</h1>
+</section>
+
+<!-- =======================================================
+     PRIVACY
+======================================================= -->
+
+<section
+  id="privacyPage"
+  class="page"
+>
+
+  <div class="container page-content">
+
+    <div class="page-kicker">LEGAL</div>
+
+    <h1 class="page-title">Privacy Policy</h1>
+
+    <div class="page-updated">
+      Last updated: September 2026
     </div>
 
-    <div class="detail-section">
-      <h2>Information Collected</h2>
+    <div class="legal-section">
+
+      <h2>1. Information We Collect</h2>
+
       <p>
-        We may collect your email address when you purchase a digital
-        product so that we can deliver your purchased files.
+        During checkout, we collect the email address required
+        for order processing and digital delivery.
       </p>
+
     </div>
 
-    <div class="detail-section">
-      <h2>Payments</h2>
+    <div class="legal-section">
+
+      <h2>2. Payment Information</h2>
+
       <p>
-        Payment information is handled by the payment processor.
-        We do not intentionally store complete card or UPI credentials.
+        Payments are processed through Razorpay. This website
+        does not ask you to provide your card, UPI PIN or banking
+        credentials directly to Reel Bundles.
       </p>
+
     </div>
+
+    <div class="legal-section">
+
+      <h2>3. How Information Is Used</h2>
+
+      <ul>
+        <li>To process digital orders.</li>
+        <li>To verify successful payments.</li>
+        <li>To deliver purchased content.</li>
+        <li>To respond to genuine customer support requests.</li>
+      </ul>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>4. Data Sharing</h2>
+
+      <p>
+        Information may be processed by service providers required
+        to operate checkout and digital delivery, including payment
+        and email infrastructure.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>5. Security</h2>
+
+      <p>
+        Reasonable technical measures are used to protect information.
+        However, no internet transmission or electronic storage system
+        can be guaranteed to be completely secure.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>6. Contact</h2>
+
+      <p>
+        Privacy questions can be sent to
+        businesscore28@gmail.com.
+      </p>
+
+    </div>
+
   </div>
-</main>
 
-<main id="refundPage" class="page">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">Legal</div>
-      <h1 class="section-title">Refund Policy</h1>
+</section>
+
+<!-- =======================================================
+     REFUND
+======================================================= -->
+
+<section
+  id="refundPage"
+  class="page"
+>
+
+  <div class="container page-content">
+
+    <div class="page-kicker">LEGAL</div>
+
+    <h1 class="page-title">Refund Policy</h1>
+
+    <div class="page-updated">
+      Last updated: September 2026
     </div>
 
-    <div class="detail-section">
+    <div class="legal-section">
+
+      <h2>Digital Purchases</h2>
+
       <p>
-        The final refund terms should be defined before commercial
-        launch and should accurately reflect the actual policy offered
-        by Reel Bundles.
+        All Reel Bundles products are digital products.
+        Digital purchases are final and non-refundable,
+        subject to any rights that cannot legally be excluded.
       </p>
-    </div>
-  </div>
-</main>
 
-<main id="dmcaPage" class="page">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">Legal</div>
-      <h1 class="section-title">Copyright / DMCA</h1>
     </div>
 
-    <div class="detail-section">
+    <div class="legal-section">
+
+      <h2>Payment or Delivery Problems</h2>
+
       <p>
-        If you believe material distributed through this service
-        infringes your rights, contact the store using the official
-        contact address with sufficient information to identify the
-        material and the claimed rights.
+        If you completed payment but did not receive the expected
+        delivery information, or if you believe there is a genuine
+        technical problem with your order, contact:
       </p>
-    </div>
-  </div>
-</main>
 
-<!-- =====================================================
+      <p>
+        <strong>businesscore28@gmail.com</strong>
+      </p>
+
+      <p>
+        Please include the email used during checkout and relevant
+        payment/order information so the issue can be investigated.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     DMCA / COPYRIGHT
+======================================================= -->
+
+<section
+  id="dmcaPage"
+  class="page"
+>
+
+  <div class="container page-content">
+
+    <div class="page-kicker">LEGAL</div>
+
+    <h1 class="page-title">Copyright Notice</h1>
+
+    <div class="page-updated">
+      Last updated: September 2026
+    </div>
+
+    <div class="legal-section">
+
+      <h2>Third-Party Rights</h2>
+
+      <p>
+        Some digital collections may contain material associated
+        with recognizable entertainment, gaming, anime, automotive
+        or other third-party subject matter. Purchasing a collection
+        does not transfer ownership of third-party intellectual property.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>Copyright Concerns</h2>
+
+      <p>
+        If you believe material distributed through Reel Bundles
+        infringes your rights, contact us with sufficient information
+        to identify the material and explain the basis of the claim.
+      </p>
+
+    </div>
+
+    <div class="legal-section">
+
+      <h2>Contact</h2>
+
+      <p>
+        Copyright-related notices:
+        businesscore28@gmail.com
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     CART
+======================================================= -->
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
+></div>
+
+<aside
+  class="cart"
+  id="cart"
+>
+
+  <div class="cart-header">
+
+    <h2>Your Cart</h2>
+
+    <button
+      class="close"
+      onclick="closeCart()"
+      aria-label="Close cart"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  ></div>
+
+  <div class="cart-footer">
+
+    <div class="total">
+
+      <span>Total</span>
+
+      <span id="cartTotal">
+        ₹0
+      </span>
+
+    </div>
+
+    <label
+      class="email-label"
+      for="customerEmail"
+    >
+      Email for digital delivery
+    </label>
+
+    <input
+      id="customerEmail"
+      class="email-box"
+      type="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+    >
+
+    <div class="delivery-note">
+      Your purchased collection links will be delivered
+      to this email after successful payment verification.
+    </div>
+
+    <button
+      class="btn btn-primary full"
+      onclick="checkout()"
+    >
+      Secure Checkout
+    </button>
+
+  </div>
+
+</aside>
+
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+  class="toast"
+  id="toast"
+  role="status"
+  aria-live="polite"
+></div>
+
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 
 <footer>
 
@@ -1955,62 +2435,95 @@ footer{
       <div>
 
         <div class="brand">
-          <div class="brand-mark">◈</div>
+
+          <div class="brand-mark">R</div>
 
           <div>
             <div class="brand-title">REEL BUNDLES</div>
-            <div class="brand-sub">
-              PREMIUM CONTENT COLLECTION
-            </div>
+            <div class="brand-sub">CONTENT COLLECTIONS</div>
           </div>
+
         </div>
 
         <p class="footer-description">
           Digital content collections for creators,
-          theme pages and social media projects.
+          theme pages and short-form content workflows.
         </p>
 
       </div>
 
       <div>
 
-        <div class="footer-title">Quick Links</div>
-
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#products">Products</a>
-          <a href="#why">Why Us</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#faq">FAQ</a>
+        <div class="footer-title">
+          Store
         </div>
 
-      </div>
-
-      <div>
-
-        <div class="footer-title">Legal</div>
-
         <div class="footer-links">
-          <a href="#terms">Terms & Conditions</a>
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#refund">Refund Policy</a>
-          <a href="#dmca">DMCA Policy</a>
-        </div>
 
-      </div>
-
-      <div>
-
-        <div class="footer-title">Contact</div>
-
-        <div class="footer-links">
-          <a href="mailto:reelbundles.contact@gmail.com">
-            reelbundles.contact@gmail.com
+          <a href="#products">
+            Collections
           </a>
 
-          <a href="#">
+          <a href="#faq">
+            FAQ
+          </a>
+
+          <a href="#home">
+            Home
+          </a>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">
+          Legal
+        </div>
+
+        <div class="footer-links">
+
+          <a href="#terms">
+            Terms
+          </a>
+
+          <a href="#privacy">
+            Privacy
+          </a>
+
+          <a href="#refund">
+            Refund Policy
+          </a>
+
+          <a href="#dmca">
+            Copyright Notice
+          </a>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">
+          Contact
+        </div>
+
+        <div class="footer-links">
+
+          <a href="mailto:businesscore28@gmail.com">
+            businesscore28@gmail.com
+          </a>
+
+          <a
+            href="https://www.instagram.com/reelbundles.official/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Instagram: @reelbundles.official
           </a>
+
         </div>
 
       </div>
@@ -2018,449 +2531,663 @@ footer{
     </div>
 
     <div class="footer-bottom">
+
       <span>
-        © 2026 Reel Bundles. All Rights Reserved.
+        © 2026 Reel Bundles. All rights reserved.
       </span>
 
       <span>
-        Digital products • Secure checkout
+        Digital products · ₹29 per listed bundle
       </span>
+
     </div>
 
   </div>
 
 </footer>
 
-<!-- =====================================================
-     CART
-===================================================== -->
-
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-
-<aside class="cart" id="cart">
-
-  <div class="cart-header">
-    <h2>Your Cart</h2>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
-
-  <div class="cart-items" id="cartItems"></div>
-
-  <div class="cart-footer">
-
-    <div class="total">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
-
-    <input
-      id="customerEmail"
-      class="email-box"
-      type="email"
-      placeholder="Enter your email"
-      autocomplete="email"
-    >
-
-    <button
-      class="btn btn-primary full"
-      onclick="checkout()"
-    >
-      Continue to Secure Checkout
-    </button>
-
-  </div>
-
-</aside>
-
-<div class="toast" id="toast"></div>
-
-<!-- Razorpay Checkout -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <script>
+
 /* =========================================================
-   PRODUCT IMAGE ENGINE
+   CONFIG
+========================================================= */
 
-   These are EMBEDDED SVG IMAGE FILES.
+const API_BASE =
+  "https://reel-bundles-backend.onrender.com";
 
-   Nothing is loaded from an image CDN.
-   Nothing needs an images folder.
 
-   Each SVG is converted into a data URL and used
-   as a normal <img>.
+/* =========================================================
+   SVG IMAGE HELPER
 ========================================================= */
 
 function svgData(svg){
+
   return "data:image/svg+xml;charset=UTF-8," +
     encodeURIComponent(svg);
+
 }
 
-function cover({
-  number,
-  title,
-  subtitle,
-  type,
-  accent = "#a63cff"
-}){
+
+/* =========================================================
+   PRODUCT COVER GENERATOR
+========================================================= */
+
+function cover(product){
+
+  const number =
+    String(product.number).padStart(2,"0");
+
+  const title =
+    product.name
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;");
+
+  const subtitle =
+    product.subtitle
+      .replace(/&/g,"&amp;");
 
   let artwork = "";
 
-  if(type === "hollywood"){
+  const gold = "#c6a56a";
+  const gold2 = "#d8bd8a";
+
+
+  if(product.type === "hollywood"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#090a0e"/>
-      <rect x="70" y="130" width="660" height="610"
-            fill="#17120f" stroke="${accent}" stroke-width="3"/>
-      <circle cx="400" cy="410" r="170"
-              fill="#1e1915"/>
-      <circle cx="400" cy="410" r="125"
-              fill="#2d251c"/>
-      <circle cx="400" cy="410" r="78"
-              fill="#0c0d10"/>
-      <path d="M280 740 L520 740 L590 870 L210 870 Z"
-            fill="#16181d"/>
-      <path d="M160 210 L270 150 L330 220 L220 280Z"
-            fill="#3a2b20"/>
-      <path d="M530 150 L640 210 L580 280 L470 220Z"
-            fill="#3a2b20"/>
-      <text x="400" y="955"
-            text-anchor="middle"
-            fill="#f6ead8"
-            font-size="76"
-            font-family="Arial"
-            font-weight="900">4K</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <rect
+        x="65"
+        y="230"
+        width="670"
+        height="410"
+        fill="#12120f"
+        stroke="${gold}"
+        stroke-width="3"
+      />
+
+      <circle
+        cx="400"
+        cy="435"
+        r="130"
+        fill="none"
+        stroke="${gold}"
+        stroke-width="8"
+      />
+
+      <path
+        d="M300 435 L500 435 M400 335 L400 535"
+        stroke="${gold2}"
+        stroke-width="5"
+      />
+
+      <text
+        x="400"
+        y="760"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="58"
+        font-family="Arial"
+        font-weight="900"
+      >
+        CINEMA
+      </text>
     `;
+
   }
 
-  if(type === "anime"){
+
+  if(product.type === "anime"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#0b0b12"/>
-      <circle cx="410" cy="430" r="255"
-              fill="#151128"/>
-      <path d="M215 650
-               C240 410 290 220 420 180
-               C520 220 610 390 625 650
-               L550 760
-               L245 760Z"
-            fill="#242039"/>
-      <path d="M245 300 L340 115 L395 270 L475 105 L570 315
-               L505 255 L430 360 L350 275Z"
-            fill="${accent}"/>
-      <circle cx="350" cy="440" r="17" fill="#f4efff"/>
-      <circle cx="470" cy="440" r="17" fill="#f4efff"/>
-      <path d="M340 555 Q410 605 490 555"
-            fill="none"
-            stroke="#eee"
-            stroke-width="12"/>
-      <path d="M130 820 Q400 700 670 820"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="5"/>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <circle
+        cx="400"
+        cy="420"
+        r="230"
+        fill="#15140f"
+        stroke="${gold}"
+        stroke-width="4"
+      />
+
+      <circle
+        cx="330"
+        cy="390"
+        r="24"
+        fill="${gold2}"
+      />
+
+      <circle
+        cx="470"
+        cy="390"
+        r="24"
+        fill="${gold2}"
+      />
+
+      <path
+        d="M290 500 Q400 575 510 500"
+        fill="none"
+        stroke="${gold}"
+        stroke-width="10"
+      />
+
+      <path
+        d="M210 260 L400 130 L590 260"
+        fill="none"
+        stroke="${gold}"
+        stroke-width="9"
+      />
+
+      <text
+        x="400"
+        y="790"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="60"
+        font-family="Arial"
+        font-weight="900"
+      >
+        ANIME
+      </text>
     `;
+
   }
 
-  if(type === "luxury"){
+
+  if(product.type === "luxury"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#090a0c"/>
-      <rect y="620" width="800" height="480" fill="#101319"/>
-      <path d="M125 670
-               C205 570 300 520 430 520
-               L590 600
-               L690 700
-               L115 700Z"
-            fill="#343943"/>
-      <path d="M250 600 L395 555 L485 600 L540 650 L205 650Z"
-            fill="#151922"/>
-      <circle cx="245" cy="705" r="70" fill="#07080b"/>
-      <circle cx="575" cy="705" r="70" fill="#07080b"/>
-      <circle cx="245" cy="705" r="34" fill="#555b66"/>
-      <circle cx="575" cy="705" r="34" fill="#555b66"/>
-      <path d="M80 805 Q400 700 720 805"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="4"/>
-      <circle cx="620" cy="250" r="110"
-              fill="#19141d"
-              stroke="${accent}"
-              stroke-width="2"/>
-      <path d="M520 280 Q620 170 720 280"
-            fill="none"
-            stroke="#eee"
-            stroke-width="3"/>
+      <rect width="800" height="1100" fill="#080807"/>
+
+      <circle
+        cx="400"
+        cy="450"
+        r="260"
+        fill="none"
+        stroke="${gold}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M145 590
+           L225 490
+           Q320 430 475 455
+           L630 540
+           L700 610
+           L110 610Z"
+        fill="#202019"
+        stroke="${gold2}"
+        stroke-width="4"
+      />
+
+      <circle
+        cx="245"
+        cy="625"
+        r="58"
+        fill="#070706"
+        stroke="${gold}"
+        stroke-width="5"
+      />
+
+      <circle
+        cx="575"
+        cy="625"
+        r="58"
+        fill="#070706"
+        stroke="${gold}"
+        stroke-width="5"
+      />
+
+      <text
+        x="400"
+        y="800"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="62"
+        font-family="Arial"
+        font-weight="900"
+      >
+        LUXURY
+      </text>
     `;
+
   }
 
-  if(type === "facts"){
+
+  if(product.type === "facts"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#070b12"/>
-      <sphere>
-      </sphere>
-      <circle cx="400" cy="440" r="210"
-              fill="#151d2d"
-              stroke="${accent}"
-              stroke-width="4"/>
-      <ellipse cx="400" cy="440" rx="210" ry="75"
-               fill="none"
-               stroke="#6aa8ff"
-               stroke-width="3"/>
-      <ellipse cx="400" cy="440" rx="90" ry="210"
-               fill="none"
-               stroke="#6aa8ff"
-               stroke-width="3"/>
-      <path d="M250 330 Q400 230 550 330"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="6"/>
-      <circle cx="540" cy="335" r="18" fill="${accent}"/>
-      <circle cx="290" cy="570" r="13" fill="#73c8ff"/>
-      <text x="400" y="805"
-            text-anchor="middle"
-            fill="#f4f4f4"
-            font-size="78"
-            font-family="Arial"
-            font-weight="900">FACTS</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <circle
+        cx="400"
+        cy="420"
+        r="190"
+        fill="#15140f"
+        stroke="${gold}"
+        stroke-width="4"
+      />
+
+      <path
+        d="M400 270
+           L450 370
+           L565 385
+           L480 465
+           L505 580
+           L400 525
+           L295 580
+           L320 465
+           L235 385
+           L350 370Z"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="6"
+      />
+
+      <text
+        x="400"
+        y="780"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="60"
+        font-family="Arial"
+        font-weight="900"
+      >
+        3D FACTS
+      </text>
     `;
+
   }
 
-  if(type === "glow"){
+
+  if(product.type === "glow"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#080a12"/>
-      <rect x="80" y="160" width="640" height="600"
-            fill="#0d1020"
-            stroke="${accent}"
-            stroke-width="3"/>
-      <circle cx="250" cy="310" r="120"
-              fill="#18152b"/>
-      <circle cx="560" cy="580" r="170"
-              fill="#16142a"/>
-      <path d="M160 730 Q400 530 640 730"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="5"/>
-      <text x="400" y="400"
-            text-anchor="middle"
-            fill="#f2eaff"
-            font-size="70"
-            font-family="Arial"
-            font-weight="900">GLOW</text>
-      <text x="400" y="485"
-            text-anchor="middle"
-            fill="${accent}"
-            font-size="70"
-            font-family="Arial"
-            font-weight="900">MINDSET</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <circle
+        cx="400"
+        cy="430"
+        r="180"
+        fill="#14130f"
+        stroke="${gold}"
+        stroke-width="3"
+      />
+
+      <circle
+        cx="400"
+        cy="430"
+        r="125"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="8"
+        opacity=".8"
+      />
+
+      <path
+        d="M310 430 L490 430"
+        stroke="${gold}"
+        stroke-width="8"
+      />
+
+      <text
+        x="400"
+        y="780"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="60"
+        font-family="Arial"
+        font-weight="900"
+      >
+        GLOW
+      </text>
     `;
+
   }
 
-  if(type === "stickman"){
+
+  if(product.type === "stickman"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#e5e4df"/>
-      <rect y="790" width="800" height="310" fill="#c8c7c1"/>
-      <circle cx="330" cy="410" r="70"
-              fill="#f7f7f4"
-              stroke="#111"
-              stroke-width="12"/>
-      <path d="M330 480 L330 680"
-            stroke="#111"
-            stroke-width="15"/>
-      <path d="M330 520 L220 600"
-            stroke="#111"
-            stroke-width="15"/>
-      <path d="M330 520 L450 580"
-            stroke="#111"
-            stroke-width="15"/>
-      <path d="M330 680 L245 800"
-            stroke="#111"
-            stroke-width="15"/>
-      <path d="M330 680 L435 800"
-            stroke="#111"
-            stroke-width="15"/>
-      <circle cx="305" cy="400" r="8" fill="#111"/>
-      <circle cx="355" cy="400" r="8" fill="#111"/>
-      <path d="M305 435 Q330 455 355 435"
-            fill="none"
-            stroke="#111"
-            stroke-width="7"/>
-      <text x="400" y="930"
-            text-anchor="middle"
-            fill="#111"
-            font-size="60"
-            font-family="Arial"
-            font-weight="900">STICKMAN</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <circle
+        cx="400"
+        cy="290"
+        r="65"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="9"
+      />
+
+      <path
+        d="M400 355 L400 600
+           M400 410 L285 500
+           M400 410 L515 500
+           M400 600 L300 750
+           M400 600 L500 750"
+        fill="none"
+        stroke="${gold}"
+        stroke-width="12"
+        stroke-linecap="round"
+      />
+
+      <text
+        x="400"
+        y="850"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="58"
+        font-family="Arial"
+        font-weight="900"
+      >
+        STICKMAN
+      </text>
     `;
+
   }
 
-  if(type === "mixed"){
+
+  if(product.type === "mixed"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#100d0b"/>
-      <rect x="80" y="150" width="640" height="480"
-            fill="#191410"
-            stroke="#5e4932"
-            stroke-width="3"/>
-      <rect x="150" y="260" width="160" height="230"
-            fill="#3e3020"
-            transform="rotate(-8 230 375)"/>
-      <rect x="330" y="230" width="160" height="230"
-            fill="#51402b"
-            transform="rotate(5 410 345)"/>
-      <rect x="500" y="275" width="140" height="210"
-            fill="#392c20"
-            transform="rotate(-4 570 380)"/>
-      <circle cx="400" cy="760" r="150"
-              fill="#241b12"
-              stroke="#a66d32"
-              stroke-width="3"/>
-      <text x="400" y="790"
-            text-anchor="middle"
-            fill="#e8b56b"
-            font-size="95"
-            font-family="Arial"
-            font-weight="900">$</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <rect
+        x="145"
+        y="250"
+        width="510"
+        height="330"
+        fill="#15140f"
+        stroke="${gold}"
+        stroke-width="4"
+      />
+
+      <path
+        d="M210 510 L320 400 L400 460 L540 320"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="12"
+      />
+
+      <path
+        d="M500 320 H555 V375"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="12"
+      />
+
+      <text
+        x="400"
+        y="760"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="58"
+        font-family="Arial"
+        font-weight="900"
+      >
+        MIXED CONTENT
+      </text>
     `;
+
   }
 
-  if(type === "ai"){
+
+  if(product.type === "ai"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#070c12"/>
-      <circle cx="400" cy="430" r="210"
-              fill="#121c28"
-              stroke="${accent}"
-              stroke-width="4"/>
-      <path d="M300 300
-               Q400 220 500 300
-               L550 420
-               Q520 570 400 600
-               Q280 570 250 420Z"
-            fill="#252f39"/>
-      <circle cx="340" cy="410" r="35" fill="#080b10"/>
-      <circle cx="460" cy="410" r="35" fill="#080b10"/>
-      <circle cx="340" cy="410" r="11" fill="${accent}"/>
-      <circle cx="460" cy="410" r="11" fill="${accent}"/>
-      <path d="M320 500 Q400 550 480 500"
-            fill="none"
-            stroke="#8e9aa5"
-            stroke-width="8"/>
-      <path d="M190 430 L80 430 M610 430 L720 430"
-            stroke="${accent}"
-            stroke-width="5"/>
-      <text x="400" y="800"
-            text-anchor="middle"
-            fill="#f2f4f6"
-            font-size="68"
-            font-family="Arial"
-            font-weight="900">AI TECH</text>
+      <rect width="800" height="1100" fill="#090908"/>
+
+      <rect
+        x="225"
+        y="250"
+        width="350"
+        height="350"
+        rx="25"
+        fill="#15140f"
+        stroke="${gold}"
+        stroke-width="5"
+      />
+
+      <circle
+        cx="400"
+        cy="425"
+        r="85"
+        fill="none"
+        stroke="${gold2}"
+        stroke-width="8"
+      />
+
+      <path
+        d="M400 340 V510
+           M315 425 H485"
+        stroke="${gold}"
+        stroke-width="7"
+      />
+
+      <text
+        x="400"
+        y="760"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="64"
+        font-family="Arial"
+        font-weight="900"
+      >
+        AI TECH
+      </text>
     `;
+
   }
 
-  if(type === "cars"){
+
+  if(product.type === "cars"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#080a0e"/>
-      <rect y="650" width="800" height="450" fill="#10141a"/>
-      <path d="M100 690
-               L180 560
-               Q300 500 490 530
-               L650 640
-               L720 700
-               L90 700Z"
-            fill="#242a33"/>
-      <path d="M245 580 L355 545 L465 570 L530 630 L205 630Z"
-            fill="#11151b"/>
-      <circle cx="230" cy="715" r="72" fill="#050609"/>
-      <circle cx="590" cy="715" r="72" fill="#050609"/>
-      <circle cx="230" cy="715" r="35" fill="#777e87"/>
-      <circle cx="590" cy="715" r="35" fill="#777e87"/>
-      <path d="M70 850 Q400 730 730 850"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="4"/>
-      <path d="M150 910 Q400 810 650 910"
-            fill="none"
-            stroke="#4b5665"
-            stroke-width="3"/>
+      <rect width="800" height="1100" fill="#080807"/>
+
+      <path
+        d="M100 700
+           L190 555
+           Q300 490 475 525
+           L650 640
+           L720 700
+           L80 700Z"
+        fill="#22221c"
+        stroke="${gold}"
+        stroke-width="4"
+      />
+
+      <path
+        d="M235 575 L350 535 L470 565 L530 630 L205 630Z"
+        fill="#0e0e0c"
+      />
+
+      <circle
+        cx="230"
+        cy="720"
+        r="67"
+        fill="#060606"
+        stroke="${gold2}"
+        stroke-width="5"
+      />
+
+      <circle
+        cx="590"
+        cy="720"
+        r="67"
+        fill="#060606"
+        stroke="${gold2}"
+        stroke-width="5"
+      />
+
+      <text
+        x="400"
+        y="850"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="68"
+        font-family="Arial"
+        font-weight="900"
+      >
+        CARS
+      </text>
     `;
+
   }
 
-  if(type === "game"){
+
+  if(product.type === "game"){
+
     artwork = `
-      <rect width="800" height="1100" fill="#080b12"/>
-      <path d="M100 0 L700 0 L580 1100 L220 1100Z"
-            fill="#10182b"/>
-      <path d="M210 0 L590 0 L510 1100 L290 1100Z"
-            fill="#151f35"/>
-      <path d="M400 0 L400 1100"
-            stroke="#e9e1cf"
-            stroke-width="10"
-            stroke-dasharray="45 40"/>
-      <path d="M250 610
-               Q330 540 450 580
-               L570 680
-               L500 760
-               L230 730Z"
-            fill="#3e4453"
-            stroke="${accent}"
-            stroke-width="5"/>
-      <circle cx="290" cy="735" r="48" fill="#08090d"/>
-      <circle cx="500" cy="755" r="48" fill="#08090d"/>
-      <rect x="225" y="850" width="350" height="80"
-            fill="#121722"
-            stroke="${accent}"
-            stroke-width="3"/>
-      <text x="400" y="905"
-            text-anchor="middle"
-            fill="#eee"
-            font-size="42"
-            font-family="Arial"
-            font-weight="900">GAME REELS</text>
+      <rect width="800" height="1100" fill="#080807"/>
+
+      <path
+        d="M130 0 L670 0 L550 1100 L250 1100Z"
+        fill="#12120f"
+      />
+
+      <path
+        d="M400 0 L400 1100"
+        stroke="${gold2}"
+        stroke-width="9"
+        stroke-dasharray="50 40"
+      />
+
+      <rect
+        x="220"
+        y="400"
+        width="360"
+        height="230"
+        rx="35"
+        fill="#1a1914"
+        stroke="${gold}"
+        stroke-width="5"
+      />
+
+      <circle
+        cx="300"
+        cy="515"
+        r="28"
+        fill="${gold2}"
+      />
+
+      <circle
+        cx="500"
+        cy="515"
+        r="28"
+        fill="${gold2}"
+      />
+
+      <text
+        x="400"
+        y="800"
+        text-anchor="middle"
+        fill="#f4f1e9"
+        font-size="62"
+        font-family="Arial"
+        font-weight="900"
+      >
+        GAME REELS
+      </text>
     `;
+
   }
+
 
   return svgData(`
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="800"
-         height="1100"
-         viewBox="0 0 800 1100">
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="800"
+      height="1100"
+      viewBox="0 0 800 1100"
+    >
 
       <defs>
-        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#07080d"/>
-          <stop offset="1" stop-color="#15101d"/>
+
+        <linearGradient
+          id="bg"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
+
+          <stop
+            offset="0"
+            stop-color="#080807"
+          />
+
+          <stop
+            offset="1"
+            stop-color="#17150f"
+          />
+
         </linearGradient>
+
       </defs>
 
-      <rect width="800" height="1100" fill="url(#bg)"/>
+      <rect
+        width="800"
+        height="1100"
+        fill="url(#bg)"
+      />
 
       ${artwork}
 
-      <rect x="48" y="48" width="704" height="1004"
-            fill="none"
-            stroke="rgba(255,255,255,.16)"
-            stroke-width="2"/>
+      <rect
+        x="45"
+        y="45"
+        width="710"
+        height="1010"
+        fill="none"
+        stroke="#c6a56a"
+        stroke-opacity=".28"
+        stroke-width="2"
+      />
 
-      <text x="72" y="105"
-            fill="#c993ff"
-            font-size="28"
-            font-family="Arial"
-            font-weight="800">
-        ${String(number).padStart(2,"0")}
+      <text
+        x="72"
+        y="105"
+        fill="${gold2}"
+        font-size="28"
+        font-family="Arial"
+        font-weight="800"
+      >
+        ${number}
       </text>
 
-      <text x="72" y="1000"
-            fill="#f5f1e8"
-            font-size="38"
-            font-family="Arial"
-            font-weight="900">
+      <text
+        x="72"
+        y="985"
+        fill="#f4f1e9"
+        font-size="37"
+        font-family="Arial"
+        font-weight="900"
+      >
         ${title}
       </text>
 
-      <text x="72" y="1032"
-            fill="#9c9da7"
-            font-size="18"
-            font-family="Arial">
+      <text
+        x="72"
+        y="1020"
+        fill="#929087"
+        font-size="17"
+        font-family="Arial"
+      >
         ${subtitle}
       </text>
 
     </svg>
+
   `);
+
 }
+
 
 /* =========================================================
    PRODUCTS
@@ -2505,7 +3232,7 @@ const PRODUCTS = [
   },
 
   {
-    id:"3d-facts",
+    id:"3d-viral-facts",
     number:4,
     name:"1000+ 3D Viral Facts",
     short:"Animated 3D facts for social content.",
@@ -2517,7 +3244,7 @@ const PRODUCTS = [
   },
 
   {
-    id:"glow",
+    id:"glow-animated",
     number:5,
     name:"2200+ Glow Animated",
     short:"Facts, motivation and animated captions.",
@@ -2541,7 +3268,7 @@ const PRODUCTS = [
   },
 
   {
-    id:"mixed",
+    id:"mixed-content",
     number:7,
     name:"2200+ Mixed Content",
     short:"Money, business, motivation and creators.",
@@ -2590,11 +3317,13 @@ const PRODUCTS = [
 
 ];
 
-/* Generate the actual embedded image for every product */
+
+/* Generate embedded covers */
 
 PRODUCTS.forEach(product=>{
   product.image = cover(product);
 });
+
 
 /* =========================================================
    RENDER PRODUCTS
@@ -2605,73 +3334,79 @@ const productsGrid =
 
 function renderProducts(){
 
-  productsGrid.innerHTML = PRODUCTS.map(product => `
+  productsGrid.innerHTML =
+    PRODUCTS.map(product=>`
 
-    <article class="product-card">
-
-      <a href="#product/${product.id}">
-
-        <div class="product-image">
-
-          <img
-            src="${product.image}"
-            alt="${product.name} product cover"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <div class="product-number">
-            ${product.number}
-          </div>
-
-        </div>
-
-      </a>
-
-      <div class="product-content">
+      <article class="product-card">
 
         <a href="#product/${product.id}">
-          <h3 class="product-name">
-            ${product.name}
-          </h3>
+
+          <div class="product-image">
+
+            <img
+              src="${product.image}"
+              alt="${product.name} product cover"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <div class="product-number">
+              ${product.number}
+            </div>
+
+          </div>
+
         </a>
 
-        <p class="product-description">
-          ${product.short}
-        </p>
+        <div class="product-content">
 
-        <div class="product-bottom">
+          <a href="#product/${product.id}">
 
-          <span class="price">₹29</span>
+            <h3 class="product-name">
+              ${product.name}
+            </h3>
 
-          <div class="product-actions">
+          </a>
 
-            <button
-              class="small-btn"
-              onclick="viewProduct('${product.id}')"
-            >
-              View
-            </button>
+          <p class="product-description">
+            ${product.short}
+          </p>
 
-            <button
-              class="small-btn primary"
-              onclick="addToCart('${product.id}')"
-            >
-              Add
-            </button>
+          <div class="product-bottom">
+
+            <span class="price">
+              ₹29
+            </span>
+
+            <div class="product-actions">
+
+              <button
+                class="small-btn"
+                onclick="viewProduct('${product.id}')"
+              >
+                View
+              </button>
+
+              <button
+                class="small-btn primary"
+                onclick="addToCart('${product.id}')"
+              >
+                Add
+              </button>
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
+      </article>
 
-    </article>
-
-  `).join("");
+    `).join("");
 }
 
 renderProducts();
+
 
 /* =========================================================
    PHONE PREVIEW
@@ -2681,15 +3416,22 @@ const phoneGrid =
   document.getElementById("phoneGrid");
 
 phoneGrid.innerHTML =
-  PRODUCTS.slice(0,6).map(product=>`
-    <div class="phone-card">
-      <img
-        src="${product.image}"
-        alt=""
-        loading="lazy"
-      >
-    </div>
-  `).join("");
+  PRODUCTS.slice(0,6)
+    .map(product=>`
+
+      <div class="phone-card">
+
+        <img
+          src="${product.image}"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    `)
+    .join("");
+
 
 /* =========================================================
    ROUTING
@@ -2702,7 +3444,9 @@ function hidePages(){
     .forEach(page=>{
       page.classList.remove("active");
     });
+
 }
+
 
 function route(){
 
@@ -2711,128 +3455,191 @@ function route(){
 
   hidePages();
 
+
   if(hash.startsWith("#product/")){
 
     const id =
       hash.replace("#product/","");
 
     showProduct(id);
+
     return;
   }
 
+
   if(hash === "#terms"){
+
     document
       .getElementById("termsPage")
       .classList.add("active");
+
+    window.scrollTo(0,0);
+
     return;
   }
 
+
   if(hash === "#privacy"){
+
     document
       .getElementById("privacyPage")
       .classList.add("active");
+
+    window.scrollTo(0,0);
+
     return;
   }
 
+
   if(hash === "#refund"){
+
     document
       .getElementById("refundPage")
       .classList.add("active");
+
+    window.scrollTo(0,0);
+
     return;
   }
 
+
   if(hash === "#dmca"){
+
     document
       .getElementById("dmcaPage")
       .classList.add("active");
+
+    window.scrollTo(0,0);
+
     return;
   }
+
 
   document
     .getElementById("home")
     .classList.add("active");
 
+
   setTimeout(()=>{
+
     const id =
       hash.substring(1);
 
-    if(id &&
-       document.getElementById(id)){
+    if(
+      id &&
       document.getElementById(id)
+    ){
+
+      document
+        .getElementById(id)
         .scrollIntoView({
           behavior:"smooth",
           block:"start"
         });
+
     }
+
   },20);
+
 }
 
+
 function viewProduct(id){
-  location.hash = `product/${id}`;
+
+  location.hash =
+    `product/${id}`;
+
 }
+
 
 function showProduct(id){
 
   const product =
-    PRODUCTS.find(p=>p.id === id);
+    PRODUCTS.find(
+      p=>p.id === id
+    );
+
 
   if(!product){
-    location.hash="#products";
+
+    location.hash =
+      "#products";
+
     return;
   }
+
 
   document
     .getElementById("productPage")
     .classList.add("active");
 
-  document
-    .getElementById("detailImage")
-    .src = product.image;
 
   document
     .getElementById("detailImage")
-    .alt = product.name;
+    .src =
+      product.image;
+
+
+  document
+    .getElementById("detailImage")
+    .alt =
+      product.name;
+
 
   document
     .getElementById("detailNumber")
     .textContent =
       `Bundle ${String(product.number).padStart(2,"0")}`;
 
+
   document
     .getElementById("detailBreadcrumb")
     .textContent =
       product.name;
+
 
   document
     .getElementById("detailTitle")
     .textContent =
       product.name;
 
+
   document
     .getElementById("detailDescription")
     .textContent =
       product.description;
 
+
   document
     .getElementById("detailCart")
-    .onclick = ()=>{
-      addToCart(product.id);
-    };
+    .onclick =
+      ()=>{
+        addToCart(product.id);
+      };
+
 
   document
     .getElementById("detailBuy")
-    .onclick = ()=>{
-      addToCart(product.id);
-      openCart();
-    };
+    .onclick =
+      ()=>{
+        addToCart(product.id);
+        openCart();
+      };
+
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 }
 
-window.addEventListener("hashchange",route);
+
+window.addEventListener(
+  "hashchange",
+  route
+);
+
 
 /* =========================================================
    CART
@@ -2840,114 +3647,172 @@ window.addEventListener("hashchange",route);
 
 let cartItems =
   JSON.parse(
-    localStorage.getItem("reelBundlesCart") || "[]"
+    localStorage.getItem(
+      "reelBundlesCart"
+    ) || "[]"
   );
 
+
 function saveCart(){
+
   localStorage.setItem(
     "reelBundlesCart",
     JSON.stringify(cartItems)
   );
+
 }
+
 
 function addToCart(id){
 
   const product =
-    PRODUCTS.find(p=>p.id===id);
+    PRODUCTS.find(
+      p=>p.id===id
+    );
+
 
   if(!product)return;
 
+
   if(!cartItems.includes(id)){
+
     cartItems.push(id);
+
     saveCart();
+
     updateCart();
-    toast(`${product.name} added to cart`);
+
+    toast(
+      `${product.name} added to cart`
+    );
+
   }else{
-    toast("Already in your cart");
+
+    toast(
+      "Already in your cart"
+    );
+
   }
+
 }
+
 
 function removeFromCart(id){
 
   cartItems =
-    cartItems.filter(item=>item!==id);
+    cartItems.filter(
+      item=>item!==id
+    );
 
   saveCart();
+
   updateCart();
+
 }
+
 
 function updateCart(){
 
   const count =
-    document.getElementById("cartCount");
+    document.getElementById(
+      "cartCount"
+    );
+
 
   count.textContent =
     cartItems.length;
 
+
   const items =
-    document.getElementById("cartItems");
+    document.getElementById(
+      "cartItems"
+    );
+
 
   if(cartItems.length===0){
 
     items.innerHTML = `
-      <div style="
-        text-align:center;
-        padding:70px 20px;
-        color:#777a85;
-      ">
+
+      <div
+        style="
+          text-align:center;
+          padding:70px 20px;
+          color:#77766f;
+        "
+      >
         Your cart is empty.
       </div>
+
     `;
 
-    document.getElementById("cartTotal")
-      .textContent="₹0";
+
+    document
+      .getElementById("cartTotal")
+      .textContent =
+        "₹0";
+
 
     return;
   }
 
+
   items.innerHTML =
-    cartItems.map(id=>{
+    cartItems
+      .map(id=>{
 
-      const p =
-        PRODUCTS.find(x=>x.id===id);
+        const p =
+          PRODUCTS.find(
+            x=>x.id===id
+          );
 
-      return `
 
-        <div class="cart-item">
+        if(!p)return "";
 
-          <img
-            class="cart-item-image"
-            src="${p.image}"
-            alt=""
-          >
 
-          <div>
-            <div class="cart-item-name">
-              ${p.name}
+        return `
+
+          <div class="cart-item">
+
+            <img
+              class="cart-item-image"
+              src="${p.image}"
+              alt=""
+            >
+
+            <div>
+
+              <div class="cart-item-name">
+                ${p.name}
+              </div>
+
+              <div class="cart-item-price">
+                ₹29
+              </div>
+
             </div>
 
-            <div class="cart-item-price">
-              ₹29
-            </div>
+            <button
+              class="remove"
+              onclick="removeFromCart('${p.id}')"
+            >
+              Remove
+            </button>
+
           </div>
 
-          <button
-            class="remove"
-            onclick="removeFromCart('${p.id}')"
-          >
-            Remove
-          </button>
+        `;
 
-        </div>
+      })
+      .join("");
 
-      `;
 
-    }).join("");
-
-  document.getElementById("cartTotal")
+  document
+    .getElementById("cartTotal")
     .textContent =
       `₹${cartItems.length * 29}`;
+
 }
+
 
 function openCart(){
 
@@ -2960,7 +3825,9 @@ function openCart(){
   document
     .getElementById("cart")
     .classList.add("open");
+
 }
+
 
 function closeCart(){
 
@@ -2971,76 +3838,88 @@ function closeCart(){
   document
     .getElementById("cart")
     .classList.remove("open");
+
 }
+
 
 /* =========================================================
    CHECKOUT
-
-   IMPORTANT:
-   The frontend does NOT contain:
-   - Razorpay secret
-   - Google Drive URLs
-   - Gmail credentials
-
-   The backend will calculate the actual amount.
 ========================================================= */
-
-const API_BASE =
-  "https://YOUR-RENDER-BACKEND.onrender.com";
 
 async function checkout(){
 
   if(cartItems.length===0){
-    toast("Your cart is empty");
+
+    toast(
+      "Your cart is empty"
+    );
+
     return;
   }
+
 
   const email =
     document
-      .getElementById("customerEmail")
+      .getElementById(
+        "customerEmail"
+      )
       .value
       .trim();
 
-  if(!email ||
-     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
 
-    toast("Please enter a valid email");
+  if(
+    !email ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  ){
+
+    toast(
+      "Please enter a valid email"
+    );
+
     return;
   }
 
+
   try{
 
-    toast("Creating secure checkout...");
+    toast(
+      "Creating secure checkout..."
+    );
 
-    /*
-      We send ONLY product IDs + customer email.
-      Price is calculated by the backend.
-    */
 
     const response =
       await fetch(
         `${API_BASE}/api/create-order`,
         {
           method:"POST",
+
           headers:{
-            "Content-Type":"application/json"
+            "Content-Type":
+              "application/json"
           },
-          body:JSON.stringify({
-            productIds:cartItems,
-            email
-          })
+
+          body:
+            JSON.stringify({
+              productIds:cartItems,
+              email:email
+            })
         }
       );
+
 
     const data =
       await response.json();
 
+
     if(!response.ok){
+
       throw new Error(
         data.error ||
         "Could not create order"
       );
+
     }
+
 
     const options = {
 
@@ -3062,12 +3941,16 @@ async function checkout(){
       },
 
       theme:{
-        color:"#9b36f5"
+        color:"#c6a56a"
       },
 
       modal:{
         ondismiss:function(){
-          toast("Checkout closed");
+
+          toast(
+            "Checkout closed"
+          );
+
         }
       },
 
@@ -3083,10 +3966,13 @@ async function checkout(){
 
     };
 
+
     const razorpay =
       new Razorpay(options);
 
+
     razorpay.open();
+
 
   }catch(error){
 
@@ -3096,8 +3982,11 @@ async function checkout(){
       error.message ||
       "Checkout could not start"
     );
+
   }
+
 }
+
 
 /* =========================================================
    PAYMENT VERIFICATION
@@ -3110,65 +3999,84 @@ async function verifyPayment(
 
   try{
 
-    toast("Verifying payment...");
+    toast(
+      "Verifying payment..."
+    );
+
 
     const response =
       await fetch(
         `${API_BASE}/api/verify-payment`,
         {
           method:"POST",
+
           headers:{
-            "Content-Type":"application/json"
+            "Content-Type":
+              "application/json"
           },
-          body:JSON.stringify({
 
-            razorpay_order_id:
-              payment.razorpay_order_id,
+          body:
+            JSON.stringify({
 
-            razorpay_payment_id:
-              payment.razorpay_payment_id,
+              razorpay_order_id:
+                payment.razorpay_order_id,
 
-            razorpay_signature:
-              payment.razorpay_signature,
+              razorpay_payment_id:
+                payment.razorpay_payment_id,
 
-            productIds:
-              cartItems,
+              razorpay_signature:
+                payment.razorpay_signature,
 
-            email
+              productIds:
+                cartItems,
 
-          })
+              email:email
+
+            })
         }
       );
+
 
     const data =
       await response.json();
 
+
     if(!response.ok){
+
       throw new Error(
         data.error ||
         "Payment verification failed"
       );
+
     }
 
-    cartItems=[];
+
+    cartItems = [];
+
     saveCart();
+
     updateCart();
+
     closeCart();
+
 
     toast(
       "Payment verified. Check your email for delivery."
     );
+
 
   }catch(error){
 
     console.error(error);
 
     toast(
-      "Payment was received but verification failed. Please contact support."
+      "Payment was received but verification failed. Please contact businesscore28@gmail.com."
     );
 
   }
+
 }
+
 
 /* =========================================================
    FAQ
@@ -3185,19 +4093,27 @@ document
         const item =
           button.parentElement;
 
-        item.classList.toggle("open");
+        item.classList.toggle(
+          "open"
+        );
+
 
         const icon =
-          button.querySelector("span");
+          button.querySelector(
+            "span"
+          );
+
 
         icon.textContent =
           item.classList.contains("open")
             ? "−"
             : "+";
+
       }
     );
 
   });
+
 
 /* =========================================================
    TOAST
@@ -3205,22 +4121,41 @@ document
 
 let toastTimer;
 
+
 function toast(message){
 
   const element =
-    document.getElementById("toast");
+    document.getElementById(
+      "toast"
+    );
 
-  element.textContent=message;
 
-  element.classList.add("show");
+  element.textContent =
+    message;
 
-  clearTimeout(toastTimer);
+
+  element.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
 
   toastTimer =
-    setTimeout(()=>{
-      element.classList.remove("show");
-    },2800);
+    setTimeout(
+      ()=>{
+        element.classList.remove(
+          "show"
+        );
+      },
+      3000
+    );
+
 }
+
 
 /* =========================================================
    INIT
@@ -3229,13 +4164,21 @@ function toast(message){
 window.addEventListener(
   "load",
   ()=>{
-    setTimeout(()=>{
-      document
-        .getElementById("loader")
-        .classList.add("hide");
-    },500);
+
+    setTimeout(
+      ()=>{
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      },
+      500
+    );
+
   }
 );
+
 
 updateCart();
 route();
