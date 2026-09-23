@@ -18,7 +18,6 @@
 
 <title>Reel Bundles — Premium Content Collections</title>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
 
@@ -1002,348 +1001,366 @@ main{
   letter-spacing:-2px;
 }
 
-.detail-price{
-  margin-top:18px;
-
-  color:var(--gold2);
-
-  font-size:29px;
-  font-weight:900;
-}
-
 .detail-description{
-  max-width:620px;
+  max-width:650px;
 
-  margin-top:18px;
+  margin-top:20px;
 
   color:var(--muted);
 
   font-size:14px;
 
-  line-height:1.75;
+  line-height:1.8;
 }
 
-.detail-points{
+.detail-meta{
   display:grid;
 
   grid-template-columns:
-    repeat(2,minmax(0,1fr));
+    repeat(3,1fr);
 
   gap:10px;
 
-  margin-top:25px;
+  margin-top:28px;
 }
 
-.detail-point{
-  padding:12px;
+.meta-box{
+  padding:15px;
 
   border:1px solid var(--border);
 
-  border-radius:11px;
+  border-radius:13px;
 
-  color:#bbb8af;
-
-  font-size:11px;
-
-  background:#0f0f0d;
+  background:#10100e;
 }
 
-.detail-point::before{
-  content:"✓";
+.meta-label{
+  color:var(--muted2);
 
-  margin-right:7px;
+  font-size:9px;
 
-  color:var(--gold);
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+.meta-value{
+  margin-top:5px;
+
+  color:var(--ivory);
+
+  font-size:14px;
+  font-weight:800;
+}
+
+.detail-price{
+  margin-top:30px;
+
+  color:var(--gold2);
+
+  font-size:30px;
   font-weight:900;
 }
 
 .detail-actions{
   display:flex;
-
   flex-wrap:wrap;
 
   gap:10px;
 
-  margin-top:27px;
+  margin-top:18px;
 }
 
+.detail-buy{
+  min-height:50px;
 
-/* =========================================================
-   CART
-========================================================= */
+  padding:0 22px;
 
-.cart-layout{
-  display:grid;
+  border-radius:11px;
 
-  grid-template-columns:1fr 340px;
+  border:1px solid #b89558;
 
-  gap:25px;
+  background:
+    linear-gradient(
+      135deg,
+      #d6b36e,
+      #a77f3e
+    );
 
-  align-items:start;
+  color:#090908;
+
+  font-size:13px;
+  font-weight:900;
 }
 
-.cart-list{
+.detail-cart{
+  min-height:50px;
+
+  padding:0 20px;
+
+  border-radius:11px;
+
+  border:1px solid var(--border);
+
+  background:#11110f;
+
+  color:var(--ivory);
+
+  font-size:13px;
+  font-weight:800;
+}
+
+.detail-list{
+  margin-top:30px;
+
   display:grid;
 
   gap:10px;
 }
 
-.cart-item{
+.detail-list li{
+  list-style:none;
+
+  display:flex;
+  gap:10px;
+
+  color:#aaa79e;
+
+  font-size:12px;
+}
+
+.detail-list li::before{
+  content:"✓";
+
+  color:var(--gold);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+
+  z-index:4000;
+
+  background:rgba(0,0,0,.62);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-drawer{
+  position:absolute;
+
+  top:0;
+  right:0;
+
+  width:min(430px,94vw);
+  height:100%;
+
+  padding:24px;
+
+  background:#0e0e0c;
+
+  border-left:1px solid var(--border);
+
+  transform:translateX(100%);
+
+  transition:.35s cubic-bezier(.2,.8,.2,1);
+
+  overflow-y:auto;
+}
+
+.cart-overlay.open .cart-drawer{
+  transform:translateX(0);
+}
+
+.cart-head{
   display:flex;
 
   align-items:center;
+  justify-content:space-between;
 
-  gap:15px;
+  padding-bottom:18px;
 
-  padding:13px;
+  border-bottom:1px solid var(--border);
+}
+
+.cart-head h2{
+  font-size:22px;
+}
+
+.close-btn{
+  width:38px;
+  height:38px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:10px;
 
   border:1px solid var(--border);
 
-  border-radius:14px;
+  background:#11110f;
 
-  background:#10100e;
+  color:var(--ivory);
 }
 
-.cart-thumb{
-  width:66px;
-  height:82px;
+.cart-items{
+  display:grid;
 
-  flex:none;
+  gap:11px;
+
+  margin-top:18px;
+}
+
+.cart-item{
+  display:grid;
+
+  grid-template-columns:60px 1fr;
+
+  gap:12px;
+
+  padding:12px;
+
+  border:1px solid var(--border);
+
+  border-radius:13px;
+
+  background:#11110f;
+}
+
+.cart-item-image{
+  width:60px;
+  height:75px;
+
+  border-radius:9px;
 
   overflow:hidden;
 
-  border-radius:8px;
+  background:#080807;
 }
 
-.cart-thumb img{
+.cart-item-image img{
   width:100%;
   height:100%;
 
   object-fit:cover;
 }
 
-.cart-item-info{
-  flex:1;
-}
-
 .cart-item-name{
-  font-size:13px;
+  color:var(--ivory);
+
+  font-size:12px;
   font-weight:800;
 }
 
 .cart-item-price{
   margin-top:4px;
 
-  color:var(--gold);
+  color:var(--gold2);
 
   font-size:12px;
+  font-weight:900;
 }
 
-.remove-btn{
-  padding:7px 9px;
+.cart-item-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-top:9px;
+}
+
+.cart-pay{
+  padding:6px 9px;
+
+  border-radius:7px;
+
+  border:1px solid rgba(198,165,106,.55);
+
+  background:var(--gold);
+
+  color:#080807;
+
+  font-size:9px;
+  font-weight:900;
+}
+
+.cart-remove{
+  padding:6px 9px;
+
+  border-radius:7px;
 
   border:1px solid var(--border);
 
-  border-radius:8px;
-
   background:transparent;
 
-  color:#9a978e;
+  color:#99968e;
 
-  font-size:10px;
+  font-size:9px;
 }
 
-.remove-btn:hover{
-  border-color:#8a4e43;
-  color:#d98e7e;
+.cart-empty{
+  padding:45px 15px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:13px;
 }
 
-.checkout-box{
-  position:sticky;
-  top:95px;
+.cart-footer{
+  margin-top:20px;
 
-  padding:22px;
+  padding-top:18px;
 
-  border:1px solid var(--border-gold);
-
-  border-radius:17px;
-
-  background:#10100e;
+  border-top:1px solid var(--border);
 }
 
-.checkout-box h2{
-  font-size:20px;
-}
-
-.checkout-row{
+.cart-total-row{
   display:flex;
 
+  align-items:center;
   justify-content:space-between;
+}
 
-  margin-top:15px;
-
+.cart-total-label{
   color:var(--muted);
 
   font-size:12px;
 }
 
-.checkout-total{
-  padding-top:15px;
+.cart-total{
+  color:var(--gold2);
 
-  margin-top:15px;
-
-  border-top:1px solid var(--border);
-
-  display:flex;
-
-  justify-content:space-between;
-
-  color:var(--ivory);
-
-  font-size:17px;
+  font-size:22px;
   font-weight:900;
 }
 
-.email-label{
-  display:block;
-
-  margin-top:20px;
-
-  margin-bottom:7px;
-
-  color:#aaa79e;
-
-  font-size:11px;
-  font-weight:700;
-}
-
-.email-input{
-  width:100%;
-
-  height:45px;
-
-  padding:0 12px;
-
-  border:1px solid var(--border);
-
-  border-radius:10px;
-
-  outline:none;
-
-  background:#080807;
-
-  color:var(--ivory);
-
-  font-size:12px;
-}
-
-.email-input:focus{
-  border-color:var(--border-gold);
-}
-
-.checkout-button{
-  width:100%;
-
-  height:48px;
-
-  margin-top:13px;
-
-  border:1px solid #a98547;
-
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #d6b36e,
-      #9f7739
-    );
-
-  color:#080807;
-
-  font-size:13px;
-  font-weight:900;
-}
-
-.checkout-note{
+.cart-note{
   margin-top:10px;
 
   color:var(--muted2);
 
   font-size:10px;
 
-  line-height:1.5;
-
-  text-align:center;
-}
-
-
-/* =========================================================
-   EMPTY CART
-========================================================= */
-
-.empty{
-  padding:60px 20px;
-
-  text-align:center;
-
-  border:1px dashed var(--border);
-
-  border-radius:18px;
-}
-
-.empty h2{
-  font-size:24px;
-}
-
-.empty p{
-  margin-top:8px;
-
-  color:var(--muted);
-
-  font-size:13px;
-}
-
-
-/* =========================================================
-   STATIC PAGES
-========================================================= */
-
-.legal{
-  max-width:850px;
-
-  margin:auto;
-}
-
-.legal h1{
-  font-size:42px;
-
-  letter-spacing:-1.5px;
-}
-
-.legal h2{
-  margin-top:32px;
-
-  margin-bottom:9px;
-
-  font-size:20px;
-}
-
-.legal p,
-.legal li{
-  color:#aaa79e;
-
-  font-size:13px;
-
-  line-height:1.8;
-}
-
-.legal ul{
-  padding-left:20px;
-}
-
-.legal a{
-  color:var(--gold2);
+  line-height:1.6;
 }
 
 
@@ -1351,28 +1368,34 @@ main{
    FAQ
 ========================================================= */
 
-.faq-list{
-  max-width:850px;
-
-  margin:auto;
-
+.faq-grid{
   display:grid;
 
-  gap:9px;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:12px;
 }
 
 .faq-item{
   border:1px solid var(--border);
 
-  border-radius:13px;
-
-  overflow:hidden;
+  border-radius:14px;
 
   background:#10100e;
+
+  overflow:hidden;
 }
 
 .faq-question{
   width:100%;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
 
   padding:18px;
 
@@ -1384,30 +1407,45 @@ main{
 
   text-align:left;
 
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:15px;
-
-  font-size:13px;
+  font-size:12px;
   font-weight:800;
 }
 
-.faq-answer{
-  display:none;
+.faq-plus{
+  color:var(--gold);
 
-  padding:0 18px 18px;
+  font-size:18px;
+
+  transition:.25s;
+}
+
+.faq-answer{
+  max-height:0;
+
+  overflow:hidden;
+
+  padding:0 18px;
 
   color:var(--muted);
 
-  font-size:12px;
+  font-size:11px;
 
   line-height:1.7;
+
+  transition:
+    max-height .3s ease,
+    padding .3s ease;
 }
 
 .faq-item.open .faq-answer{
-  display:block;
+  max-height:220px;
+
+  padding:
+    0 18px 18px;
+}
+
+.faq-item.open .faq-plus{
+  transform:rotate(45deg);
 }
 
 
@@ -1418,9 +1456,7 @@ main{
 footer{
   border-top:1px solid var(--border);
 
-  background:#070706;
-
-  margin-top:30px;
+  background:#080807;
 }
 
 .footer-inner{
@@ -1428,87 +1464,40 @@ footer{
 
   margin:auto;
 
-  padding:42px 22px 25px;
+  padding:35px 22px;
 
-  display:grid;
+  display:flex;
 
-  grid-template-columns:
-    1.5fr 1fr 1fr 1fr;
+  align-items:center;
+  justify-content:space-between;
 
-  gap:35px;
+  gap:20px;
 }
 
 .footer-brand{
-  max-width:310px;
-}
-
-.footer-brand p{
-  margin-top:12px;
-
   color:var(--muted);
 
   font-size:11px;
-
-  line-height:1.7;
-}
-
-.footer-title{
-  margin-bottom:12px;
-
-  color:var(--ivory);
-
-  font-size:11px;
-  font-weight:800;
 }
 
 .footer-links{
-  display:grid;
+  display:flex;
 
-  gap:8px;
+  flex-wrap:wrap;
+
+  gap:18px;
 }
 
 .footer-links a{
-  color:#85827a;
+  color:#8e8b83;
 
-  font-size:11px;
+  font-size:10px;
 
   transition:.2s;
 }
 
 .footer-links a:hover{
   color:var(--gold);
-}
-
-.footer-bottom{
-  max-width:var(--max);
-
-  margin:auto;
-
-  padding:17px 22px 23px;
-
-  border-top:1px solid rgba(255,255,255,.06);
-
-  color:#66645e;
-
-  font-size:10px;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:15px;
-}
-
-.disclaimer{
-  max-width:700px;
-
-  margin-top:18px;
-
-  color:#66645e;
-
-  font-size:9px;
-
-  line-height:1.6;
 }
 
 
@@ -1520,38 +1509,40 @@ footer{
   position:fixed;
 
   left:50%;
-  bottom:25px;
+  bottom:24px;
 
-  z-index:9999;
+  z-index:8000;
 
   transform:
     translate(-50%,20px);
 
   opacity:0;
-  pointer-events:none;
+  visibility:hidden;
 
-  max-width:calc(100vw - 30px);
+  max-width:min(90vw,450px);
 
-  padding:12px 17px;
+  padding:12px 16px;
+
+  border-radius:11px;
 
   border:1px solid var(--border-gold);
 
-  border-radius:10px;
-
-  background:#11110f;
+  background:#141410;
 
   color:var(--ivory);
 
   box-shadow:
-    0 20px 50px rgba(0,0,0,.55);
+    0 20px 50px rgba(0,0,0,.5);
 
-  font-size:12px;
+  font-size:11px;
+  font-weight:700;
 
   transition:.3s;
 }
 
 #toast.show{
   opacity:1;
+  visibility:visible;
 
   transform:
     translate(-50%,0);
@@ -1559,18 +1550,70 @@ footer{
 
 
 /* =========================================================
-   MOBILE
+   LEGAL PAGE
 ========================================================= */
 
-@media(max-width:1000px){
+.legal-page{
+  max-width:850px;
 
-  .nav{
-    display:none;
-  }
+  margin:auto;
+
+  padding:60px 22px 90px;
+}
+
+.legal-page h1{
+  font-size:clamp(34px,5vw,55px);
+
+  letter-spacing:-2px;
+}
+
+.legal-page .updated{
+  margin-top:10px;
+
+  color:var(--muted2);
+
+  font-size:11px;
+}
+
+.legal-page section{
+  margin-top:38px;
+}
+
+.legal-page h2{
+  margin-bottom:10px;
+
+  color:var(--ivory);
+
+  font-size:18px;
+}
+
+.legal-page p,
+.legal-page li{
+  color:var(--muted);
+
+  font-size:13px;
+
+  line-height:1.8;
+}
+
+.legal-page ul{
+  padding-left:20px;
+}
+
+.legal-page a{
+  color:var(--gold2);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
 
   .products-grid{
     grid-template-columns:
-      repeat(3,minmax(0,1fr));
+      repeat(4,minmax(0,1fr));
   }
 
   .features-grid{
@@ -1578,48 +1621,57 @@ footer{
       repeat(2,minmax(0,1fr));
   }
 
+}
+
+@media(max-width:850px){
+
+  .nav{
+    display:none;
+  }
+
   .hero{
     grid-template-columns:1fr;
 
-    text-align:center;
-  }
+    min-height:auto;
 
-  .hero-copy{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-actions{
-    justify-content:center;
+    padding-top:25px;
   }
 
   .hero-visual{
-    min-height:420px;
+    min-height:390px;
+  }
+
+  .products-grid{
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
   }
 
   .detail-layout{
     grid-template-columns:1fr;
+
+    gap:30px;
   }
 
   .detail-art{
-    max-width:420px;
+    max-width:500px;
+
     margin:auto;
   }
 
-  .cart-layout{
+  .faq-grid{
     grid-template-columns:1fr;
-  }
-
-  .checkout-box{
-    position:static;
   }
 
 }
 
-@media(max-width:650px){
+@media(max-width:620px){
 
   .header-inner{
-    padding:0 14px;
+    padding:0 15px;
+  }
+
+  .brand-text small{
+    display:none;
   }
 
   .header-btn{
@@ -1627,16 +1679,11 @@ footer{
   }
 
   .page{
-    padding-left:14px;
-    padding-right:14px;
-  }
-
-  .hero{
-    padding-top:20px;
+    padding:
+      28px 15px 55px;
   }
 
   .hero h1{
-    font-size:43px;
     letter-spacing:-2px;
   }
 
@@ -1645,16 +1692,16 @@ footer{
   }
 
   .hero-visual{
-    min-height:360px;
+    min-height:330px;
   }
 
   .hero-poster{
-    width:260px;
+    width:min(280px,75vw);
   }
 
   .hero-orbit{
-    width:310px;
-    height:310px;
+    width:320px;
+    height:320px;
   }
 
   .trust-strip{
@@ -1674,11 +1721,11 @@ footer{
     grid-template-columns:
       repeat(2,minmax(0,1fr));
 
-    gap:9px;
+    gap:10px;
   }
 
   .product-card-content{
-    padding:11px;
+    padding:12px;
   }
 
   .product-card-title{
@@ -1688,7 +1735,7 @@ footer{
   .product-card-description{
     font-size:10px;
 
-    min-height:45px;
+    min-height:48px;
   }
 
   .product-price{
@@ -1696,9 +1743,10 @@ footer{
   }
 
   .product-button{
-    padding:7px 8px;
-
     font-size:9px;
+
+    padding:
+      7px 8px;
   }
 
   .features-grid{
@@ -1706,30 +1754,34 @@ footer{
   }
 
   .cta{
-    padding:27px;
+    padding:27px 20px;
 
     flex-direction:column;
 
     align-items:flex-start;
   }
 
-  .detail-points{
-    grid-template-columns:1fr;
+  .detail-meta{
+    grid-template-columns:
+      1fr 1fr;
   }
 
   .footer-inner{
-    grid-template-columns:
-      repeat(2,1fr);
-
-    gap:30px;
-  }
-
-  .footer-brand{
-    grid-column:1/-1;
-  }
-
-  .footer-bottom{
     flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+}
+
+@media(max-width:390px){
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-image-wrap{
+    aspect-ratio:16/10;
   }
 
 }
@@ -1745,11 +1797,27 @@ footer{
   outline-offset:3px;
 }
 
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+
+    transition-duration:.01ms !important;
+  }
+
+}
+
 </style>
 </head>
 
 
 <body>
+
 
 <!-- =======================================================
      LOADER
@@ -1781,56 +1849,59 @@ footer{
   <div class="header-inner">
 
     <a
-      href="#/"
+      href="#top"
       class="brand"
-      aria-label="Reel Bundles home">
+      aria-label="Reel Bundles home"
+    >
 
       <div class="brand-icon">
 
         <svg
           viewBox="0 0 24 24"
           fill="none"
-          aria-hidden="true">
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
 
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="4"
-            stroke="currentColor"
-            stroke-width="1.7"/>
+          <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/>
 
-          <path
-            d="M10 8.5L16 12L10 15.5V8.5Z"
-            fill="currentColor"/>
+          <path d="m9 8 6 4-6 4V8Z"/>
 
         </svg>
 
       </div>
 
+
       <div class="brand-text">
 
-        <strong>REEL BUNDLES</strong>
+        <strong>
+          REEL BUNDLES
+        </strong>
 
-        <small>PREMIUM CONTENT COLLECTION</small>
+        <small>
+          PREMIUM CONTENT COLLECTIONS
+        </small>
 
       </div>
 
     </a>
 
 
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav">
 
-      <a href="#/">Home</a>
+      <a href="#collections">
+        Collections
+      </a>
 
-      <a href="#/products">Products</a>
+      <a href="#why">
+        Why Us
+      </a>
 
-      <a href="#/why-us">Why Us</a>
-
-      <a href="#/faq">FAQ</a>
-
-      <a href="#/contact">Contact</a>
+      <a href="#faq">
+        FAQ
+      </a>
 
     </nav>
 
@@ -1838,51 +1909,57 @@ footer{
     <div class="header-actions">
 
       <a
-        href="#/products"
-        class="header-btn">
-
-        Explore Bundles
-
+        href="https://instagram.com/reelbundles.official"
+        target="_blank"
+        rel="noopener"
+        class="header-btn"
+      >
+        Instagram
       </a>
+
 
       <button
         class="cart-btn"
-        onclick="go('#/cart')"
-        aria-label="Open shopping cart">
+        type="button"
+        onclick="openCart()"
+        aria-label="Open cart"
+      >
 
         <svg
           width="18"
           height="18"
           viewBox="0 0 24 24"
-          fill="none">
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <circle
+            cx="9"
+            cy="20"
+            r="1"
+          />
+
+          <circle
+            cx="19"
+            cy="20"
+            r="1"
+          />
 
           <path
-            d="M4 5H6L8.2 15.5H19L21 8H7"
-            stroke="currentColor"
-            stroke-width="1.7"
-            stroke-linecap="round"
-            stroke-linejoin="round"/>
-
-          <circle
-            cx="10"
-            cy="19"
-            r="1.5"
-            fill="currentColor"/>
-
-          <circle
-            cx="18"
-            cy="19"
-            r="1.5"
-            fill="currentColor"/>
+            d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"
+          />
 
         </svg>
 
+
         <span
+          class="cart-count"
           id="cartCount"
-          class="cart-count">
-
+        >
           0
-
         </span>
 
       </button>
@@ -1895,10 +1972,965 @@ footer{
 
 
 <!-- =======================================================
-     APP
+     MAIN
 ======================================================= -->
 
-<main id="app"></main>
+<main id="top">
+
+  <div class="page">
+
+
+    <!-- ===================================================
+         HERO
+    =================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-copy-wrap">
+
+        <div class="eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          10 DIGITAL COLLECTIONS · ₹29 EACH
+
+        </div>
+
+
+        <h1>
+
+          Content built for
+
+          <span>
+            consistent posting.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-copy">
+
+          Curated short-form content collections for creators
+          who want more material to edit, post and build with.
+          Choose a collection, pay securely through Razorpay,
+          and receive the purchased Google Drive link by email
+          after successful payment.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#collections"
+            class="primary-btn"
+          >
+            Explore Collections
+          </a>
+
+
+          <a
+            href="#how-it-works"
+            class="secondary-btn"
+          >
+            How It Works
+          </a>
+
+        </div>
+
+
+        <p class="hero-note">
+
+          Secure Razorpay payment · Digital delivery by email
+
+        </p>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="hero-orbit"></div>
+
+
+        <div class="hero-poster">
+
+          <svg
+            viewBox="0 0 500 650"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Reel Bundles premium content collection artwork"
+          >
+
+            <defs>
+
+              <linearGradient
+                id="heroGrad"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+
+                <stop
+                  offset="0%"
+                  stop-color="#191712"
+                />
+
+                <stop
+                  offset="55%"
+                  stop-color="#0e0e0c"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#050504"
+                />
+
+              </linearGradient>
+
+
+              <radialGradient
+                id="heroGlow"
+                cx="50%"
+                cy="35%"
+                r="65%"
+              >
+
+                <stop
+                  offset="0%"
+                  stop-color="#c6a56a"
+                  stop-opacity=".35"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#c6a56a"
+                  stop-opacity="0"
+                />
+
+              </radialGradient>
+
+            </defs>
+
+
+            <rect
+              width="500"
+              height="650"
+              rx="32"
+              fill="url(#heroGrad)"
+            />
+
+
+            <rect
+              width="500"
+              height="650"
+              rx="32"
+              fill="url(#heroGlow)"
+            />
+
+
+            <circle
+              cx="250"
+              cy="245"
+              r="128"
+              fill="none"
+              stroke="#c6a56a"
+              stroke-opacity=".22"
+              stroke-width="1"
+            />
+
+
+            <circle
+              cx="250"
+              cy="245"
+              r="95"
+              fill="none"
+              stroke="#c6a56a"
+              stroke-opacity=".16"
+              stroke-width="1"
+            />
+
+
+            <path
+              d="M250 125v240M130 245h240"
+              stroke="#c6a56a"
+              stroke-opacity=".10"
+            />
+
+
+            <circle
+              cx="250"
+              cy="245"
+              r="62"
+              fill="#c6a56a"
+              fill-opacity=".08"
+              stroke="#e0c48a"
+              stroke-opacity=".55"
+            />
+
+
+            <path
+              d="m231 210 58 35-58 35v-70Z"
+              fill="#e0c48a"
+            />
+
+
+            <text
+              x="250"
+              y="455"
+              text-anchor="middle"
+              fill="#f1eee7"
+              font-family="Arial,sans-serif"
+              font-size="43"
+              font-weight="900"
+              letter-spacing="4"
+            >
+              REEL
+            </text>
+
+
+            <text
+              x="250"
+              y="500"
+              text-anchor="middle"
+              fill="#c6a56a"
+              font-family="Arial,sans-serif"
+              font-size="43"
+              font-weight="900"
+              letter-spacing="4"
+            >
+              BUNDLES
+            </text>
+
+
+            <text
+              x="250"
+              y="535"
+              text-anchor="middle"
+              fill="#9d9a91"
+              font-family="Arial,sans-serif"
+              font-size="12"
+              letter-spacing="3"
+            >
+              PREMIUM CONTENT COLLECTIONS
+            </text>
+
+
+            <text
+              x="250"
+              y="585"
+              text-anchor="middle"
+              fill="#e0c48a"
+              font-family="Arial,sans-serif"
+              font-size="14"
+              font-weight="700"
+              letter-spacing="2"
+            >
+              ₹29 EACH
+            </text>
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         TRUST STRIP
+    =================================================== -->
+
+    <section class="trust-strip">
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          10
+        </div>
+
+        <div class="trust-label">
+          Digital Collections
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          ₹29
+        </div>
+
+        <div class="trust-label">
+          Per Collection
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          Email
+        </div>
+
+        <div class="trust-label">
+          Digital Delivery
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          Razorpay
+        </div>
+
+        <div class="trust-label">
+          Secure Payments
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         COLLECTIONS
+    =================================================== -->
+
+    <section
+      class="section"
+      id="collections"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            The Collections
+          </div>
+
+          <h2 class="section-title">
+            Pick your content.
+          </h2>
+
+          <p class="section-description">
+            Each collection is sold separately for ₹29.
+            Open a collection to view its contents, then
+            purchase securely through its dedicated Razorpay
+            Payment Link.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="products-grid"
+        id="productsGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- ===================================================
+         WHY
+    =================================================== -->
+
+    <section
+      class="section"
+      id="why"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            Simple by design
+          </div>
+
+          <h2 class="section-title">
+            Made for creators.
+          </h2>
+
+          <p class="section-description">
+            No complicated subscription. Choose only the
+            collection you actually want.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="features-grid">
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M12 3v18"/>
+
+              <path d="M17 7.5c0-1.8-2.2-3-5-3s-5 1.2-5 3 2.2 3 5 3 5 1.2 5 3-2.2 3-5 3-5-1.2-5-3"/>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            ₹29 per collection
+          </h3>
+
+          <p>
+            Buy only the content category you need instead
+            of paying for a larger bundle.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+              />
+
+              <path d="M3 8h18"/>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Secure payment
+          </h3>
+
+          <p>
+            Payment is handled through the individual
+            Razorpay Payment Link for each collection.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+              />
+
+              <path d="m4 7 8 6 8-6"/>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Email delivery
+          </h3>
+
+          <p>
+            After successful payment, the purchased Google
+            Drive access link is sent to the email entered
+            during payment.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/>
+
+              <path d="m9 12 2 2 4-4"/>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Digital access
+          </h3>
+
+          <p>
+            Your purchased collection is provided through
+            Google Drive for convenient access.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         HOW IT WORKS
+    =================================================== -->
+
+    <section
+      class="section"
+      id="how-it-works"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            How it works
+          </div>
+
+          <h2 class="section-title">
+            Three simple steps.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="features-grid">
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            01
+          </div>
+
+          <h3>
+            Choose a collection
+          </h3>
+
+          <p>
+            Browse the collections and open the one that
+            matches the type of content you want.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            02
+          </div>
+
+          <h3>
+            Pay ₹29
+          </h3>
+
+          <p>
+            Tap the payment button and complete your
+            purchase through the collection's Razorpay
+            Payment Link.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            03
+          </div>
+
+          <h3>
+            Check your email
+          </h3>
+
+          <p>
+            After successful payment, the delivery email
+            contains the Google Drive access link for the
+            collection you purchased.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA
+    =================================================== -->
+
+    <section class="cta">
+
+      <div>
+
+        <h2>
+          Find your next content collection.
+        </h2>
+
+        <p>
+          Choose a category and get started for ₹29.
+        </p>
+
+      </div>
+
+
+      <a
+        href="#collections"
+        class="primary-btn"
+      >
+        Browse Collections
+      </a>
+
+    </section>
+
+
+    <!-- ===================================================
+         FAQ
+    =================================================== -->
+
+    <section
+      class="section"
+      id="faq"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            FAQ
+          </div>
+
+          <h2 class="section-title">
+            Before you purchase.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="faq-grid">
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              How much does each collection cost?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Every collection currently listed on the store
+            is priced at ₹29.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              How will I receive my purchase?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            After successful payment, the Google Drive
+            access link for your purchased collection is
+            sent to the email address entered during the
+            Razorpay payment process.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Can I buy multiple collections?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Yes. Each collection has its own Razorpay
+            Payment Link, so multiple collections can be
+            purchased separately.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Are refunds available?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Digital purchases are generally non-refundable
+            once access has been delivered, subject to
+            applicable consumer rights and law.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Do I need a Google account?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Access depends on the sharing settings of the
+            relevant Google Drive collection. If a Google
+            account is required for a particular collection,
+            the delivery instructions will indicate this.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              What happens if I don't receive the email?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            First check your spam, promotions and other
+            filtered folders. If the delivery email is still
+            missing after a successful payment, contact us at
+            businesscore28@gmail.com with your payment
+            details.
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+</main>
+
+
+<!-- =======================================================
+     CART
+======================================================= -->
+
+<div
+  class="cart-overlay"
+  id="cartOverlay"
+  onclick="handleCartOverlay(event)"
+>
+
+  <aside
+    class="cart-drawer"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="cart-head">
+
+      <h2>
+        Your Cart
+      </h2>
+
+      <button
+        class="close-btn"
+        type="button"
+        onclick="closeCart()"
+        aria-label="Close cart"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div
+      class="cart-footer"
+      id="cartFooter"
+    ></div>
+
+  </aside>
+
+</div>
+
+
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+  id="toast"
+  role="status"
+  aria-live="polite"
+></div>
 
 
 <!-- =======================================================
@@ -1911,873 +2943,45 @@ footer{
 
     <div class="footer-brand">
 
-      <a
-        href="#/"
-        class="brand">
+      © 2026 Reel Bundles.
+      Digital content collections.
 
-        <div class="brand-icon">
+    </div>
 
-          <svg
-            viewBox="0 0 24 24"
-            fill="none">
 
-            <rect
-              x="4"
-              y="3"
-              width="16"
-              height="18"
-              rx="4"
-              stroke="currentColor"
-              stroke-width="1.7"/>
+    <div class="footer-links">
 
-            <path
-              d="M10 8.5L16 12L10 15.5V8.5Z"
-              fill="currentColor"/>
-
-          </svg>
-
-        </div>
-
-        <div class="brand-text">
-
-          <strong>REEL BUNDLES</strong>
-
-          <small>PREMIUM CONTENT COLLECTION</small>
-
-        </div>
-
+      <a href="#privacy">
+        Privacy
       </a>
 
-      <p>
-        Premium digital content collections for creators,
-        theme pages and short-form content projects.
-      </p>
+      <a href="#terms">
+        Terms
+      </a>
 
-      <p class="disclaimer">
-        Content may include material depicting or referencing
-        third-party intellectual property. Purchasing a bundle
-        does not transfer ownership or rights in third-party
-        intellectual property. Customers are responsible for
-        ensuring that their use and distribution of content
-        complies with applicable laws and platform rules.
-      </p>
+      <a href="#refund">
+        Refund Policy
+      </a>
 
-    </div>
+      <a href="mailto:businesscore28@gmail.com">
+        Contact
+      </a>
 
-
-    <div>
-
-      <div class="footer-title">
-        QUICK LINKS
-      </div>
-
-      <div class="footer-links">
-
-        <a href="#/">Home</a>
-
-        <a href="#/products">Products</a>
-
-        <a href="#/why-us">Why Us</a>
-
-        <a href="#/faq">FAQ</a>
-
-        <a href="#/contact">Contact</a>
-
-      </div>
+      <a
+        href="https://instagram.com/reelbundles.official"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
 
     </div>
-
-
-    <div>
-
-      <div class="footer-title">
-        LEGAL
-      </div>
-
-      <div class="footer-links">
-
-        <a href="#/terms">Terms & Conditions</a>
-
-        <a href="#/privacy">Privacy Policy</a>
-
-        <a href="#/refund">Refund Policy</a>
-
-        <a href="#/dmca">IP / DMCA</a>
-
-      </div>
-
-    </div>
-
-
-    <div>
-
-      <div class="footer-title">
-        CONTACT
-      </div>
-
-      <div class="footer-links">
-
-        <a href="mailto:businesscore28@gmail.com">
-          businesscore28@gmail.com
-        </a>
-
-        <a
-          href="https://www.instagram.com/reelbundles.official/"
-          target="_blank"
-          rel="noopener">
-
-          Instagram: @reelbundles.official
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    <span>
-      © 2026 Reel Bundles. All rights reserved.
-    </span>
-
-    <span>
-      Digital Delivery by Email
-    </span>
 
   </div>
 
 </footer>
 
-
-<!-- =======================================================
-     TOAST
-======================================================= -->
-
-<div id="toast"></div>
-
-
-<script>
-
-/* =========================================================
-   CONFIGURATION
-========================================================= */
-
-const API_BASE =
-  "https://reel-bundles-backend.onrender.com";
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
-const PRODUCTS = [
-
-  {
-    id:"hollywood-4k",
-    number:1,
-    name:"4K Hollywood",
-    short:"Hollywood reels and cinematic material for short-form content.",
-    description:
-      "A Hollywood-focused collection containing cinematic material for entertainment pages, edits and short-form content projects.",
-    count:"1000+",
-    type:"hollywood",
-    subtitle:"CINEMATIC COLLECTION"
-  },
-
-  {
-    id:"anime-edits",
-    number:2,
-    name:"20,000+ Anime Edits",
-    short:"Anime edits and clips for short-form content.",
-    description:
-      "A large anime-focused collection containing edits and clips for anime-themed social content projects.",
-    count:"20,000+",
-    type:"anime",
-    subtitle:"ANIME EDIT COLLECTION"
-  },
-
-  {
-    id:"luxury",
-    number:3,
-    name:"20K+ Luxury",
-    short:"Cars, money, yachts, villas and lifestyle content.",
-    description:
-      "Luxury lifestyle material covering cars, money, yachts, villas, travel and aspirational themes.",
-    count:"20K+",
-    type:"luxury",
-    subtitle:"LUXURY LIFESTYLE"
-  },
-
-  {
-    id:"3d-viral-facts",
-    number:4,
-    name:"1000+ 3D Viral Facts",
-    short:"Animated 3D fact content for social media projects.",
-    description:
-      "Animated 3D fact content covering a range of interesting and educational topics for short-form projects.",
-    count:"1000+",
-    type:"facts",
-    subtitle:"3D FACT COLLECTION"
-  },
-
-  {
-    id:"glow-animated",
-    number:5,
-    name:"2200+ Glow Animated",
-    short:"Facts, motivation and animated captions.",
-    description:
-      "Animated reels featuring glowing captions, facts, motivation and attention-focused visual styles.",
-    count:"2200+",
-    type:"glow",
-    subtitle:"GLOW ANIMATED"
-  },
-
-  {
-    id:"stickman",
-    number:6,
-    name:"2200+ Stickman",
-    short:"Funny animated stickman reels.",
-    description:
-      "A collection of funny and engaging stickman animations for social content projects.",
-    count:"2200+",
-    type:"stickman",
-    subtitle:"FUNNY ANIMATION"
-  },
-
-  {
-    id:"mixed-content",
-    number:7,
-    name:"2200+ Mixed Content",
-    short:"Money, business, motivation and creator content.",
-    description:
-      "Mixed theme-page content covering money, motivation, business, content creation and related topics.",
-    count:"2200+",
-    type:"mixed",
-    subtitle:"MIXED CONTENT"
-  },
-
-  {
-    id:"ai-tech",
-    number:8,
-    name:"AI Tech",
-    short:"AI tools, tutorials and technology content.",
-    description:
-      "Content focused on AI tools, ChatGPT, Claude, emerging technology and AI use cases.",
-    count:"Collection",
-    type:"ai",
-    subtitle:"ARTIFICIAL INTELLIGENCE"
-  },
-
-  {
-    id:"cars",
-    number:9,
-    name:"Cars",
-    short:"Luxury cars, speed and automotive content.",
-    description:
-      "Automotive material for car, driving, business and lifestyle-focused content projects.",
-    count:"Collection",
-    type:"cars",
-    subtitle:"AUTOMOTIVE COLLECTION"
-  },
-
-  {
-    id:"game-reels",
-    number:10,
-    name:"Game Reels",
-    short:"2D and 3D gaming content.",
-    description:
-      "Gaming-focused short-form material including 2D and 3D gameplay and car-game visuals.",
-    count:"Collection",
-    type:"game",
-    subtitle:"GAMING COLLECTION"
-  }
-
-];
-
-
-/* =========================================================
-   SVG PRODUCT COVERS
-========================================================= */
-
-function productCover(product){
-
-  const themes = {
-
-    "hollywood-4k":{
-      title:"4K",
-      subtitle:"HOLLYWOOD",
-      tag:"CINEMATIC",
-      bg1:"#080b10",
-      bg2:"#25272b",
-      accent:"#d6b06b",
-      scene:"hollywood"
-    },
-
-    "anime-edits":{
-      title:"ANIME",
-      subtitle:"EDITS",
-      tag:"20,000+ COLLECTION",
-      bg1:"#090a0d",
-      bg2:"#252321",
-      accent:"#c9a66b",
-      scene:"anime"
-    },
-
-    "luxury":{
-      title:"LUXURY",
-      subtitle:"LIFESTYLE",
-      tag:"20K+ COLLECTION",
-      bg1:"#080909",
-      bg2:"#252019",
-      accent:"#d6b06b",
-      scene:"luxury"
-    },
-
-    "3d-viral-facts":{
-      title:"3D",
-      subtitle:"VIRAL FACTS",
-      tag:"1000+ COLLECTION",
-      bg1:"#070b0c",
-      bg2:"#172321",
-      accent:"#d5b36c",
-      scene:"facts"
-    },
-
-    "glow-animated":{
-      title:"GLOW",
-      subtitle:"ANIMATED",
-      tag:"2200+ COLLECTION",
-      bg1:"#090909",
-      bg2:"#241f18",
-      accent:"#e0b875",
-      scene:"glow"
-    },
-
-    "stickman":{
-      title:"STICKMAN",
-      subtitle:"ANIMATION",
-      tag:"2200+ COLLECTION",
-      bg1:"#0b0b0a",
-      bg2:"#252321",
-      accent:"#d2ae69",
-      scene:"stickman"
-    },
-
-    "mixed-content":{
-      title:"MIXED",
-      subtitle:"CONTENT",
-      tag:"2200+ COLLECTION",
-      bg1:"#090908",
-      bg2:"#272019",
-      accent:"#d5ae67",
-      scene:"money"
-    },
-
-    "ai-tech":{
-      title:"AI",
-      subtitle:"TECH",
-      tag:"AI COLLECTION",
-      bg1:"#070a0a",
-      bg2:"#1a2423",
-      accent:"#cbb27c",
-      scene:"ai"
-    },
-
-    "cars":{
-      title:"CARS",
-      subtitle:"AUTOMOTIVE",
-      tag:"CAR COLLECTION",
-      bg1:"#08090a",
-      bg2:"#202326",
-      accent:"#d7b26c",
-      scene:"cars"
-    },
-
-    "game-reels":{
-      title:"GAME",
-      subtitle:"REELS",
-      tag:"GAMING COLLECTION",
-      bg1:"#070809",
-      bg2:"#171d20",
-      accent:"#d4af69",
-      scene:"gaming"
-    }
-
-  };
-
-  const t =
-    themes[product.id] ||
-    themes["luxury"];
-
-
-  let scene = "";
-
-
-  /* HOLLYWOOD */
-
-  if(t.scene==="hollywood"){
-
-    scene = `
-
-      <defs>
-
-        <radialGradient id="face">
-
-          <stop offset="0" stop-color="#d7b18c"/>
-          <stop offset=".65" stop-color="#765a47"/>
-          <stop offset="1" stop-color="#211813"/>
-
-        </radialGradient>
-
-        <linearGradient
-          id="suit"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1">
-
-          <stop offset="0" stop-color="#30343a"/>
-          <stop offset=".45" stop-color="#090b0e"/>
-          <stop offset="1" stop-color="#000"/>
-
-        </linearGradient>
-
-      </defs>
-
-      <ellipse
-        cx="190"
-        cy="285"
-        rx="125"
-        ry="42"
-        fill="#000"
-        opacity=".8"/>
-
-      <path
-        d="M60 315Q72 205 120 166Q155 145 190 150Q225 145 260 166Q308 205 320 315Z"
-        fill="url(#suit)"/>
-
-      <ellipse
-        cx="190"
-        cy="125"
-        rx="57"
-        ry="70"
-        fill="url(#face)"/>
-
-      <path
-        d="M135 112Q143 54 193 50Q250 53 258 112Q225 88 190 88Q157 90 135 112Z"
-        fill="#08090a"/>
-
       <rect
-        x="139"
-        y="110"
-        width="43"
-        height="14"
-        rx="7"
-        fill="#050505"/>
-
-      <rect
-        x="198"
-        y="110"
-        width="43"
-        height="14"
-        rx="7"
-        fill="#050505"/>
-
-      <path
-        d="M181 117H199"
-        stroke="#111"
-        stroke-width="6"/>
-
-      <path
-        d="M154 168L190 235L226 168"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="4"
-        opacity=".7"/>
-
-      <circle
-        cx="190"
-        cy="235"
-        r="7"
-        fill="${t.accent}"/>
-
-    `;
-  }
-
-
-  /* ANIME */
-
-  if(t.scene==="anime"){
-
-    scene = `
-
-      <defs>
-
-        <linearGradient
-          id="animeHair"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1">
-
-          <stop offset="0" stop-color="#ddd"/>
-          <stop offset=".5" stop-color="#756f68"/>
-          <stop offset="1" stop-color="#171719"/>
-
-        </linearGradient>
-
-      </defs>
-
-      <circle
-        cx="190"
-        cy="140"
-        r="96"
-        fill="#0e1118"
-        stroke="${t.accent}"
-        stroke-opacity=".3"
-        stroke-width="2"/>
-
-      <path
-        d="M103 170Q120 68 190 52Q265 67 278 166L246 145L222 102L197 144L171 101L138 145Z"
-        fill="url(#animeHair)"/>
-
-      <path
-        d="M126 143Q140 88 190 85Q243 89 255 143Q245 204 190 218Q135 204 126 143Z"
-        fill="#b88972"/>
-
-      <path
-        d="M142 139L177 130M203 130L239 139"
-        stroke="#111"
-        stroke-width="8"
-        stroke-linecap="round"/>
-
-      <circle cx="160" cy="142" r="7" fill="#111"/>
-      <circle cx="220" cy="142" r="7" fill="#111"/>
-
-      <path
-        d="M146 205Q190 175 234 205L274 320H106Z"
-        fill="#191a1d"/>
-
-      <path
-        d="M190 205V320"
-        stroke="${t.accent}"
-        stroke-width="3"
-        opacity=".65"/>
-
-    `;
-  }
-
-
-  /* LUXURY */
-
-  if(t.scene==="luxury"){
-
-    scene = `
-
-      <defs>
-
-        <linearGradient
-          id="luxSky"
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1">
-
-          <stop offset="0" stop-color="#3d403c"/>
-          <stop offset=".55" stop-color="#171714"/>
-          <stop offset="1" stop-color="#080808"/>
-
-        </linearGradient>
-
-        <linearGradient
-          id="luxCar"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1">
-
-          <stop offset="0" stop-color="#d8d4c9"/>
-          <stop offset=".3" stop-color="#77746e"/>
-          <stop offset=".65" stop-color="#242522"/>
-          <stop offset="1" stop-color="#070707"/>
-
-        </linearGradient>
-
-      </defs>
-
-      <rect
-        x="25"
-        y="40"
-        width="330"
-        height="210"
-        rx="20"
-        fill="url(#luxSky)"/>
-
-      <circle
-        cx="280"
-        cy="82"
-        r="35"
-        fill="${t.accent}"
-        opacity=".15"/>
-
-      <path
-        d="M48 210Q95 170 143 166Q190 120 245 135Q300 143 335 198L350 245H42Z"
-        fill="url(#luxCar)"/>
-
-      <path
-        d="M145 166L190 129Q231 126 260 145L286 174Z"
-        fill="#151616"/>
-
-      <path
-        d="M161 163L191 140H222L245 163Z"
-        fill="#303331"/>
-
-      <circle
-        cx="105"
-        cy="238"
-        r="28"
-        fill="#070707"
-        stroke="${t.accent}"
-        stroke-width="5"/>
-
-      <circle
-        cx="285"
-        cy="238"
-        r="28"
-        fill="#070707"
-        stroke="${t.accent}"
-        stroke-width="5"/>
-
-      <path
-        d="M70 196L120 180"
-        stroke="${t.accent}"
-        stroke-width="4"/>
-
-    `;
-  }
-
-
-  /* FACTS */
-
-  if(t.scene==="facts"){
-
-    scene = `
-
-      <defs>
-
-        <radialGradient id="planet">
-
-          <stop offset="0" stop-color="#d8d1bd"/>
-          <stop offset=".45" stop-color="#596866"/>
-          <stop offset="1" stop-color="#11191a"/>
-
-        </radialGradient>
-
-      </defs>
-
-      <circle
-        cx="190"
-        cy="160"
-        r="92"
-        fill="url(#planet)"
-        stroke="${t.accent}"
-        stroke-width="3"/>
-
-      <ellipse
-        cx="190"
-        cy="160"
-        rx="140"
-        ry="42"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="4"
-        transform="rotate(-18 190 160)"/>
-
-      <ellipse
-        cx="190"
-        cy="160"
-        rx="140"
-        ry="42"
-        fill="none"
-        stroke="#fff"
-        stroke-width="1"
-        opacity=".2"
-        transform="rotate(35 190 160)"/>
-
-      <circle
-        cx="150"
-        cy="126"
-        r="13"
-        fill="#fff"
-        opacity=".45"/>
-
-      <circle
-        cx="226"
-        cy="191"
-        r="9"
-        fill="#000"
-        opacity=".4"/>
-
-      <path
-        d="M65 285Q190 220 315 285"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="5"
-        opacity=".55"/>
-
-    `;
-  }
-
-
-  /* GLOW */
-
-  if(t.scene==="glow"){
-
-    scene = `
-
-      <defs>
-
-        <filter id="textGlow">
-          <feGaussianBlur stdDeviation="8"/>
-        </filter>
-
-      </defs>
-
-      <text
-        x="190"
-        y="145"
-        text-anchor="middle"
-        font-size="64"
-        font-weight="900"
-        font-family="Arial"
-        fill="${t.accent}"
-        opacity=".35"
-        filter="url(#textGlow)">
-        GLOW
-      </text>
-
-      <text
-        x="190"
-        y="145"
-        text-anchor="middle"
-        font-size="64"
-        font-weight="900"
-        font-family="Arial"
-        fill="#eee5d2">
-        GLOW
-      </text>
-
-      <text
-        x="190"
-        y="205"
-        text-anchor="middle"
-        font-size="39"
-        font-weight="700"
-        font-family="Arial"
-        fill="${t.accent}">
-        MINDSET
-      </text>
-
-      <circle
-        cx="70"
-        cy="80"
-        r="4"
-        fill="${t.accent}"/>
-
-      <circle
-        cx="300"
-        cy="105"
-        r="5"
-        fill="${t.accent}"/>
-
-      <circle
-        cx="275"
-        cy="260"
-        r="3"
-        fill="#fff"/>
-
-      <path
-        d="M60 250Q190 195 320 250"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="2"
-        opacity=".5"/>
-
-    `;
-  }
-
-
-  /* STICKMAN */
-
-  if(t.scene==="stickman"){
-
-    scene = `
-
-      <circle
-        cx="190"
-        cy="110"
-        r="38"
-        fill="#eee"
-        stroke="#111"
-        stroke-width="5"/>
-
-      <circle cx="177" cy="105" r="5" fill="#111"/>
-      <circle cx="203" cy="105" r="5" fill="#111"/>
-
-      <path
-        d="M170 126Q190 140 210 126"
-        fill="none"
-        stroke="#111"
-        stroke-width="5"
-        stroke-linecap="round"/>
-
-      <path
-        d="M190 148V245"
-        stroke="#eee"
-        stroke-width="12"
-        stroke-linecap="round"/>
-
-      <path
-        d="M190 165L125 215M190 165L255 215"
-        stroke="#eee"
-        stroke-width="11"
-        stroke-linecap="round"/>
-
-      <path
-        d="M190 245L135 310M190 245L250 305"
-        stroke="#eee"
-        stroke-width="11"
-        stroke-linecap="round"/>
-
-      <circle
-        cx="300"
-        cy="225"
-        r="25"
-        fill="${t.accent}"
-        opacity=".15"/>
-
-      <path
-        d="M286 225L296 235L315 211"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="5"/>
-
-    `;
-  }
-
-
-  /* MONEY */
-
-  if(t.scene==="money"){
-
-    scene = `
-
-      <g transform="rotate(-15 190 180)">
-
-        <rect
           x="72"
           y="105"
           width="235"
@@ -2787,43 +2991,40 @@ function productCover(product){
           stroke="${t.accent}"
           stroke-width="3"/>
 
-        <rect
-          x="86"
-          y="119"
-          width="207"
-          height="107"
-          rx="6"
-          fill="none"
-          stroke="#d8cda9"
-          stroke-width="2"
-          opacity=".5"/>
-
         <circle
           cx="190"
           cy="172"
           r="38"
           fill="none"
-          stroke="#d8cda9"
-          stroke-width="3"/>
+          stroke="#ddd1ad"
+          stroke-width="3"
+          opacity=".7"/>
 
         <text
           x="190"
-          y="190"
+          y="187"
           text-anchor="middle"
-          font-size="56"
+          fill="#eee4c8"
           font-family="Arial"
-          font-weight="900"
-          fill="#ddd1a9">$</text>
+          font-size="48"
+          font-weight="900">
+          $
+        </text>
+
+        <path
+          d="M95 125H135M245 125H285M95 220H135M245 220H285"
+          stroke="#d8c99e"
+          stroke-width="4"
+          opacity=".6"/>
 
       </g>
 
-      <rect
-        x="80"
-        y="225"
-        width="220"
-        height="8"
-        rx="4"
-        fill="${t.accent}"
+
+      <path
+        d="M80 300Q190 255 300 300"
+        fill="none"
+        stroke="${t.accent}"
+        stroke-width="3"
         opacity=".5"/>
 
     `;
@@ -2836,80 +3037,51 @@ function productCover(product){
 
     scene = `
 
-      <defs>
-
-        <linearGradient
-          id="robot"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1">
-
-          <stop offset="0" stop-color="#d4d1c5"/>
-          <stop offset=".45" stop-color="#696e6b"/>
-          <stop offset="1" stop-color="#151817"/>
-
-        </linearGradient>
-
-      </defs>
-
-      <rect
-        x="100"
-        y="65"
-        width="180"
-        height="190"
-        rx="45"
-        fill="url(#robot)"
+      <circle
+        cx="190"
+        cy="160"
+        r="94"
+        fill="#101817"
         stroke="${t.accent}"
-        stroke-width="3"/>
-
-      <circle
-        cx="150"
-        cy="145"
-        r="18"
-        fill="#080a0a"/>
-
-      <circle
-        cx="230"
-        cy="145"
-        r="18"
-        fill="#080a0a"/>
-
-      <circle
-        cx="150"
-        cy="145"
-        r="7"
-        fill="${t.accent}"/>
-
-      <circle
-        cx="230"
-        cy="145"
-        r="7"
-        fill="${t.accent}"/>
-
-      <path
-        d="M145 205Q190 230 235 205"
-        fill="none"
-        stroke="#111"
-        stroke-width="8"
-        stroke-linecap="round"/>
-
-      <path
-        d="M190 65V35"
-        stroke="${t.accent}"
-        stroke-width="4"/>
+        stroke-width="2"/>
 
       <circle
         cx="190"
-        cy="29"
-        r="8"
-        fill="${t.accent}"/>
-
-      <path
-        d="M60 290H320"
+        cy="160"
+        r="55"
+        fill="none"
         stroke="${t.accent}"
         stroke-width="3"
-        opacity=".5"/>
+        opacity=".75"/>
+
+      <circle
+        cx="190"
+        cy="160"
+        r="18"
+        fill="${t.accent}"
+        opacity=".9"/>
+
+      <path
+        d="M190 65V35M190 255V225M95 160H65M315 160H285"
+        stroke="${t.accent}"
+        stroke-width="4"/>
+
+      <path
+        d="M130 100L100 70M250 100L280 70M130 220L100 250M250 220L280 250"
+        stroke="${t.accent}"
+        stroke-width="3"
+        opacity=".7"/>
+
+      <circle cx="190" cy="35" r="6" fill="${t.accent}"/>
+      <circle cx="190" cy="285" r="6" fill="${t.accent}"/>
+      <circle cx="65" cy="160" r="6" fill="${t.accent}"/>
+      <circle cx="315" cy="160" r="6" fill="${t.accent}"/>
+
+      <path
+        d="M145 160H175M205 160H235M190 130V145M190 175V190"
+        stroke="#eee"
+        stroke-width="5"
+        stroke-linecap="round"/>
 
     `;
   }
@@ -2924,55 +3096,68 @@ function productCover(product){
       <defs>
 
         <linearGradient
-          id="supercar"
+          id="carBody"
           x1="0"
           y1="0"
           x2="1"
           y2="1">
 
-          <stop offset="0" stop-color="#d5d1c6"/>
-          <stop offset=".25" stop-color="#676965"/>
-          <stop offset=".65" stop-color="#202322"/>
-          <stop offset="1" stop-color="#050505"/>
+          <stop offset="0" stop-color="#e1dfd7"/>
+          <stop offset=".35" stop-color="#737575"/>
+          <stop offset=".7" stop-color="#252729"/>
+          <stop offset="1" stop-color="#08090a"/>
 
         </linearGradient>
 
       </defs>
 
       <path
-        d="M55 230Q85 188 145 178L190 137Q235 135 270 170Q312 180 338 230L330 260H55Z"
-        fill="url(#supercar)"
+        d="M48 230L91 184Q112 151 160 145H224Q265 151 293 184L331 218L350 253V285H42V253Z"
+        fill="url(#carBody)"
         stroke="${t.accent}"
         stroke-width="2"/>
 
       <path
-        d="M150 177L191 146L230 149L263 178Z"
-        fill="#17191a"/>
+        d="M108 181L143 153H222L270 185Z"
+        fill="#151819"/>
 
       <path
-        d="M162 174L194 151L221 152L244 174Z"
-        fill="#3b403f"/>
+        d="M126 178L148 160H183V178ZM192 160H220L247 181H192Z"
+        fill="#383c3d"/>
 
       <circle
-        cx="112"
-        cy="258"
-        r="27"
-        fill="#050505"
-        stroke="${t.accent}"
+        cx="103"
+        cy="279"
+        r="33"
+        fill="#070808"
+        stroke="#888"
         stroke-width="5"/>
 
       <circle
-        cx="282"
-        cy="258"
-        r="27"
-        fill="#050505"
-        stroke="${t.accent}"
+        cx="103"
+        cy="279"
+        r="12"
+        fill="${t.accent}"/>
+
+      <circle
+        cx="287"
+        cy="279"
+        r="33"
+        fill="#070808"
+        stroke="#888"
         stroke-width="5"/>
 
+      <circle
+        cx="287"
+        cy="279"
+        r="12"
+        fill="${t.accent}"/>
+
       <path
-        d="M75 218L135 202"
+        d="M56 232H100M280 232H325"
         stroke="${t.accent}"
-        stroke-width="4"/>
+        stroke-width="5"
+        stroke-linecap="round"/>
 
     `;
   }
@@ -2985,353 +3170,211 @@ function productCover(product){
     scene = `
 
       <rect
-        x="62"
-        y="82"
-        width="256"
+        x="75"
+        y="90"
+        width="230"
         height="145"
-        rx="18"
-        fill="#111617"
-        stroke="${t.accent}"
-        stroke-width="4"/>
-
-      <rect
-        x="82"
-        y="102"
-        width="216"
-        height="105"
-        rx="8"
-        fill="#070a0b"/>
-
-      <path
-        d="M105 185L135 140L160 166L190 125L218 165L247 137L280 185"
-        fill="none"
-        stroke="${t.accent}"
-        stroke-width="5"/>
-
-      <circle
-        cx="190"
-        cy="158"
-        r="11"
-        fill="${t.accent}"
-        opacity=".25"/>
-
-      <path
-        d="M115 260Q145 235 175 260H205Q235 235 265 260L280 292Q285 307 268 310L230 300L190 280L150 300L112 310Q95 307 100 292Z"
-        fill="#252727"
+        rx="28"
+        fill="#15191b"
         stroke="${t.accent}"
         stroke-width="3"/>
 
+      <path
+        d="M112 175L124 147H154L166 160H214L226 147H256L268 175Q273 201 248 205L218 177H162L132 205Q107 201 112 175Z"
+        fill="#252b2d"/>
+
+      <path
+        d="M139 162V184M128 173H150"
+        stroke="${t.accent}"
+        stroke-width="6"
+        stroke-linecap="round"/>
+
       <circle
-        cx="242"
-        cy="270"
+        cx="230"
+        cy="164"
         r="7"
         fill="${t.accent}"/>
 
       <circle
-        cx="258"
-        cy="284"
+        cx="248"
+        cy="179"
         r="7"
-        fill="${t.accent}"/>
+        fill="#ddd1b4"/>
+
+      <circle
+        cx="190"
+        cy="125"
+        r="30"
+        fill="#0b0e0f"
+        stroke="${t.accent}"
+        stroke-width="2"/>
+
+      <path
+        d="M175 125L187 137L207 113"
+        fill="none"
+        stroke="${t.accent}"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+      <path
+        d="M70 275H310"
+        stroke="${t.accent}"
+        stroke-width="3"
+        opacity=".35"/>
 
     `;
   }
 
 
-  /* COMPLETE SVG */
+  return `
 
-  const svg = `
+    <svg
+      viewBox="0 0 380 500"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="${product.name} product cover"
+    >
 
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="760"
-    height="1040"
-    viewBox="0 0 380 520">
+      <defs>
 
-    <defs>
+        <linearGradient
+          id="bg-${product.id}"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
 
-      <linearGradient
-        id="background"
-        x1="0"
-        y1="0"
-        x2="1"
-        y2="1">
+          <stop
+            offset="0%"
+            stop-color="${t.bg1}"
+          />
 
-        <stop offset="0"
-              stop-color="${t.bg1}"/>
+          <stop
+            offset="100%"
+            stop-color="${t.bg2}"
+          />
 
-        <stop offset=".55"
-              stop-color="${t.bg2}"/>
-
-        <stop offset="1"
-              stop-color="#050505"/>
-
-      </linearGradient>
-
-      <linearGradient
-        id="goldLine"
-        x1="0"
-        y1="0"
-        x2="1"
-        y2="1">
-
-        <stop offset="0"
-              stop-color="#fff4d6"/>
-
-        <stop offset=".45"
-              stop-color="${t.accent}"/>
-
-        <stop offset="1"
-              stop-color="#71552b"/>
-
-      </linearGradient>
-
-    </defs>
+        </linearGradient>
 
 
-    <!-- BACKGROUND -->
+        <radialGradient
+          id="glow-${product.id}"
+          cx="50%"
+          cy="35%"
+          r="70%"
+        >
 
-    <rect
-      width="380"
-      height="520"
-      rx="24"
-      fill="url(#background)"/>
+          <stop
+            offset="0%"
+            stop-color="${t.accent}"
+            stop-opacity=".20"
+          />
 
+          <stop
+            offset="100%"
+            stop-color="${t.accent}"
+            stop-opacity="0"
+          />
 
-    <!-- SUBTLE LIGHT -->
+        </radialGradient>
 
-    <circle
-      cx="65"
-      cy="80"
-      r="75"
-      fill="${t.accent}"
-      opacity=".06"/>
-
-    <circle
-      cx="315"
-      cy="420"
-      r="85"
-      fill="${t.accent}"
-      opacity=".05"/>
+      </defs>
 
 
-    <!-- FRAME -->
-
-    <rect
-      x="18"
-      y="18"
-      width="344"
-      height="484"
-      rx="20"
-      fill="none"
-      stroke="url(#goldLine)"
-      stroke-width="2"
-      opacity=".7"/>
+      <rect
+        width="380"
+        height="500"
+        rx="25"
+        fill="url(#bg-${product.id})"
+      />
 
 
-    <!-- COLLECTION LABEL -->
-
-    <rect
-      x="38"
-      y="38"
-      width="150"
-      height="27"
-      rx="13.5"
-      fill="#050505"
-      stroke="${t.accent}"
-      stroke-width="1.5"/>
-
-    <text
-      x="113"
-      y="56"
-      text-anchor="middle"
-      font-family="Arial"
-      font-size="10"
-      font-weight="700"
-      letter-spacing="1.8"
-      fill="${t.accent}">
-
-      ${t.tag}
-
-    </text>
+      <rect
+        width="380"
+        height="500"
+        rx="25"
+        fill="url(#glow-${product.id})"
+      />
 
 
-    <!-- ARTWORK PANEL -->
-
-    <rect
-      x="38"
-      y="82"
-      width="304"
-      height="255"
-      rx="18"
-      fill="#050606"
-      opacity=".75"
-      stroke="#ffffff"
-      stroke-opacity=".08"/>
-
-    ${scene}
+      <path
+        d="M28 28H352V472H28Z"
+        fill="none"
+        stroke="${t.accent}"
+        stroke-opacity=".14"
+      />
 
 
-    <!-- DIVIDER -->
-
-    <line
-      x1="38"
-      y1="365"
-      x2="342"
-      y2="365"
-      stroke="${t.accent}"
-      stroke-width="1"
-      opacity=".45"/>
+      ${scene}
 
 
-    <!-- TITLE -->
-
-    <text
-      x="38"
-      y="405"
-      font-family="Arial"
-      font-size="${t.title.length > 8 ? 26 : 34}"
-      font-weight="900"
-      letter-spacing="1"
-      fill="#f3efe5">
-
-      ${t.title}
-
-    </text>
-
-    <text
-      x="38"
-      y="437"
-      font-family="Arial"
-      font-size="20"
-      font-weight="700"
-      letter-spacing="3"
-      fill="${t.accent}">
-
-      ${t.subtitle}
-
-    </text>
+      <line
+        x1="45"
+        y1="350"
+        x2="335"
+        y2="350"
+        stroke="${t.accent}"
+        stroke-opacity=".35"
+      />
 
 
-    <!-- FOOTER -->
+      <text
+        x="190"
+        y="395"
+        text-anchor="middle"
+        fill="#f1eee7"
+        font-family="Arial,sans-serif"
+        font-size="28"
+        font-weight="900"
+        letter-spacing="2"
+      >
+        ${t.title}
+      </text>
 
-    <text
-      x="38"
-      y="473"
-      font-family="Arial"
-      font-size="11"
-      letter-spacing="1.4"
-      fill="#aaa59a">
 
-      REEL BUNDLES • DIGITAL COLLECTION
+      <text
+        x="190"
+        y="425"
+        text-anchor="middle"
+        fill="${t.accent}"
+        font-family="Arial,sans-serif"
+        font-size="17"
+        font-weight="700"
+        letter-spacing="2"
+      >
+        ${t.subtitle}
+      </text>
 
-    </text>
 
+      <text
+        x="190"
+        y="452"
+        text-anchor="middle"
+        fill="#99968e"
+        font-family="Arial,sans-serif"
+        font-size="8"
+        font-weight="700"
+        letter-spacing="2"
+      >
+        ${t.tag}
+      </text>
 
-    <circle
-      cx="327"
-      cy="466"
-      r="10"
-      fill="none"
-      stroke="${t.accent}"
-      stroke-width="2"/>
-
-    <circle
-      cx="327"
-      cy="466"
-      r="3"
-      fill="${t.accent}"/>
-
-  </svg>
+    </svg>
 
   `;
-
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(svg);
 }
 
 
 /* =========================================================
-   CART
+   STATE
 ========================================================= */
 
-let cartItems = [];
-
-try{
-
-  cartItems =
-    JSON.parse(
-      localStorage.getItem("reelBundlesCart") || "[]"
-    );
-
-  if(!Array.isArray(cartItems)){
-    cartItems=[];
-  }
-
-}catch{
-
-  cartItems=[];
-
-}
-
-
-function saveCart(){
-
-  localStorage.setItem(
-    "reelBundlesCart",
-    JSON.stringify(cartItems)
+let cart =
+  JSON.parse(
+    localStorage.getItem("reelBundlesCart") || "[]"
   );
-
-  updateCart();
-
-}
-
-
-function updateCart(){
-
-  const count =
-    document.getElementById("cartCount");
-
-  if(count){
-    count.textContent =
-      cartItems.length;
-  }
-
-}
-
-
-function addToCart(id){
-
-  if(!PRODUCTS.some(p => p.id === id)){
-    return;
-  }
-
-  if(!cartItems.includes(id)){
-
-    cartItems.push(id);
-
-    saveCart();
-
-    toast("Added to your cart.");
-
-  }else{
-
-    toast("This bundle is already in your cart.");
-
-  }
-
-}
-
-
-function removeFromCart(id){
-
-  cartItems =
-    cartItems.filter(item => item !== id);
-
-  saveCart();
-
-  renderCart();
-
-}
 
 
 /* =========================================================
@@ -3347,9 +3390,49 @@ function getProduct(id){
 }
 
 
-function go(path){
+function saveCart(){
 
-  window.location.hash = path;
+  localStorage.setItem(
+    "reelBundlesCart",
+    JSON.stringify(cart)
+  );
+
+  updateCartCount();
+
+}
+
+
+function updateCartCount(){
+
+  const count =
+    document.getElementById("cartCount");
+
+  if(!count){
+    return;
+  }
+
+  count.textContent =
+    cart.length;
+
+}
+
+
+function money(value){
+
+  return "₹" +
+    Number(value).toLocaleString("en-IN");
+
+}
+
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -3363,29 +3446,253 @@ function toast(message){
     return;
   }
 
-  element.textContent = message;
+  element.textContent =
+    message;
 
   element.classList.add("show");
 
-  clearTimeout(window.toastTimer);
+  clearTimeout(
+    toast.timer
+  );
 
-  window.toastTimer =
+  toast.timer =
     setTimeout(
-      () => element.classList.remove("show"),
+      () => {
+        element.classList.remove("show");
+      },
       2800
     );
 
 }
 
 
-function escapeHTML(value){
+/* =========================================================
+   ROUTER
+========================================================= */
 
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+function go(path){
+
+  if(
+    window.location.hash === path
+  ){
+
+    render();
+
+    return;
+
+  }
+
+  window.location.hash =
+    path;
+
+}
+
+
+function getRoute(){
+
+  const raw =
+    window.location.hash
+      .replace(/^#/,"")
+      .replace(/^\/+/,"");
+
+  if(!raw){
+    return {
+      page:"home"
+    };
+  }
+
+
+  const parts =
+    raw.split("/").filter(Boolean);
+
+
+  if(parts[0] === "products"){
+
+    if(parts[1]){
+
+      return {
+        page:"product",
+        id:parts[1]
+      };
+
+    }
+
+    return {
+      page:"products"
+    };
+
+  }
+
+
+  if(parts[0] === "why-us"){
+
+    return {
+      page:"why"
+    };
+
+  }
+
+
+  if(parts[0] === "faq"){
+
+    return {
+      page:"faq"
+    };
+
+  }
+
+
+  if(parts[0] === "contact"){
+
+    return {
+      page:"contact"
+    };
+
+  }
+
+
+  if(parts[0] === "cart"){
+
+    return {
+      page:"cart"
+    };
+
+  }
+
+
+  if(
+    parts[0] === "terms" ||
+    parts[0] === "privacy" ||
+    parts[0] === "refund" ||
+    parts[0] === "dmca"
+  ){
+
+    return {
+      page:parts[0]
+    };
+
+  }
+
+
+  return {
+    page:"home"
+  };
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(id){
+
+  const product =
+    getProduct(id);
+
+
+  if(
+    !product ||
+    !product.paymentLink
+  ){
+
+    toast(
+      "Payment link is unavailable for this collection."
+    );
+
+    return;
+
+  }
+
+
+  window.location.href =
+    product.paymentLink;
+
+}
+
+
+function payForProduct(id){
+
+  buyNow(id);
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id){
+
+  const product =
+    getProduct(id);
+
+
+  if(!product){
+    return;
+  }
+
+
+  if(
+    cart.includes(id)
+  ){
+
+    toast(
+      "This collection is already in your cart."
+    );
+
+    return;
+
+  }
+
+
+  cart.push(id);
+
+  saveCart();
+
+  toast(
+    product.name +
+    " added to cart."
+  );
+
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(
+      item => item !== id
+    );
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+function clearCart(){
+
+  cart = [];
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+function openCart(){
+
+  go("#/cart");
+
+}
+
+
+function closeCart(){
+
+  go("#/products");
 
 }
 
@@ -3400,29 +3707,50 @@ function productCard(product){
 
     <article class="product-card">
 
-      <div class="product-image-wrap">
+      <a
+        href="#/products/${product.id}"
+        aria-label="View ${escapeHtml(product.name)}"
+      >
 
-        <img
-          class="product-image"
-          src="${productCover(product)}"
-          alt="${escapeHTML(product.name)} premium content bundle cover"
-          loading="lazy">
+        <div class="product-image-wrap">
 
-        <span class="product-number">
-          ${product.number}
-        </span>
+          <div class="product-image">
 
-      </div>
+            ${productCover(product)}
+
+          </div>
+
+
+          <div class="product-number">
+
+            ${product.number}
+
+          </div>
+
+        </div>
+
+      </a>
 
 
       <div class="product-card-content">
 
-        <div class="product-card-title">
-          ${escapeHTML(product.name)}
-        </div>
+        <a
+          href="#/products/${product.id}"
+        >
+
+          <h3 class="product-card-title">
+
+            ${escapeHtml(product.name)}
+
+          </h3>
+
+        </a>
+
 
         <p class="product-card-description">
-          ${escapeHTML(product.short)}
+
+          ${escapeHtml(product.short)}
+
         </p>
 
 
@@ -3432,12 +3760,13 @@ function productCard(product){
             ₹29
           </span>
 
+
           <button
             class="product-button"
-            onclick="openProduct('${product.id}')">
-
-            View Details
-
+            type="button"
+            onclick="event.preventDefault(); payForProduct('${product.id}')"
+          >
+            Pay ₹29
           </button>
 
         </div>
@@ -3452,356 +3781,31 @@ function productCard(product){
 
 
 /* =========================================================
-   HOME
-========================================================= */
-
-function renderHome(){
-
-  const heroProduct =
-    PRODUCTS[0];
-
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
-
-      <section class="hero">
-
-        <div>
-
-          <div class="eyebrow">
-
-            <span class="eyebrow-dot"></span>
-
-            Premium Digital Collections
-
-          </div>
-
-
-          <h1>
-
-            Premium Reel
-            <span>Bundles.</span>
-
-          </h1>
-
-
-          <p class="hero-copy">
-
-            Ready-to-use content collections for creators,
-            theme pages and short-form content projects.
-            Choose a collection and get your access links
-            delivered by email after successful payment.
-
-          </p>
-
-
-          <div class="hero-actions">
-
-            <button
-              class="primary-btn"
-              onclick="go('#/products')">
-
-              Explore All Bundles
-
-            </button>
-
-
-            <button
-              class="secondary-btn"
-              onclick="go('#/faq')">
-
-              How It Works
-
-            </button>
-
-          </div>
-
-
-          <p class="hero-note">
-
-            Every collection is ₹29 • Digital Delivery by Email
-
-          </p>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-          <div class="hero-orbit"></div>
-
-          <div class="hero-poster">
-
-            <img
-              src="${productCover(heroProduct)}"
-              alt="4K Hollywood Reel Bundles premium cover">
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section class="trust-strip">
-
-        <div class="trust-item">
-
-          <div class="trust-number">
-            10
-          </div>
-
-          <div class="trust-label">
-            Content Collections
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-number">
-            ₹29
-          </div>
-
-          <div class="trust-label">
-            Per Collection
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-number">
-            Email
-          </div>
-
-          <div class="trust-label">
-            Digital Delivery
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-number">
-            Secure
-          </div>
-
-          <div class="trust-label">
-            Razorpay Checkout
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section
-        class="section"
-        id="products">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="section-kicker">
-              The Collection
-            </div>
-
-            <h2 class="section-title">
-              Explore the Bundles
-            </h2>
-
-            <p class="section-description">
-              Choose the collection that matches the
-              style of content you want to create.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="products-grid">
-
-          ${PRODUCTS
-            .map(productCard)
-            .join("")}
-
-        </div>
-
-      </section>
-
-
-      <section
-        class="section"
-        id="why-us">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="section-kicker">
-              Why Reel Bundles
-            </div>
-
-            <h2 class="section-title">
-              Built for Faster Content Creation
-            </h2>
-
-            <p class="section-description">
-              The goal is simple: give creators organized
-              content collections so they can spend more
-              time creating and less time searching.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="features-grid">
-
-
-          <div class="feature">
-
-            <div class="feature-icon">
-              01
-            </div>
-
-            <h3>
-              Choose Your Niche
-            </h3>
-
-            <p>
-              Pick from entertainment, anime, luxury,
-              gaming, AI, automotive and other collections.
-            </p>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-icon">
-              02
-            </div>
-
-            <h3>
-              Simple Checkout
-            </h3>
-
-            <p>
-              Enter your email and complete payment
-              through Razorpay's secure checkout.
-            </p>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-icon">
-              03
-            </div>
-
-            <h3>
-              Email Delivery
-            </h3>
-
-            <p>
-              After successful payment, access information
-              is sent to the email address entered at checkout.
-            </p>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-icon">
-              04
-            </div>
-
-            <h3>
-              Multiple Collections
-            </h3>
-
-            <p>
-              Add multiple ₹29 collections to one cart
-              when you want more than one content category.
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </section>
-
-
-      <section class="cta">
-
-        <div>
-
-          <h2>
-            Ready to build your content library?
-          </h2>
-
-          <p>
-            Browse the collections and choose what fits
-            your content project.
-          </p>
-
-        </div>
-
-
-        <button
-          class="primary-btn"
-          onclick="go('#/products')">
-
-          View All Bundles
-
-        </button>
-
-      </section>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
    PRODUCTS PAGE
 ========================================================= */
 
-function renderProducts(){
+function renderProductsPage(){
 
-  document.getElementById("app").innerHTML = `
+  return `
 
-    <div class="page">
+    <section class="section page-section">
 
       <div class="section-head">
 
         <div>
 
           <div class="section-kicker">
-            All Collections
+            ALL COLLECTIONS
           </div>
 
           <h1 class="section-title">
-            Choose Your Bundle
+            Choose your content.
           </h1>
 
           <p class="section-description">
-            Every collection is ₹29.
-            Add one or multiple collections to your cart.
+            Ten digital collections. Each collection is ₹29.
+            Select a collection to see its details or go
+            directly to its secure Razorpay payment link.
           </p>
 
         </div>
@@ -3817,7 +3821,7 @@ function renderProducts(){
 
       </div>
 
-    </div>
+    </section>
 
   `;
 
@@ -3825,38 +3829,14 @@ function renderProducts(){
 
 
 /* =========================================================
-   PRODUCT DETAIL
+   PRODUCT DETAIL PAGE
 ========================================================= */
 
-function openProduct(id){
+function renderProductPage(product){
 
-  go("#/product/" + id);
+  return `
 
-}
-
-
-function renderProduct(id){
-
-  const product =
-    getProduct(id);
-
-
-  if(!product){
-
-    renderNotFound();
-
-    return;
-
-  }
-
-
-  const alreadyInCart =
-    cartItems.includes(product.id);
-
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
+    <section class="section page-section">
 
       <div class="breadcrumb">
 
@@ -3867,35 +3847,86 @@ function renderProduct(id){
         &nbsp; / &nbsp;
 
         <span>
-          ${escapeHTML(product.name)}
+          ${escapeHtml(product.name)}
         </span>
 
       </div>
 
 
-      <section class="detail-layout">
+      <div class="detail-layout">
 
 
-        <div>
+        <div class="detail-art">
 
-          <div class="detail-art">
-
-            <img
-              src="${productCover(product)}"
-              alt="${escapeHTML(product.name)} premium product cover">
-
-          </div>
+          ${productCover(product)}
 
         </div>
 
 
-        <div>
+        <div class="detail-content">
+
+          <div class="section-kicker">
+            COLLECTION ${product.number}
+          </div>
+
 
           <h1 class="detail-title">
 
-            ${escapeHTML(product.name)}
+            ${escapeHtml(product.name)}
 
           </h1>
+
+
+          <p class="detail-description">
+
+            ${escapeHtml(product.description)}
+
+          </p>
+
+
+          <div class="detail-meta">
+
+
+            <div class="meta-box">
+
+              <div class="meta-label">
+                Collection
+              </div>
+
+              <div class="meta-value">
+                ${escapeHtml(product.subtitle)}
+              </div>
+
+            </div>
+
+
+            <div class="meta-box">
+
+              <div class="meta-label">
+                Content
+              </div>
+
+              <div class="meta-value">
+                ${escapeHtml(product.count)}
+              </div>
+
+            </div>
+
+
+            <div class="meta-box">
+
+              <div class="meta-label">
+                Delivery
+              </div>
+
+              <div class="meta-value">
+                Email
+              </div>
+
+            </div>
+
+
+          </div>
 
 
           <div class="detail-price">
@@ -3903,126 +3934,54 @@ function renderProduct(id){
           </div>
 
 
-          <p class="detail-description">
-
-            ${escapeHTML(product.description)}
-
-          </p>
-
-
-          <div class="detail-points">
-
-            <div class="detail-point">
-              Digital collection
-            </div>
-
-            <div class="detail-point">
-              Delivery by email
-            </div>
-
-            <div class="detail-point">
-              Short-form content use
-            </div>
-
-            <div class="detail-point">
-              ₹29 per collection
-            </div>
-
-          </div>
-
-
           <div class="detail-actions">
 
             <button
-              class="primary-btn"
-              onclick="buyNow('${product.id}')">
-
-              Buy Now — ₹29
-
+              class="detail-buy"
+              type="button"
+              onclick="payForProduct('${product.id}')"
+            >
+              Pay ₹29
             </button>
 
 
             <button
-              class="secondary-btn"
-              onclick="addToCart('${product.id}')">
-
-              ${alreadyInCart
-                ? "Already in Cart"
-                : "Add to Cart"}
-
+              class="detail-cart"
+              type="button"
+              onclick="addToCart('${product.id}')"
+            >
+              Add to Cart
             </button>
 
           </div>
 
 
-          <div
-            class="section"
-            style="margin-top:50px">
+          <ul class="detail-list">
 
-            <div class="section-kicker">
-              Delivery
-            </div>
+            <li>
+              Secure payment through Razorpay
+            </li>
 
-            <h2
-              style="
-                margin-top:8px;
-                font-size:22px;
-              ">
+            <li>
+              Digital delivery by email after successful payment
+            </li>
 
-              Digital Delivery by Email
+            <li>
+              Google Drive access link for the purchased collection
+            </li>
 
-            </h2>
+            <li>
+              Each collection is purchased separately
+            </li>
 
-            <p
-              style="
-                margin-top:9px;
-                color:var(--muted);
-                font-size:13px;
-                line-height:1.7;
-              ">
-
-              Enter a valid email address during checkout.
-              Once payment is successfully confirmed,
-              your access information will be sent to that
-              email address.
-
-            </p>
-
-          </div>
-
-
-          <div
-            class="section"
-            style="margin-top:35px">
-
-            <div class="section-kicker">
-              Important
-            </div>
-
-            <p
-              style="
-                margin-top:9px;
-                color:var(--muted);
-                font-size:11px;
-                line-height:1.7;
-              ">
-
-              Please make sure you have the necessary rights
-              and permissions for any third-party material
-              you use or redistribute. Purchasing a collection
-              does not transfer third-party intellectual
-              property rights.
-
-            </p>
-
-          </div>
-
+          </ul>
 
         </div>
 
-      </section>
 
-    </div>
+      </div>
+
+    </section>
 
   `;
 
@@ -4030,16 +3989,877 @@ function renderProduct(id){
 
 
 /* =========================================================
-   BUY NOW
+   HOME PAGE
 ========================================================= */
 
-function buyNow(id){
+function renderHomePage(){
 
-  cartItems = [id];
+  return `
 
-  saveCart();
+    <section class="hero page-section">
 
-  go("#/cart");
+      <div class="hero-copy-wrap">
+
+        <div class="eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          10 COLLECTIONS · ₹29 EACH
+
+        </div>
+
+
+        <h1>
+
+          More content.
+
+          <span>
+            More possibilities.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-copy">
+
+          Explore curated digital content collections
+          designed for creators, theme pages and
+          short-form content projects. Choose what you
+          need and purchase individual collections for
+          ₹29.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#/products"
+            class="primary-btn"
+          >
+            Browse Collections
+          </a>
+
+
+          <a
+            href="#/why-us"
+            class="secondary-btn"
+          >
+            Why Reel Bundles?
+          </a>
+
+        </div>
+
+
+        <p class="hero-note">
+
+          Secure Razorpay payment · Digital delivery by email
+
+        </p>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="hero-orbit"></div>
+
+
+        <div class="hero-poster">
+
+          ${productCover(PRODUCTS[2])}
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="trust-strip">
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          10
+        </div>
+
+        <div class="trust-label">
+          Digital Collections
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          ₹29
+        </div>
+
+        <div class="trust-label">
+          Each Collection
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          Email
+        </div>
+
+        <div class="trust-label">
+          Digital Delivery
+        </div>
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <div class="trust-number">
+          Secure
+        </div>
+
+        <div class="trust-label">
+          Razorpay Payments
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="section"
+      id="home-collections"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            FEATURED COLLECTIONS
+          </div>
+
+          <h2 class="section-title">
+            Explore the library.
+          </h2>
+
+          <p class="section-description">
+            Browse all ten collections and choose the
+            categories that fit your content projects.
+          </p>
+
+        </div>
+
+
+        <a
+          href="#/products"
+          class="secondary-btn"
+        >
+          View All
+        </a>
+
+      </div>
+
+
+      <div class="products-grid">
+
+        ${PRODUCTS
+          .map(productCard)
+          .join("")}
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="section"
+      id="home-how"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            SIMPLE PROCESS
+          </div>
+
+          <h2 class="section-title">
+            Pick. Pay. Receive.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="features-grid">
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            01
+          </div>
+
+          <h3>
+            Pick a collection
+          </h3>
+
+          <p>
+            Choose one of the ten digital collections
+            according to the type of content you need.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            02
+          </div>
+
+          <h3>
+            Complete payment
+          </h3>
+
+          <p>
+            Use the dedicated Razorpay Payment Link
+            attached to your selected collection.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            03
+          </div>
+
+          <h3>
+            Receive your link
+          </h3>
+
+          <p>
+            After successful payment, the purchased
+            Google Drive link is delivered to your email.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            ₹29
+          </div>
+
+          <h3>
+            No subscription
+          </h3>
+
+          <p>
+            Each collection is a separate one-time digital
+            purchase priced at ₹29.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <section class="cta">
+
+      <div>
+
+        <h2>
+          Ready to find your collection?
+        </h2>
+
+        <p>
+          Browse the complete library and choose what
+          fits your project.
+        </p>
+
+      </div>
+
+
+      <a
+        href="#/products"
+        class="primary-btn"
+      >
+        Explore All
+      </a>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   WHY US PAGE
+========================================================= */
+
+function renderWhyPage(){
+
+  return `
+
+    <section class="section page-section">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            ABOUT THE STORE
+          </div>
+
+          <h1 class="section-title">
+            Built around simple digital access.
+          </h1>
+
+          <p class="section-description">
+            Reel Bundles is a digital content store offering
+            individual short-form content collections at a
+            simple ₹29 price point.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="features-grid">
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            01
+          </div>
+
+          <h3>
+            Individual purchases
+          </h3>
+
+          <p>
+            You don't have to purchase every category.
+            Select only the collection you want.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            02
+          </div>
+
+          <h3>
+            Clear pricing
+          </h3>
+
+          <p>
+            All ten collections are currently priced at
+            ₹29 each.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            03
+          </div>
+
+          <h3>
+            Secure checkout
+          </h3>
+
+          <p>
+            Payments are handled through Razorpay's
+            payment infrastructure.
+          </p>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            04
+          </div>
+
+          <h3>
+            Digital delivery
+          </h3>
+
+          <p>
+            Purchased collection links are delivered
+            digitally by email after successful payment.
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+      <section class="cta">
+
+        <div>
+
+          <h2>
+            Browse the collections.
+          </h2>
+
+          <p>
+            Find the content category that fits your project.
+          </p>
+
+        </div>
+
+
+        <a
+          href="#/products"
+          class="primary-btn"
+        >
+          View Collections
+        </a>
+
+      </section>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   FAQ PAGE
+========================================================= */
+
+function renderFaqPage(){
+
+  return `
+
+    <section class="section page-section">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            QUESTIONS
+          </div>
+
+          <h1 class="section-title">
+            Frequently asked questions.
+          </h1>
+
+          <p class="section-description">
+            Everything you should know before purchasing
+            a digital collection.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="faq-grid">
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              What do I receive after payment?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            After successful payment, the delivery system
+            sends the Google Drive access link for the
+            collection you purchased to the email address
+            entered during checkout.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Are all collections ₹29?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Yes. The ten collections currently listed on
+            Reel Bundles are priced at ₹29 each.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Can I purchase more than one?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Yes. You can purchase multiple collections.
+            Each collection has its own payment link and
+            is delivered separately.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              How does the cart work?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            The cart helps you keep track of collections
+            you want to purchase. Because each collection
+            uses its own fixed Razorpay Payment Link,
+            payment is completed separately for each item.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Do you offer refunds?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Digital purchases are generally non-refundable
+            once access has been delivered, subject to
+            applicable consumer rights and law. Please review
+            the Refund Policy before purchasing.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              What if my delivery email doesn't arrive?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Check your spam, promotions and other filtered
+            folders first. If you still cannot find the
+            delivery email after a successful payment,
+            contact businesscore28@gmail.com with your
+            payment information.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              Can I share the purchased files?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Your purchase gives you access to the purchased
+            digital collection subject to the applicable
+            terms. It does not automatically transfer
+            ownership or rights in third-party material.
+            You are responsible for complying with
+            applicable laws and platform rules.
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button
+            class="faq-question"
+            type="button"
+            onclick="toggleFaq(this)"
+          >
+
+            <span>
+              How can I contact you?
+            </span>
+
+            <span class="faq-plus">
+              +
+            </span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            Email businesscore28@gmail.com or contact
+            @reelbundles.official on Instagram.
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+
+function renderContactPage(){
+
+  return `
+
+    <section class="section page-section">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            CONTACT
+          </div>
+
+          <h1 class="section-title">
+            Need help?
+          </h1>
+
+          <p class="section-description">
+            If you have a payment or delivery issue,
+            contact us with the relevant details so we
+            can identify your purchase.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="features-grid">
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            @
+
+          </div>
+
+          <h3>
+            Email
+          </h3>
+
+          <p>
+            businesscore28@gmail.com
+          </p>
+
+          <br>
+
+          <a
+            href="mailto:businesscore28@gmail.com"
+            class="secondary-btn"
+          >
+            Send Email
+          </a>
+
+        </article>
+
+
+        <article class="feature">
+
+          <div class="feature-icon">
+
+            IG
+
+          </div>
+
+          <h3>
+            Instagram
+          </h3>
+
+          <p>
+            Follow or message
+            @reelbundles.official.
+          </p>
+
+          <br>
+
+          <a
+            href="https://www.instagram.com/reelbundles.official/"
+            target="_blank"
+            rel="noopener"
+            class="secondary-btn"
+          >
+            Open Instagram
+          </a>
+
+        </article>
+
+
+      </div>
+
+
+      <section class="cta">
+
+        <div>
+
+          <h2>
+            Payment or delivery issue?
+          </h2>
+
+          <p>
+            Include your payment details and purchased
+            collection when contacting us.
+          </p>
+
+        </div>
+
+
+        <a
+          href="mailto:businesscore28@gmail.com"
+          class="primary-btn"
+        >
+          Contact Support
+        </a>
+
+      </section>
+
+    </section>
+
+  `;
 
 }
 
@@ -4048,217 +4868,180 @@ function buyNow(id){
    CART PAGE
 ========================================================= */
 
-function renderCart(){
+function renderCartPage(){
 
-  const app =
-    document.getElementById("app");
-
-
-  if(cartItems.length === 0){
-
-    app.innerHTML = `
-
-      <div class="page">
-
-        <div class="empty">
-
-          <h2>
-            Your cart is empty.
-          </h2>
-
-          <p>
-            Choose a collection to get started.
-          </p>
-
-          <button
-            class="primary-btn"
-            style="margin-top:20px"
-            onclick="go('#/products')">
-
-            Browse Bundles
-
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const products =
-    cartItems
+  const items =
+    cart
       .map(getProduct)
       .filter(Boolean);
 
 
-  const total =
-    products.length * 29;
+  if(!items.length){
+
+    return `
+
+      <section class="section page-section">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              CART
+            </div>
+
+            <h1 class="section-title">
+              Your cart is empty.
+            </h1>
+
+            <p class="section-description">
+              Add a collection to keep it here while you
+              browse the store.
+            </p>
+
+          </div>
+
+        </div>
 
 
-  app.innerHTML = `
+        <a
+          href="#/products"
+          class="primary-btn"
+        >
+          Browse Collections
+        </a>
 
-    <div class="page">
+      </section>
+
+    `;
+
+  }
+
+
+  return `
+
+    <section class="section page-section">
 
       <div class="section-head">
 
         <div>
 
           <div class="section-kicker">
-            Your Selection
+            CART
           </div>
 
           <h1 class="section-title">
-            Shopping Cart
+            Your selected collections.
           </h1>
 
           <p class="section-description">
-            ${products.length}
-            ${products.length===1 ? "collection" : "collections"}
-            selected.
+            Each collection is purchased separately through
+            its own Razorpay Payment Link.
           </p>
 
         </div>
 
+
+        <button
+          class="secondary-btn"
+          type="button"
+          onclick="clearCart()"
+        >
+          Clear Cart
+        </button>
+
       </div>
 
 
-      <div class="cart-layout">
+      <div class="cart-page-list">
 
+        ${items.map(product => `
 
-        <div class="cart-list">
+          <article class="cart-page-item">
 
-          ${products.map(product => `
+            <div class="cart-page-image">
 
-            <div class="cart-item">
-
-              <div class="cart-thumb">
-
-                <img
-                  src="${productCover(product)}"
-                  alt="${escapeHTML(product.name)}">
-
-              </div>
-
-
-              <div class="cart-item-info">
-
-                <div class="cart-item-name">
-                  ${escapeHTML(product.name)}
-                </div>
-
-                <div class="cart-item-price">
-                  ₹29
-                </div>
-
-              </div>
-
-
-              <button
-                class="remove-btn"
-                onclick="removeFromCart('${product.id}')">
-
-                Remove
-
-              </button>
+              ${productCover(product)}
 
             </div>
 
-          `).join("")}
+
+            <div class="cart-page-info">
+
+              <div class="section-kicker">
+                COLLECTION ${product.number}
+              </div>
+
+              <h2>
+                ${escapeHtml(product.name)}
+              </h2>
+
+              <p>
+                ${escapeHtml(product.short)}
+              </p>
+
+
+              <div class="cart-page-actions">
+
+                <strong>
+                  ₹29
+                </strong>
+
+
+                <button
+                  class="primary-btn"
+                  type="button"
+                  onclick="payForProduct('${product.id}')"
+                >
+                  Pay ₹29
+                </button>
+
+
+                <button
+                  class="secondary-btn"
+                  type="button"
+                  onclick="removeFromCart('${product.id}')"
+                >
+                  Remove
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `).join("")}
+
+      </div>
+
+
+      <div class="cta">
+
+        <div>
+
+          <h2>
+            ${items.length} collection${items.length === 1 ? "" : "s"} selected
+          </h2>
+
+          <p>
+            Estimated total: ₹${items.length * 29}.
+            Payments are completed separately.
+          </p>
 
         </div>
 
 
-        <aside class="checkout-box">
-
-          <h2>
-            Checkout
-          </h2>
-
-
-          <div class="checkout-row">
-
-            <span>
-              Collections
-            </span>
-
-            <span>
-              ${products.length}
-            </span>
-
-          </div>
-
-
-          <div class="checkout-row">
-
-            <span>
-              Price per collection
-            </span>
-
-            <span>
-              ₹29
-            </span>
-
-          </div>
-
-
-          <div class="checkout-total">
-
-            <span>
-              Total
-            </span>
-
-            <span>
-              ₹${total}
-            </span>
-
-          </div>
-
-
-          <label
-            class="email-label"
-            for="customerEmail">
-
-            Delivery Email
-
-          </label>
-
-
-          <input
-            id="customerEmail"
-            class="email-input"
-            type="email"
-            autocomplete="email"
-            placeholder="you@example.com"
-            aria-label="Email address for digital delivery">
-
-
-          <button
-            class="checkout-button"
-            onclick="checkout()">
-
-            Continue to Secure Payment
-
-          </button>
-
-
-          <p class="checkout-note">
-
-            Your access information will be delivered
-            to the email address entered above after
-            successful payment confirmation.
-
-          </p>
-
-        </aside>
+        <a
+          href="#/products"
+          class="primary-btn"
+        >
+          Continue Browsing
+        </a>
 
       </div>
 
-    </div>
+    </section>
 
   `;
 
@@ -4266,429 +5049,330 @@ function renderCart(){
 
 
 /* =========================================================
-   CHECKOUT
+   CART DRAWER
 ========================================================= */
 
-async function checkout(){
+function renderCart(){
 
-  if(cartItems.length === 0){
+  const container =
+    document.getElementById("cartItems");
 
-    toast("Your cart is empty.");
+  const footer =
+    document.getElementById("cartFooter");
+
+
+  if(!container || !footer){
+    return;
+  }
+
+
+  const items =
+    cart
+      .map(getProduct)
+      .filter(Boolean);
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+
+      <div class="cart-empty">
+
+        Your cart is empty.
+
+      </div>
+
+    `;
+
+
+    footer.innerHTML = "";
 
     return;
 
   }
 
 
-  const emailElement =
-    document.getElementById("customerEmail");
+  container.innerHTML =
+    items.map(product => `
 
+      <div class="cart-item">
 
-  const email =
-    emailElement
-      ? emailElement.value.trim()
-      : "";
+        <div class="cart-item-image">
 
+          ${productCover(product)}
 
-  if(
-    !email ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  ){
+        </div>
 
-    toast("Please enter a valid email address.");
 
-    if(emailElement){
-      emailElement.focus();
-    }
+        <div>
 
-    return;
+          <div class="cart-item-name">
 
-  }
-
-
-  try{
-
-    toast("Creating secure checkout...");
-
-
-    const response =
-      await fetch(
-        `${API_BASE}/api/create-order`,
-        {
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
-
-          body:JSON.stringify({
-            productIds:cartItems,
-            email:email
-          })
-        }
-      );
-
-
-    let data = {};
-
-    try{
-
-      data =
-        await response.json();
-
-    }catch{
-
-      data = {};
-
-    }
-
-
-    if(!response.ok){
-
-      throw new Error(
-        data.error ||
-        data.message ||
-        `Server error (${response.status})`
-      );
-
-    }
-
-
-    if(
-      !data.orderId ||
-      !data.keyId ||
-      !data.amount
-    ){
-
-      throw new Error(
-        "The payment server returned an incomplete order."
-      );
-
-    }
-
-
-    if(
-      typeof Razorpay === "undefined"
-    ){
-
-      throw new Error(
-        "Razorpay checkout could not load. Please refresh and try again."
-      );
-
-    }
-
-
-    const options = {
-
-      key:data.keyId,
-
-      amount:data.amount,
-
-      currency:"INR",
-
-      name:"Reel Bundles",
-
-      description:
-        `${cartItems.length} digital bundle(s)`,
-
-      order_id:data.orderId,
-
-      prefill:{
-        email:email
-      },
-
-      theme:{
-        color:"#c6a56a"
-      },
-
-      modal:{
-        ondismiss:function(){
-
-          toast(
-            "Payment window closed."
-          );
-
-        }
-      },
-
-
-      handler:
-        async function(payment){
-
-          await verifyPayment(
-            payment,
-            email
-          );
-
-        }
-
-    };
-
-
-    const razorpay =
-      new Razorpay(options);
-
-
-    razorpay.on(
-      "payment.failed",
-      function(){
-
-        toast(
-          "Payment failed. No delivery was issued."
-        );
-
-      }
-    );
-
-
-    razorpay.open();
-
-  }catch(error){
-
-    console.error(
-      "Checkout error:",
-      error
-    );
-
-    toast(
-      error.message ||
-      "Checkout could not start."
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   VERIFY PAYMENT
-========================================================= */
-
-async function verifyPayment(
-  payment,
-  email
-){
-
-  try{
-
-    toast(
-      "Payment received. Confirming..."
-    );
-
-
-    const response =
-      await fetch(
-        `${API_BASE}/api/verify-payment`,
-        {
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
-
-          body:JSON.stringify({
-
-            razorpay_order_id:
-              payment.razorpay_order_id,
-
-            razorpay_payment_id:
-              payment.razorpay_payment_id,
-
-            razorpay_signature:
-              payment.razorpay_signature,
-
-            productIds:
-              cartItems,
-
-            email:
-              email
-
-          })
-        }
-      );
-
-
-    let data = {};
-
-    try{
-
-      data =
-        await response.json();
-
-    }catch{
-
-      data = {};
-
-    }
-
-
-    if(!response.ok){
-
-      throw new Error(
-        data.error ||
-        data.message ||
-        "Payment verification failed."
-      );
-
-    }
-
-
-    cartItems = [];
-
-    saveCart();
-
-
-    document.getElementById("app").innerHTML = `
-
-      <div class="page">
-
-        <div class="empty">
-
-          <div
-            style="
-              width:60px;
-              height:60px;
-              margin:0 auto 18px;
-              border-radius:50%;
-              display:grid;
-              place-items:center;
-              background:rgba(198,165,106,.12);
-              border:1px solid var(--border-gold);
-              color:var(--gold);
-              font-size:25px;
-            ">
-
-            ✓
+            ${escapeHtml(product.name)}
 
           </div>
 
 
-          <h2>
-            Payment Confirmed
-          </h2>
+          <div class="cart-item-price">
+            ₹29
+          </div>
 
 
-          <p>
+          <div class="cart-item-actions">
 
-            Your payment has been verified.
-            Your digital access information will be
-            delivered to <strong>${escapeHTML(email)}</strong>.
-
-          </p>
-
-
-          <p
-            style="
-              margin-top:10px;
-              color:var(--muted2);
-              font-size:11px;
-            ">
-
-            If you don't receive the email or experience
-            a delivery issue, contact
-            businesscore28@gmail.com.
-
-          </p>
+            <button
+              class="cart-pay"
+              type="button"
+              onclick="payForProduct('${product.id}')"
+            >
+              Pay ₹29
+            </button>
 
 
-          <button
-            class="primary-btn"
-            style="margin-top:22px"
-            onclick="go('#/products')">
+            <button
+              class="cart-remove"
+              type="button"
+              onclick="removeFromCart('${product.id}')"
+            >
+              Remove
+            </button>
 
-            Continue Browsing
-
-          </button>
+          </div>
 
         </div>
 
       </div>
 
-    `;
+    `).join("");
 
 
-    toast(
-      "Payment confirmed."
-    );
+  footer.innerHTML = `
+
+    <div class="cart-total-row">
+
+      <span class="cart-total-label">
+        Selected
+      </span>
+
+      <span class="cart-total">
+        ₹${items.length * 29}
+      </span>
+
+    </div>
 
 
-  }catch(error){
+    <p class="cart-note">
 
-    console.error(
-      "Verification error:",
-      error
-    );
+      Each collection uses its own Razorpay Payment Link,
+      so purchases are completed separately.
 
+    </p>
 
-    document.getElementById("app").innerHTML = `
-
-      <div class="page">
-
-        <div class="empty">
-
-          <h2>
-            Payment Received
-          </h2>
-
-          <p>
-
-            We couldn't complete the delivery
-            confirmation automatically.
-
-          </p>
-
-          <p
-            style="
-              margin-top:10px;
-              color:var(--muted);
-              font-size:11px;
-            ">
-
-            Please contact
-            businesscore28@gmail.com
-            with your payment details so we can
-            investigate the delivery issue.
-
-          </p>
-
-          <button
-            class="primary-btn"
-            style="margin-top:20px"
-            onclick="go('#/contact')">
-
-            Contact Support
-
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-    toast(
-      error.message ||
-      "Verification issue. Contact support."
-    );
-
-  }
+  `;
 
 }
 
 
 /* =========================================================
-   FAQ
+   FAQ TOGGLE
 ========================================================= */
 
-function renderFAQ(){
+function toggleFaq(button){
+
+  const item =
+    button.closest(".faq-item");
+
+
+  if(!item){
+    return;
+  }
+
+
+  item.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   ROUTE PAGES
+========================================================= */
+
+function renderTermsPage(){
+
+  return `
+
+    <section class="legal-page">
+
+      <h1>
+        Terms & Conditions
+      </h1>
+
+      <div class="updated">
+        Last updated: September 2026
+      </div>
+
+
+      <section>
+
+        <h2>
+          1. About the Store
+        </h2>
+
+        <p>
+          Reel Bundles provides digital content collections
+          to customers through online payment and digital
+          delivery. By purchasing a collection, you agree
+          to these Terms & Conditions.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          2. Digital Products
+        </h2>
+
+        <p>
+          Products sold through Reel Bundles are digital
+          collections. No physical goods are shipped.
+          Collection descriptions and counts are provided
+          to describe the available material and may vary
+          where content is updated or reorganized.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          3. Pricing and Payment
+        </h2>
+
+        <p>
+          The collections currently listed on the website
+          are priced at ₹29 each. Payments are processed
+          through Razorpay Payment Links. Prices may be
+          changed for future purchases, but the price shown
+          at checkout applies to the applicable purchase.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          4. Delivery
+        </h2>
+
+        <p>
+          After successful payment, delivery is made
+          digitally by email. The delivery email contains
+          the Google Drive access link associated with the
+          purchased collection. Customers are responsible
+          for entering a correct email address during
+          checkout.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          5. Intellectual Property
+        </h2>
+
+        <p>
+          Some collections may contain or reference
+          third-party material. A purchase does not transfer
+          ownership or intellectual-property rights in
+          third-party material. Customers are responsible
+          for determining whether their intended use,
+          editing, publication or distribution is permitted
+          under applicable law and platform rules.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          6. Acceptable Use
+        </h2>
+
+        <p>
+          You must not use the website or purchased access
+          for unlawful purposes, fraudulent activity, abuse
+          of payment systems, or conduct that violates
+          applicable law or third-party rights.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          7. Refunds
+        </h2>
+
+        <p>
+          Digital purchases are generally non-refundable
+          once access has been delivered, subject to
+          applicable consumer rights and law. Please review
+          the Refund Policy before purchasing.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          8. Changes
+        </h2>
+
+        <p>
+          Reel Bundles may update product information,
+          pricing, policies or website functionality from
+          time to time. Changes apply prospectively unless
+          otherwise required by law.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          9. Contact
+        </h2>
+
+        <p>
+          Questions regarding these Terms can be sent to
+          <a href="mailto:businesscore28@gmail.com">
+            businesscore28@gmail.com
+          </a>.
+        </p>
+
+      </section>
+
+    </section>
+
+  `;
+
+}
 
   const faqs = [
 
     [
       "How do I receive my purchase?",
-      "After successful payment confirmation, access information for your purchased collection is sent to the email address you provide during checkout."
+      "After successful payment confirmation, access information for your purchased collection is sent to the email address entered on the Razorpay Payment Link."
     ],
 
     [
@@ -4698,12 +5382,12 @@ function renderFAQ(){
 
     [
       "Can I buy multiple collections?",
-      "Yes. Add multiple collections to your cart and complete them through one checkout."
+      "Yes. You can save multiple collections in your cart. Each collection is purchased separately through its dedicated ₹29 Razorpay Payment Link."
     ],
 
     [
       "What payment method is used?",
-      "Payments are processed through Razorpay's checkout."
+      "Payments are processed through the dedicated Razorpay Payment Link for each collection."
     ],
 
     [
@@ -4741,7 +5425,7 @@ function renderFAQ(){
           </h1>
 
           <p class="section-description">
-            Everything you need to know before checkout.
+            Everything you need to know before purchasing a collection.
           </p>
 
         </div>
@@ -4892,7 +5576,7 @@ function renderWhyUs(){
 
           <p>
             Your access information is sent digitally
-            to the email address used during checkout.
+            to the email address used on the Razorpay Payment Link.
           </p>
 
         </div>
@@ -5114,7 +5798,7 @@ function renderTerms(){
         <p>
           Following successful payment confirmation, delivery
           information is sent to the email address supplied
-          during checkout.
+          on the Razorpay Payment Link.
         </p>
 
 
@@ -5210,7 +5894,7 @@ function renderPrivacy(){
         </h2>
 
         <p>
-          During checkout, we collect the email address
+          On the Razorpay Payment Link, we collect the email address
           necessary to process your digital delivery.
           Payment details are processed through the payment
           provider and are not intentionally stored by us
