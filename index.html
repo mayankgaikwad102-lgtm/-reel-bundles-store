@@ -36,12 +36,7 @@ html{
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.5;
 }
 
@@ -64,9 +59,7 @@ a{
   text-decoration:none;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
   position:sticky;
@@ -129,9 +122,7 @@ header{
   font-weight:800;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   width:min(1100px,92%);
@@ -220,9 +211,7 @@ header{
   border-color:#444;
 }
 
-/* =========================
-   TRUST STRIP
-========================= */
+/* TRUST */
 
 .trust{
   width:min(1100px,92%);
@@ -256,9 +245,7 @@ header{
   margin-top:3px;
 }
 
-/* =========================
-   PRODUCTS
-========================= */
+/* PRODUCTS */
 
 .section{
   width:min(1200px,92%);
@@ -382,9 +369,7 @@ header{
   color:#111;
 }
 
-/* =========================
-   FEATURE SECTION
-========================= */
+/* FEATURES */
 
 .feature-section{
   width:min(1200px,92%);
@@ -427,9 +412,7 @@ header{
   margin-top:8px;
 }
 
-/* =========================
-   FAQ
-========================= */
+/* FAQ */
 
 .faq{
   width:min(850px,92%);
@@ -470,9 +453,7 @@ header{
   display:block;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   margin-top:100px;
@@ -523,9 +504,7 @@ footer{
   font-size:12px;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
   position:fixed;
@@ -535,8 +514,8 @@ footer{
   align-items:center;
   justify-content:center;
   padding:20px;
-  background:rgba(0,0,0,.78);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(12px);
 }
 
 .modal.active{
@@ -557,7 +536,7 @@ footer{
   position:absolute;
   top:14px;
   right:14px;
-  z-index:10;
+  z-index:20;
   width:38px;
   height:38px;
   border-radius:50%;
@@ -619,6 +598,8 @@ footer{
   cursor:pointer;
 }
 
+/* PREVIEWS */
+
 .previews{
   margin-top:38px;
   padding-top:25px;
@@ -643,35 +624,41 @@ footer{
   border:1px solid var(--border);
   border-radius:16px;
   overflow:hidden;
-  background:#050505;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-  transition:transform .2s ease,border-color .2s ease;
+  background:#030303;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
 }
 
-.preview:hover{
-  transform:translateY(-3px);
-  border-color:#3a3a3a;
-}
-
-.preview iframe{
-  position:absolute;
-  inset:0;
+.preview video{
   width:100%;
   height:100%;
-  border:0;
   display:block;
+  object-fit:contain;
+  background:#000;
 }
 
-.preview img{
+.preview-image{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
 
-/* =========================
-   CART DRAWER
-========================= */
+/* VIDEO FALLBACK */
+
+.preview-error{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  color:#777;
+  font-size:12px;
+  background:#080808;
+}
+
+/* CART */
 
 .cart-overlay{
   position:fixed;
@@ -772,9 +759,7 @@ footer{
   cursor:pointer;
 }
 
-/* =========================
-   PAYMENT
-========================= */
+/* PAYMENT */
 
 .payment-area{
   margin-top:15px;
@@ -787,9 +772,7 @@ footer{
   text-align:center;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -892,437 +875,348 @@ footer{
 <body>
 
 <header>
-  <nav class="nav">
+<nav class="nav">
 
-    <a href="#" class="logo">
-      REEL<span>BUNDLES</span>
-    </a>
+<a href="#" class="logo">
+REEL<span>BUNDLES</span>
+</a>
 
-    <div class="nav-right">
+<div class="nav-right">
 
-      <button class="cart-button" onclick="openCart()">
-        Cart
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
+<button class="cart-button" onclick="openCart()">
+Cart
+<span class="cart-count" id="cartCount">0</span>
+</button>
 
-    </div>
+</div>
 
-  </nav>
+</nav>
 </header>
-
 
 <main>
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
-  <div class="eyebrow">
-    <span class="eyebrow-dot"></span>
-    PREMIUM CREATOR CONTENT
-  </div>
+<div class="eyebrow">
+<span class="eyebrow-dot"></span>
+PREMIUM CREATOR CONTENT
+</div>
 
-  <h1>
-    Stop searching.<br>
-    Start <span>creating.</span>
-  </h1>
+<h1>
+Stop searching.<br>
+Start <span>creating.</span>
+</h1>
 
-  <p>
-    Ready-to-use reel content collections designed for creators,
-    theme pages and businesses that want more content without
-    spending hours finding it.
-  </p>
+<p>
+Ready-to-use reel content collections designed for creators,
+theme pages and businesses that want more content without
+spending hours finding it.
+</p>
 
-  <div class="hero-actions">
+<div class="hero-actions">
 
-    <a href="#products" class="primary-btn">
-      Explore Bundles
-    </a>
+<a href="#products" class="primary-btn">
+Explore Bundles
+</a>
 
-    <a href="#faq" class="secondary-btn">
-      How it works
-    </a>
+<a href="#faq" class="secondary-btn">
+How it works
+</a>
 
-  </div>
+</div>
 
 </section>
-
-
-<!-- =========================
-     TRUST
-========================= -->
 
 <section class="trust">
 
-  <div class="trust-item">
-    <div class="trust-number">11+</div>
-    <div class="trust-label">Content Collections</div>
-  </div>
+<div class="trust-item">
+<div class="trust-number">11+</div>
+<div class="trust-label">Content Collections</div>
+</div>
 
-  <div class="trust-item">
-    <div class="trust-number">₹29</div>
-    <div class="trust-label">Per Bundle</div>
-  </div>
+<div class="trust-item">
+<div class="trust-number">₹29</div>
+<div class="trust-label">Per Bundle</div>
+</div>
 
-  <div class="trust-item">
-    <div class="trust-number">Digital</div>
-    <div class="trust-label">Instant Delivery</div>
-  </div>
+<div class="trust-item">
+<div class="trust-number">Digital</div>
+<div class="trust-label">Instant Delivery</div>
+</div>
 
 </section>
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
 
 <section class="section" id="products">
 
-  <div class="section-heading">
+<div class="section-heading">
 
-    <div>
-      <h2>Content Collections</h2>
-      <p>Choose a bundle and start creating.</p>
-    </div>
+<div>
+<h2>Content Collections</h2>
+<p>Choose a bundle and start creating.</p>
+</div>
 
-  </div>
+</div>
 
-  <div class="products" id="productGrid"></div>
+<div class="products" id="productGrid"></div>
 
 </section>
-
-
-<!-- =========================
-     FEATURES
-========================= -->
 
 <section class="feature-section">
 
-  <div class="feature-grid">
+<div class="feature-grid">
 
-    <div class="feature">
+<div class="feature">
 
-      <div class="feature-icon">✦</div>
+<div class="feature-icon">✦</div>
 
-      <h3>Ready to Create</h3>
+<h3>Ready to Create</h3>
 
-      <p>
-        Spend less time hunting for content and more time
-        editing, posting and growing.
-      </p>
+<p>
+Spend less time hunting for content and more time
+editing, posting and growing.
+</p>
 
-    </div>
+</div>
 
+<div class="feature">
 
-    <div class="feature">
+<div class="feature-icon">↗</div>
 
-      <div class="feature-icon">↗</div>
+<h3>Multiple Niches</h3>
 
-      <h3>Multiple Niches</h3>
+<p>
+Anime, luxury, cars, facts, AI, gaming, Hollywood
+and more.
+</p>
 
-      <p>
-        Anime, luxury, cars, facts, AI, gaming, Hollywood
-        and more.
-      </p>
+</div>
 
-    </div>
+<div class="feature">
 
+<div class="feature-icon">⚡</div>
 
-    <div class="feature">
+<h3>Digital Delivery</h3>
 
-      <div class="feature-icon">⚡</div>
+<p>
+After successful payment, your selected content
+access link is delivered digitally.
+</p>
 
-      <h3>Digital Delivery</h3>
+</div>
 
-      <p>
-        After successful payment, your selected content
-        access link is delivered digitally.
-      </p>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-
-<!-- =========================
-     FAQ
-========================= -->
-
 <section class="faq" id="faq">
 
-  <h2>Frequently Asked Questions</h2>
+<h2>Frequently Asked Questions</h2>
 
+<div class="faq-item">
 
-  <div class="faq-item">
+<button class="faq-question">
+What happens after I pay?
+<span>+</span>
+</button>
 
-    <button class="faq-question">
+<div class="faq-answer">
+After a successful payment, your product delivery
+link is sent digitally to the email address provided
+during checkout.
+</div>
 
-      What happens after I pay?
+</div>
 
-      <span>+</span>
+<div class="faq-item">
 
-    </button>
+<button class="faq-question">
+How much does each bundle cost?
+<span>+</span>
+</button>
 
-    <div class="faq-answer">
+<div class="faq-answer">
+Every listed bundle is currently ₹29.
+</div>
 
-      After a successful payment, your product delivery
-      link is sent digitally to the email address provided
-      during checkout.
+</div>
 
-    </div>
+<div class="faq-item">
 
-  </div>
+<button class="faq-question">
+Are these physical products?
+<span>+</span>
+</button>
 
+<div class="faq-answer">
+No. These are digital content collections.
+</div>
 
-  <div class="faq-item">
+</div>
 
-    <button class="faq-question">
+<div class="faq-item">
 
-      How much does each bundle cost?
+<button class="faq-question">
+Do you offer refunds?
+<span>+</span>
+</button>
 
-      <span>+</span>
+<div class="faq-answer">
+Digital purchases are generally non-refundable once
+access has been delivered, subject to applicable
+consumer laws.
+</div>
 
-    </button>
-
-    <div class="faq-answer">
-
-      Every listed bundle is currently ₹29.
-
-    </div>
-
-  </div>
-
-
-  <div class="faq-item">
-
-    <button class="faq-question">
-
-      Are these physical products?
-
-      <span>+</span>
-
-    </button>
-
-    <div class="faq-answer">
-
-      No. These are digital content collections.
-
-    </div>
-
-  </div>
-
-
-  <div class="faq-item">
-
-    <button class="faq-question">
-
-      Do you offer refunds?
-
-      <span>+</span>
-
-    </button>
-
-    <div class="faq-answer">
-
-      Digital purchases are generally non-refundable once
-      access has been delivered, subject to applicable
-      consumer laws.
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-  <div class="footer-inner">
+<div class="footer-inner">
 
-    <div class="footer-brand">
+<div class="footer-brand">
 
-      <div class="logo">
-        REEL<span>BUNDLES</span>
-      </div>
+<div class="logo">
+REEL<span>BUNDLES</span>
+</div>
 
-      <p>
-        Premium digital content collections for creators.
-      </p>
+<p>
+Premium digital content collections for creators.
+</p>
 
-    </div>
+</div>
 
+<div class="footer-links">
 
-    <div class="footer-links">
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#faq">FAQ</a>
+<a href="mailto:businesscore28@gmail.com">Contact</a>
 
-      <a href="#">Home</a>
+</div>
 
-      <a href="#products">Products</a>
+</div>
 
-      <a href="#faq">FAQ</a>
-
-      <a href="mailto:businesscore28@gmail.com">
-        Contact
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div class="copyright">
-    © 2026 Reel Bundles. All rights reserved.
-  </div>
+<div class="copyright">
+© 2026 Reel Bundles. All rights reserved.
+</div>
 
 </footer>
 
-
-<!-- =========================
-     PRODUCT MODAL
-========================= -->
+<!-- PRODUCT MODAL -->
 
 <div class="modal" id="productModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button
-      class="modal-close"
-      onclick="closeModal()"
-      aria-label="Close"
-    >
-      ×
-    </button>
+<button
+class="modal-close"
+onclick="closeModal()"
+aria-label="Close">
+×
+</button>
 
+<div class="modal-content">
 
-    <div class="modal-content">
+<div class="modal-main">
 
-      <div class="modal-main">
+<div class="modal-image">
 
-        <div class="modal-image">
-
-          <img
-            id="modalImage"
-            src=""
-            alt=""
-          >
-
-        </div>
-
-
-        <div class="modal-info">
-
-          <h2 id="modalTitle"></h2>
-
-          <p id="modalDescription"></p>
-
-          <div class="modal-price">
-            ₹29
-          </div>
-
-
-          <button
-            class="modal-buy"
-            id="modalBuyButton"
-          >
-            Buy This Bundle — ₹29
-          </button>
-
-
-          <div
-            class="payment-area"
-            id="paymentArea"
-          ></div>
-
-
-          <div class="payment-note">
-            Secure digital checkout
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PREVIEWS -->
-
-      <div class="previews">
-
-        <h3>Preview</h3>
-
-        <div
-          class="preview-grid"
-          id="previewGrid"
-        ></div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<img
+id="modalImage"
+src=""
+alt="">
 </div>
 
+<div class="modal-info">
 
-<!-- =========================
-     CART
-========================= -->
+<h2 id="modalTitle"></h2>
+
+<p id="modalDescription"></p>
+
+<div class="modal-price">
+₹29
+</div>
+
+<button
+class="modal-buy"
+id="modalBuyButton">
+Buy This Bundle — ₹29
+</button>
 
 <div
-  class="cart-overlay"
-  id="cartOverlay"
->
+class="payment-area"
+id="paymentArea">
+</div>
 
-  <aside class="cart">
-
-    <div class="cart-header">
-
-      <h2>Your Cart</h2>
-
-      <button
-        class="cart-close"
-        onclick="closeCart()"
-        aria-label="Close cart"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div id="cartItems"></div>
-
-
-    <div class="cart-total">
-
-      <span>Total</span>
-
-      <span id="cartTotal">
-        ₹0
-      </span>
-
-    </div>
-
-
-    <button
-      class="checkout-btn"
-      onclick="checkoutCart()"
-    >
-      Checkout
-    </button>
-
-  </aside>
+<div class="payment-note">
+Secure digital checkout
+</div>
 
 </div>
 
+</div>
+
+<div class="previews">
+
+<h3>Preview</h3>
+
+<div
+class="preview-grid"
+id="previewGrid">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CART -->
+
+<div
+class="cart-overlay"
+id="cartOverlay">
+
+<aside class="cart">
+
+<div class="cart-header">
+
+<h2>Your Cart</h2>
+
+<button
+class="cart-close"
+onclick="closeCart()">
+×
+</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+
+<span>Total</span>
+
+<span id="cartTotal">
+₹0
+</span>
+
+</div>
+
+<button
+class="checkout-btn"
+onclick="checkoutCart()">
+Checkout
+</button>
+
+</aside>
+
+</div>
 
 <script>
 
@@ -1332,169 +1226,159 @@ footer{
 
 const products = [
 
-  {
-    id:"hollywood",
-    name:"4K Hollywood",
-    image:"images/4k-hollywood.jpeg.jpg",
-    description:"Premium Hollywood reel content for entertainment and cinematic pages.",
-    drive:"https://drive.google.com/drive/folders/18jEelAFZvjeqEOc8bgT9CwwNS04k-RZL",
-    videos:[
-      "12kYt49Eh4VXdKKd9xZ44sT7HOsE8HmNB",
-      "1J5SKq6MPZFcFLM3e80VycNR69jlGKFsY",
-      "1lHbkqiJRrtCEaRWEp7wzAg_PYcKPI6hY"
-    ],
-    razorpay:"pl_Tfft4QZ2ljyPXk"
-  },
+{
+id:"hollywood",
+name:"4K Hollywood",
+image:"images/4k-hollywood.jpeg.jpg",
+description:"Premium Hollywood reel content for entertainment and cinematic pages.",
+drive:"https://drive.google.com/drive/folders/18jEelAFZvjeqEOc8bgT9CwwNS04k-RZL",
+videos:[
+"12kYt49Eh4VXdKKd9xZ44sT7HOsE8HmNB",
+"1J5SKq6MPZFcFLM3e80VycNR69jlGKFsY",
+"1lHbkqiJRrtCEaRWEp7wzAg_PYcKPI6hY"
+],
+razorpay:"pl_Tfft4QZ2ljyPXk"
+},
 
+{
+id:"anime",
+name:"20,000+ Anime Edits",
+image:"images/anime-edits.jpeg.jpg",
+description:"A huge anime-focused content collection for anime pages and editors.",
+drive:"https://drive.google.com/drive/folders/1qcLk8X21TKOnWX66toO4296XXiTb_DTE",
+videos:[
+"1TYXkZ4KjmuiBgC7iLkr8EYkiFjaqTCWc",
+"1w7rwGGHzGl6zL2U8jvTiywlxmNXAU20n",
+"1FjFSg0a6rnC7VQgKkmmCG6s_KYJdnPAt"
+],
+razorpay:"pl_Tffw1kYWz0nhwE"
+},
 
-  {
-    id:"anime",
-    name:"20,000+ Anime Edits",
-    image:"images/anime-edits.jpeg.jpg",
-    description:"A huge anime-focused content collection for anime pages and editors.",
-    drive:"https://drive.google.com/drive/folders/1qcLk8X21TKOnWX66toO4296XXiTb_DTE",
-    videos:[
-      "1TYXkZ4KjmuiBgC7iLkr8EYkiFjaqTCWc",
-      "1w7rwGGHzGl6zL2U8jvTiywlxmNXAU20n",
-      "1FjFSg0a6rnC7VQgKkmmCG6s_KYJdnPAt"
-    ],
-    razorpay:"pl_Tffw1kYWz0nhwE"
-  },
+{
+id:"crash",
+name:"500+ HD Car Crash",
+image:"images/car-crash.jpeg.jpg",
+description:"High-energy car crash content for automotive and viral pages.",
+drive:"https://drive.google.com/drive/folders/1CcfUovMQNp0CBdAlP7rbAmlS1Z3Gpuw7",
+videos:[
+"1ODG9K2HcF0thWZSy36eMZtv4V73a9GyC",
+"1T5dtJeSsdIKJCFK-xPgazUHD47M5ssS6",
+"1l6KdEMx1kmgGu8Sqt1j3NjoDgkPZJStn"
+],
+razorpay:null
+},
 
+{
+id:"facts",
+name:"1000+ 3D Viral Facts",
+image:"images/3d-viral-facts.jpeg.jpg",
+description:"Visual 3D facts content made for educational and viral fact pages.",
+drive:"https://drive.google.com/drive/folders/1jutGAPGf-nD208SA7HiWWvs-K-92zfXJ",
+videos:[
+"1FW0YBCw3qWuaVm7w9MDmiVeVGCE5TM4O",
+"1KZcXo8UUi9YDRhQyWtq0-aCVz8zS7qnu",
+"106Dqde7El1ZPu5eMXi2hVoz0v1QQsNOe"
+],
+razorpay:"pl_TffykYuBU7LcDR"
+},
 
-  {
-    id:"crash",
-    name:"500+ HD Car Crash",
-    image:"images/car-crash.jpeg.jpg",
-    description:"High-energy car crash content for automotive and viral pages.",
-    drive:"https://drive.google.com/drive/folders/1CcfUovMQNp0CBdAlP7rbAmlS1Z3Gpuw7",
-    videos:[
-      "1ODG9K2HcF0thWZSy36eMZtv4V73a9GyC",
-      "1T5dtJeSsdIKJCFK-xPgazUHD47M5ssS6",
-      "1l6KdEMx1kmgGu8Sqt1j3NjoDgkPZJStn"
-    ],
-    razorpay:null
-  },
+{
+id:"glow",
+name:"2200+ Glow Animated",
+image:"images/glow-animated.jpeg.jpg",
+description:"Animated visual content designed for motivation and aesthetic pages.",
+drive:"https://drive.google.com/drive/folders/13Wwo56NOX0ZvBF38GN7VSrZG6AIm88NC",
+videos:[
+"1cqXpMRUrrps-4S_o3sXI4R_hHOHQRXSh",
+"1G1zOeCXdlfPtx2wrjjl3FRT6r9r5w-84",
+"1xf31yMkjBnTxkqSb1IXG8ZhEq_-g1jqv"
+],
+razorpay:"pl_TffzuTUu2tLOHz"
+},
 
+{
+id:"stickman",
+name:"2200+ Stickman",
+image:"images/stickman.jpeg.jpg",
+description:"Large collection of stickman animation content for short-form creators.",
+drive:"https://drive.google.com/drive/folders/1jUoYocXO8lxqOBmF1MF8ux69Wwed9Gxl",
+videos:[
+"11wEGUToLVKhKl8LbXhROYHMX4lTAurmO",
+"1pZCjswrn4oJUzuZX9AuOTfqnvaalXsft",
+"1sVOE8Xz7uZBdU6F4SuelWToa2XGnE3k4"
+],
+razorpay:"pl_Tfg1BDkjqKx7M3"
+},
 
-  {
-    id:"facts",
-    name:"1000+ 3D Viral Facts",
-    image:"images/3d-viral-facts.jpeg.jpg",
-    description:"Visual 3D facts content made for educational and viral fact pages.",
-    drive:"https://drive.google.com/drive/folders/1jutGAPGf-nD208SA7HiWWvs-K-92zfXJ",
-    videos:[
-      "1FW0YBCw3qWuaVm7w9MDmiVeVGCE5TM4O",
-      "1KZcXo8UUi9YDRhQyWtq0-aCVz8zS7qnu",
-      "106Dqde7El1ZPu5eMXi2hVoz0v1QQsNOe"
-    ],
-    razorpay:"pl_TffykYuBU7LcDR"
-  },
+{
+id:"mixed",
+name:"2700+ Mixed Content",
+image:"images/mixed-content.jpeg.jpg",
+description:"A mixed collection covering motivation, business, forex, health, books, quotes and more.",
+drive:"https://drive.google.com/drive/folders/1epnM7AxlJ2A6kJKS26KCTU_9R5m_Dfff",
+images:[
+"1ciCWvF0tf4uGaPNlBqGM_o54QMXNaskZ",
+"1YpJGIvBGLc3iDkz-HBELF8lZpxTRlJXo",
+"1K25Ns24EUWvzwG9ZalPWKvdy26jskn-J"
+],
+razorpay:"pl_Tfg2a5whC9PiwI"
+},
 
+{
+id:"ai",
+name:"AI Tech",
+image:"images/ai-tech.jpeg.jpg",
+description:"AI and technology-focused short-form content for modern creator pages.",
+drive:"https://drive.google.com/drive/folders/1br8B2xvfEW6VzWMsXIUq0pTcgOhMsvXk",
+videos:[
+"1ro6NXtsf64c5Evfr7PNa9Qfjw4NfeJ2h",
+"1oFSlYF8vM6Ma4WVNs9uVS5IvJ4-eyjkR",
+"1Y3LnSKNgXk7yStv6BrQhVKW98ZU6P-ZN"
+],
+razorpay:"pl_Tfg3bWGoThxOpg"
+},
 
-  {
-    id:"glow",
-    name:"2200+ Glow Animated",
-    image:"images/glow-animated.jpeg.jpg",
-    description:"Animated visual content designed for motivation and aesthetic pages.",
-    drive:"https://drive.google.com/drive/folders/13Wwo56NOX0ZvBF38GN7VSrZG6AIm88NC",
-    videos:[
-      "1cqXpMRUrrps-4S_o3sXI4R_hHOHQRXSh",
-      "1G1zOeCXdlfPtx2wrjjl3FRT6r9r5w-84",
-      "1xf31yMkjBnTxkqSb1IXG8ZhEq_-g1jqv"
-    ],
-    razorpay:"pl_TffzuTUu2tLOHz"
-  },
+{
+id:"cars",
+name:"Cars",
+image:"images/cars.jpeg.jpg",
+description:"Automotive reel content for luxury, performance and car pages.",
+drive:"https://drive.google.com/drive/folders/1iBONnSj4mLvefzefXYBL9squnWhUYVHH",
+videos:[
+"179T-Kci1ZQeyfTMyVLB0x4nNyE0kN5FU",
+"1E2jd7SAtVE9Tvqw9E2cKm6JKqJyVatg6",
+"1Yrb5gzJAojiiFIY7G270xg9TRSeC9p7b"
+],
+razorpay:"pl_Tfg4YeWN8sgiHA"
+},
 
+{
+id:"games",
+name:"1900+ Car Game Reels",
+image:"images/car-game-reels.jpeg.jpg",
+description:"Gaming and car-game reel content for gaming creators and pages.",
+drive:"https://drive.google.com/drive/folders/1r4Yp97xid0ADGKH8TH4zdUNtgNFMun8x",
+videos:[
+"1rsr95-umwpBQCZG00kn2RX2qgaTfBoyj",
+"1MQrnOyEDehTCibB99he0Zsc7pJGL2I3Z",
+"1njzMg8T3Ii4-yPK-g66y1AW3M9k8_X5O"
+],
+razorpay:"pl_Tfg5iVsmVHws8x"
+},
 
-  {
-    id:"stickman",
-    name:"2200+ Stickman",
-    image:"images/stickman.jpeg.jpg",
-    description:"Large collection of stickman animation content for short-form creators.",
-    drive:"https://drive.google.com/drive/folders/1jUoYocXO8lxqOBmF1MF8ux69Wwed9Gxl",
-    videos:[
-      "11wEGUToLVKhKl8LbXhROYHMX4lTAurmO",
-      "1pZCjswrn4oJUzuZX9AuOTfqnvaalXsft",
-      "1sVOE8Xz7uZBdU6F4SuelWToa2XGnE3k4"
-    ],
-    razorpay:"pl_Tfg1BDkjqKx7M3"
-  },
-
-
-  {
-    id:"mixed",
-    name:"2700+ Mixed Content",
-    image:"images/mixed-content.jpeg.jpg",
-    description:"A mixed collection covering motivation, business, forex, health, books, quotes and more.",
-    drive:"https://drive.google.com/drive/folders/1epnM7AxlJ2A6kJKS26KCTU_9R5m_Dfff",
-    images:[
-      "1ciCWvF0tf4uGaPNlBqGM_o54QMXNaskZ",
-      "1YpJGIvBGLc3iDkz-HBELF8lZpxTRlJXo",
-      "1K25Ns24EUWvzwG9ZalPWKvdy26jskn-J"
-    ],
-    razorpay:"pl_Tfg2a5whC9PiwI"
-  },
-
-
-  {
-    id:"ai",
-    name:"AI Tech",
-    image:"images/ai-tech.jpeg.jpg",
-    description:"AI and technology-focused short-form content for modern creator pages.",
-    drive:"https://drive.google.com/drive/folders/1br8B2xvfEW6VzWMsXIUq0pTcgOhMsvXk",
-    videos:[
-      "1ro6NXtsf64c5Evfr7PNa9Qfjw4NfeJ2h",
-      "1oFSlYF8vM6Ma4WVNs9uVS5IvJ4-eyjkR",
-      "1Y3LnSKNgXk7yStv6BrQhVKW98ZU6P-ZN"
-    ],
-    razorpay:"pl_Tfg3bWGoThxOpg"
-  },
-
-
-  {
-    id:"cars",
-    name:"Cars",
-    image:"images/cars.jpeg.jpg",
-    description:"Automotive reel content for luxury, performance and car pages.",
-    drive:"https://drive.google.com/drive/folders/1iBONnSj4mLvefzefXYBL9squnWhUYVHH",
-    videos:[
-      "179T-Kci1ZQeyfTMyVLB0x4nNyE0kN5FU",
-      "1E2jd7SAtVE9Tvqw9E2cKm6JKqJyVatg6",
-      "1Yrb5gzJAojiiFIY7G270xg9TRSeC9p7b"
-    ],
-    razorpay:"pl_Tfg4YeWN8sgiHA"
-  },
-
-
-  {
-    id:"games",
-    name:"1900+ Car Game Reels",
-    image:"images/car-game-reels.jpeg.jpg",
-    description:"Gaming and car-game reel content for gaming creators and pages.",
-    drive:"https://drive.google.com/drive/folders/1r4Yp97xid0ADGKH8TH4zdUNtgNFMun8x",
-    videos:[
-      "1rsr95-umwpBQCZG00kn2RX2qgaTfBoyj",
-      "1MQrnOyEDehTCibB99he0Zsc7pJGL2I3Z",
-      "1njzMg8T3Ii4-yPK-g66y1AW3M9k8_X5O"
-    ],
-    razorpay:"pl_Tfg5iVsmVHws8x"
-  },
-
-
-  {
-    id:"luxury",
-    name:"20,000+ Luxury Reels",
-    image:"images/luxury.jpeg.jpg",
-    description:"Luxury lifestyle and high-end visual content for premium theme pages.",
-    drive:"https://drive.google.com/drive/folders/1T6KdyQK1FsP12uRbNWbfs2lZBsB-Mz6P",
-    videos:[
-      "1Ai0_VXNjyOXnI8GyiqMGe4I5xy3k0-dI",
-      "17y-Y8_ix0SOiWLurmj4_2qqYA2XnNEaj",
-      "1EFZiuXwz3VgPcRCQ4MJ4YLwdgmv9VztI"
-    ],
-    razorpay:null
-  }
+{
+id:"luxury",
+name:"20,000+ Luxury Reels",
+image:"images/luxury.jpeg.jpg",
+description:"Luxury lifestyle and high-end visual content for premium theme pages.",
+drive:"https://drive.google.com/drive/folders/1T6KdyQK1FsP12uRbNWbfs2lZBsB-Mz6P",
+videos:[
+"1Ai0_VXNjyOXnI8GyiqMGe4I5xy3k0-dI",
+"17y-Y8_ix0SOiWLurmj4_2qqYA2XnNEaj",
+"1EFZiuXwz3VgPcRCQ4MJ4YLwdgmv9VztI"
+],
+razorpay:null
+}
 
 ];
 
@@ -1504,77 +1388,74 @@ const products = [
 ========================================== */
 
 const productGrid =
-  document.getElementById("productGrid");
-
+document.getElementById("productGrid");
 
 function renderProducts(){
 
-  productGrid.innerHTML = products.map(product => `
+productGrid.innerHTML = products.map(product => `
 
-    <article class="card">
+<article class="card">
 
-      <div class="card-image">
+<div class="card-image">
 
-        <img
-          src="${product.image}"
-          alt="${escapeHTML(product.name)}"
-          loading="lazy"
-        >
+<img
+src="${product.image}"
+alt="${escapeHTML(product.name)}"
+loading="lazy">
 
-      </div>
+</div>
+
+<div class="card-body">
+
+<div class="card-title">
+${escapeHTML(product.name)}
+</div>
+
+<div class="card-description">
+${escapeHTML(product.description)}
+</div>
+
+<div class="card-bottom">
+
+<div class="price">
+₹29
+<small>digital</small>
+</div>
+
+<div class="card-actions">
+
+<button
+class="details-btn"
+onclick="openProduct('${product.id}')">
+Details
+</button>
+
+<button
+class="buy-btn"
+onclick="buyProduct('${product.id}')">
+Buy
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+`).join("");
+
+}
 
 
-      <div class="card-body">
+/* ==========================================
+   DIRECT VIDEO URL
+========================================== */
 
-        <div class="card-title">
-          ${escapeHTML(product.name)}
-        </div>
+function driveVideoUrl(id){
 
-
-        <div class="card-description">
-          ${escapeHTML(product.description)}
-        </div>
-
-
-        <div class="card-bottom">
-
-          <div class="price">
-
-            ₹29
-
-            <small>
-              digital
-            </small>
-
-          </div>
-
-
-          <div class="card-actions">
-
-            <button
-              class="details-btn"
-              onclick="openProduct('${product.id}')"
-            >
-              Details
-            </button>
-
-
-            <button
-              class="buy-btn"
-              onclick="buyProduct('${product.id}')"
-            >
-              Buy
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  `).join("");
+return "https://drive.google.com/uc?export=download&id=" + id;
 
 }
 
@@ -1585,115 +1466,124 @@ function renderProducts(){
 
 function openProduct(id){
 
-  const product =
-    products.find(p => p.id === id);
+const product =
+products.find(p => p.id === id);
 
-  if(!product) return;
+if(!product) return;
 
+document.getElementById("modalImage").src =
+product.image;
 
-  document.getElementById("modalImage").src =
-    product.image;
+document.getElementById("modalImage").alt =
+product.name;
 
-  document.getElementById("modalImage").alt =
-    product.name;
+document.getElementById("modalTitle").textContent =
+product.name;
 
+document.getElementById("modalDescription").textContent =
+product.description;
 
-  document.getElementById("modalTitle").textContent =
-    product.name;
+const modalBuy =
+document.getElementById("modalBuyButton");
 
+modalBuy.onclick =
+() => buyProduct(product.id);
 
-  document.getElementById("modalDescription").textContent =
-    product.description;
-
-
-  const modalBuy =
-    document.getElementById("modalBuyButton");
-
-
-  modalBuy.onclick = () =>
-    buyProduct(product.id);
+const previewGrid =
+document.getElementById("previewGrid");
 
 
-  const previewGrid =
-    document.getElementById("previewGrid");
+/* VIDEO PREVIEWS */
+
+if(product.videos){
+
+previewGrid.innerHTML =
+product.videos.map(id => `
+
+<div class="preview">
+
+<video
+controls
+playsinline
+preload="metadata"
+controlsList="nodownload"
+poster="${product.image}">
+
+<source
+src="${driveVideoUrl(id)}"
+type="video/mp4">
+
+Your browser could not load this preview.
+
+</video>
+
+</div>
+
+`).join("");
+
+}
 
 
-  if(product.videos){
+/* IMAGE PREVIEWS */
 
-    previewGrid.innerHTML =
-      product.videos.map(id => `
+else if(product.images){
 
-        <div class="preview">
+previewGrid.innerHTML =
+product.images.map(id => `
 
-          <iframe
-            src="https://drive.google.com/file/d/${id}/preview"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            loading="lazy"
-            title="Product video preview"
-          ></iframe>
+<div class="preview">
 
-        </div>
+<img
+class="preview-image"
+src="https://drive.google.com/thumbnail?id=${id}&sz=w1200"
+alt="Product preview"
+loading="lazy">
 
-      `).join("");
+</div>
 
-  }
+`).join("");
 
-  else if(product.images){
-
-    previewGrid.innerHTML =
-      product.images.map(id => `
-
-        <div class="preview">
-
-          <img
-            src="https://drive.google.com/thumbnail?id=${id}&sz=w1000"
-            alt="Product preview"
-            loading="lazy"
-          >
-
-        </div>
-
-      `).join("");
-
-  }
-
-  else{
-
-    previewGrid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:30px;
-        text-align:center;
-        color:#777;
-        border:1px solid #242424;
-        border-radius:14px;
-      ">
-        Preview coming soon.
-      </div>
-    `;
-
-  }
+}
 
 
-  document
-    .getElementById("productModal")
-    .classList.add("active");
+else{
+
+previewGrid.innerHTML = `
+
+<div style="
+grid-column:1/-1;
+padding:30px;
+text-align:center;
+color:#777;
+border:1px solid #242424;
+border-radius:14px;
+">
+
+Preview coming soon.
+
+</div>
+
+`;
+
+}
 
 
-  document.body.style.overflow="hidden";
+document
+.getElementById("productModal")
+.classList.add("active");
+
+document.body.style.overflow="hidden";
 
 }
 
 
 function closeModal(){
 
-  document
-    .getElementById("productModal")
-    .classList.remove("active");
+document
+.getElementById("productModal")
+.classList.remove("active");
 
-
-  document.body.style.overflow="";
+document.body.style.overflow="";
 
 }
 
@@ -1704,127 +1594,112 @@ function closeModal(){
 
 function buyProduct(id){
 
-  const product =
-    products.find(p => p.id === id);
+const product =
+products.find(p => p.id === id);
 
-  if(!product) return;
+if(!product) return;
 
+if(product.razorpay){
 
-  if(product.razorpay){
+closeModal();
 
-    closeModal();
+setTimeout(() => {
 
+createRazorpayButton(product);
 
-    setTimeout(() => {
+},100);
 
-      createRazorpayButton(product);
+return;
 
-    },100);
+}
 
-
-    return;
-
-  }
-
-
-  alert(
-    product.name +
-    " is ready on the store, but its Razorpay checkout is being connected."
-  );
+alert(
+product.name +
+" is ready on the store, but its Razorpay checkout is being connected."
+);
 
 }
 
 
 /* ==========================================
-   RAZORPAY PAYMENT BUTTON
+   RAZORPAY
 ========================================== */
 
 function createRazorpayButton(product){
 
-  const container =
-    document.createElement("div");
+const container =
+document.createElement("div");
 
+container.style.position="fixed";
+container.style.inset="0";
+container.style.zIndex="5000";
+container.style.background="rgba(0,0,0,.82)";
+container.style.display="flex";
+container.style.alignItems="center";
+container.style.justifyContent="center";
+container.style.padding="20px";
 
-  container.style.position="fixed";
-  container.style.inset="0";
-  container.style.zIndex="5000";
-  container.style.background="rgba(0,0,0,.82)";
-  container.style.display="flex";
-  container.style.alignItems="center";
-  container.style.justifyContent="center";
-  container.style.padding="20px";
+const box =
+document.createElement("div");
 
+box.style.background="#fff";
+box.style.color="#111";
+box.style.padding="25px";
+box.style.borderRadius="18px";
+box.style.width="min(430px,100%)";
+box.style.position="relative";
 
-  const box =
-    document.createElement("div");
+const close =
+document.createElement("button");
 
+close.textContent="×";
 
-  box.style.background="#fff";
-  box.style.color="#111";
-  box.style.padding="25px";
-  box.style.borderRadius="18px";
-  box.style.width="min(430px,100%)";
-  box.style.position="relative";
+close.style.position="absolute";
+close.style.right="12px";
+close.style.top="8px";
+close.style.border="0";
+close.style.background="transparent";
+close.style.fontSize="28px";
+close.style.cursor="pointer";
 
+close.onclick=()=>{
+container.remove();
+};
 
-  const close =
-    document.createElement("button");
+const title =
+document.createElement("h2");
 
+title.textContent=product.name;
+title.style.marginBottom="8px";
 
-  close.textContent="×";
+const price =
+document.createElement("p");
 
-  close.style.position="absolute";
-  close.style.right="12px";
-  close.style.top="8px";
-  close.style.border="0";
-  close.style.background="transparent";
-  close.style.fontSize="28px";
-  close.style.cursor="pointer";
+price.textContent="₹29";
+price.style.fontWeight="800";
+price.style.marginBottom="18px";
 
+const form =
+document.createElement("form");
 
-  close.onclick=()=>{
-    container.remove();
-  };
+form.innerHTML=`
 
+<script
+src="https://checkout.razorpay.com/v1/payment-button.js"
+data-payment_button_id="${product.razorpay}"
+async>
+<\/script>
 
-  const title =
-    document.createElement("h2");
+`;
 
-  title.textContent=product.name;
-  title.style.marginBottom="8px";
+box.appendChild(close);
+box.appendChild(title);
+box.appendChild(price);
+box.appendChild(form);
 
+container.appendChild(box);
 
-  const price =
-    document.createElement("p");
-
-  price.textContent="₹29";
-  price.style.fontWeight="800";
-  price.style.marginBottom="18px";
-
-
-  const form =
-    document.createElement("form");
-
-
-  form.innerHTML=`
-
-    <script
-      src="https://checkout.razorpay.com/v1/payment-button.js"
-      data-payment_button_id="${product.razorpay}"
-      async>
-    <\/script>
-
-  `;
-
-
-  box.appendChild(close);
-  box.appendChild(title);
-  box.appendChild(price);
-  box.appendChild(form);
-
-  container.appendChild(box);
-
-  document.body.appendChild(container);
+document.body.appendChild(container);
 
 }
 
@@ -1833,159 +1708,131 @@ function createRazorpayButton(product){
    CART
 ========================================== */
 
-let cart = [];
-
+let cart=[];
 
 function addToCart(id){
 
-  const product =
-    products.find(p => p.id === id);
+const product =
+products.find(p => p.id === id);
 
-  if(!product) return;
+if(!product) return;
 
-
-  if(!cart.find(item => item.id === id)){
-
-    cart.push(product);
-
-  }
-
-
-  updateCart();
-
-  openCart();
-
+if(!cart.find(item => item.id === id)){
+cart.push(product);
 }
 
+updateCart();
+openCart();
+
+}
 
 function removeFromCart(id){
 
-  cart =
-    cart.filter(item => item.id !== id);
+cart =
+cart.filter(item => item.id !== id);
 
-  updateCart();
+updateCart();
 
 }
-
 
 function updateCart(){
 
-  document.getElementById("cartCount").textContent =
-    cart.length;
+document.getElementById("cartCount").textContent =
+cart.length;
 
+const container =
+document.getElementById("cartItems");
 
-  const container =
-    document.getElementById("cartItems");
+if(cart.length===0){
 
+container.innerHTML=`
 
-  if(cart.length===0){
+<p style="
+color:#777;
+font-size:14px;
+">
+Your cart is empty.
+</p>
 
-    container.innerHTML=`
+`;
 
-      <p style="
-        color:#777;
-        font-size:14px;
-      ">
-        Your cart is empty.
-      </p>
+}else{
 
-    `;
+container.innerHTML =
+cart.map(product=>`
 
-  }
+<div class="cart-item">
 
-  else{
+<img
+src="${product.image}"
+alt="">
 
-    container.innerHTML =
-      cart.map(product=>`
+<div class="cart-item-info">
 
-        <div class="cart-item">
+<strong>
+${escapeHTML(product.name)}
+</strong>
 
-          <img
-            src="${product.image}"
-            alt=""
-          >
+<span>₹29</span>
 
+</div>
 
-          <div class="cart-item-info">
+<button
+class="remove-item"
+onclick="removeFromCart('${product.id}')">
+Remove
+</button>
 
-            <strong>
-              ${escapeHTML(product.name)}
-            </strong>
+</div>
 
-            <span>
-              ₹29
-            </span>
-
-          </div>
-
-
-          <button
-            class="remove-item"
-            onclick="removeFromCart('${product.id}')"
-          >
-            Remove
-          </button>
-
-        </div>
-
-      `).join("");
-
-  }
-
-
-  document.getElementById("cartTotal").textContent =
-    "₹" + (cart.length * 29);
+`).join("");
 
 }
 
+document.getElementById("cartTotal").textContent =
+"₹" + (cart.length * 29);
+
+}
 
 function openCart(){
 
-  document
-    .getElementById("cartOverlay")
-    .classList.add("active");
+document
+.getElementById("cartOverlay")
+.classList.add("active");
 
 }
-
 
 function closeCart(){
 
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("active");
+document
+.getElementById("cartOverlay")
+.classList.remove("active");
 
 }
 
-
 function checkoutCart(){
 
-  if(cart.length===0){
+if(cart.length===0){
 
-    alert("Your cart is empty.");
+alert("Your cart is empty.");
+return;
 
-    return;
+}
 
-  }
+const product=cart[0];
 
+if(product.razorpay){
 
-  const product = cart[0];
+closeCart();
+createRazorpayButton(product);
 
+}else{
 
-  if(product.razorpay){
+alert(
+"This product's payment button is still being connected."
+);
 
-    closeCart();
-
-    createRazorpayButton(product);
-
-  }
-
-  else{
-
-    alert(
-      "This product's payment button is still being connected."
-    );
-
-  }
+}
 
 }
 
@@ -1995,30 +1842,27 @@ function checkoutCart(){
 ========================================== */
 
 document
-  .querySelectorAll(".faq-question")
-  .forEach(button=>{
+.querySelectorAll(".faq-question")
+.forEach(button=>{
 
-    button.addEventListener("click",()=>{
+button.addEventListener("click",()=>{
 
-      const item =
-        button.parentElement;
+const item =
+button.parentElement;
 
+item.classList.toggle("open");
 
-      item.classList.toggle("open");
+const symbol =
+button.querySelector("span");
 
+symbol.textContent =
+item.classList.contains("open")
+? "−"
+: "+";
 
-      const symbol =
-        button.querySelector("span");
+});
 
-
-      symbol.textContent =
-        item.classList.contains("open")
-          ? "−"
-          : "+";
-
-    });
-
-  });
+});
 
 
 /* ==========================================
@@ -2027,62 +1871,58 @@ document
 
 function escapeHTML(value){
 
-  return value
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+return value
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 /* ==========================================
-   MODAL CLICK OUTSIDE
+   CLOSE MODAL OUTSIDE
 ========================================== */
 
 document
-  .getElementById("productModal")
-  .addEventListener("click",function(event){
+.getElementById("productModal")
+.addEventListener("click",function(event){
 
-    if(event.target === this){
+if(event.target === this){
+closeModal();
+}
 
-      closeModal();
-
-    }
-
-  });
+});
 
 
 /* ==========================================
-   CART CLICK OUTSIDE
+   CLOSE CART OUTSIDE
 ========================================== */
 
 document
-  .getElementById("cartOverlay")
-  .addEventListener("click",function(event){
+.getElementById("cartOverlay")
+.addEventListener("click",function(event){
 
-    if(event.target === this){
+if(event.target === this){
+closeCart();
+}
 
-      closeCart();
-
-    }
-
-  });
+});
 
 
 /* ==========================================
-   ESC KEY
+   ESC
 ========================================== */
 
 document.addEventListener("keydown",function(event){
 
-  if(event.key === "Escape"){
+if(event.key === "Escape"){
 
-    closeModal();
-    closeCart();
+closeModal();
+closeCart();
 
-  }
+}
 
 });
 
