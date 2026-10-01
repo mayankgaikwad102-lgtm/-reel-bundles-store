@@ -544,8 +544,8 @@ footer{
 }
 
 .modal-box{
-  width:min(850px,100%);
-  max-height:90vh;
+  width:min(900px,100%);
+  max-height:92vh;
   overflow:auto;
   background:#0d0d0d;
   border:1px solid #292929;
@@ -557,7 +557,7 @@ footer{
   position:absolute;
   top:14px;
   right:14px;
-  z-index:3;
+  z-index:10;
   width:38px;
   height:38px;
   border-radius:50%;
@@ -565,6 +565,7 @@ footer{
   background:#111;
   color:white;
   cursor:pointer;
+  font-size:20px;
 }
 
 .modal-content{
@@ -619,36 +620,53 @@ footer{
 }
 
 .previews{
-  margin-top:35px;
+  margin-top:38px;
+  padding-top:25px;
+  border-top:1px solid var(--border);
 }
 
 .previews h3{
-  margin-bottom:15px;
+  font-size:20px;
+  margin-bottom:16px;
 }
 
 .preview-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
 }
 
 .preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:9 / 16;
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:16px;
   overflow:hidden;
-  background:#111;
+  background:#050505;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.preview:hover{
+  transform:translateY(-3px);
+  border-color:#3a3a3a;
 }
 
 .preview iframe{
+  position:absolute;
+  inset:0;
   width:100%;
-  aspect-ratio:9/16;
+  height:100%;
   border:0;
+  display:block;
 }
 
 .preview img{
   width:100%;
-  aspect-ratio:1/1;
+  height:100%;
   object-fit:cover;
+  display:block;
 }
 
 /* =========================
@@ -828,16 +846,43 @@ footer{
     margin-top:6px;
   }
 
+  .modal{
+    padding:10px;
+  }
+
+  .modal-box{
+    max-height:94vh;
+    border-radius:18px;
+  }
+
+  .modal-content{
+    padding:18px;
+  }
+
   .modal-main{
     grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .modal-info h2{
+    font-size:25px;
   }
 
   .preview-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
   }
 
   .footer-inner{
     flex-direction:column;
+  }
+
+}
+
+@media(max-width:390px){
+
+  .preview-grid{
+    grid-template-columns:1fr;
   }
 
 }
@@ -848,23 +893,29 @@ footer{
 
 <header>
   <nav class="nav">
+
     <a href="#" class="logo">
       REEL<span>BUNDLES</span>
     </a>
 
     <div class="nav-right">
+
       <button class="cart-button" onclick="openCart()">
         Cart
         <span class="cart-count" id="cartCount">0</span>
       </button>
+
     </div>
+
   </nav>
 </header>
 
 
 <main>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -885,6 +936,7 @@ footer{
   </p>
 
   <div class="hero-actions">
+
     <a href="#products" class="primary-btn">
       Explore Bundles
     </a>
@@ -892,12 +944,15 @@ footer{
     <a href="#faq" class="secondary-btn">
       How it works
     </a>
+
   </div>
 
 </section>
 
 
-<!-- TRUST -->
+<!-- =========================
+     TRUST
+========================= -->
 
 <section class="trust">
 
@@ -919,15 +974,19 @@ footer{
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- =========================
+     PRODUCTS
+========================= -->
 
 <section class="section" id="products">
 
   <div class="section-heading">
+
     <div>
       <h2>Content Collections</h2>
       <p>Choose a bundle and start creating.</p>
     </div>
+
   </div>
 
   <div class="products" id="productGrid"></div>
@@ -935,37 +994,53 @@ footer{
 </section>
 
 
-<!-- FEATURES -->
+<!-- =========================
+     FEATURES
+========================= -->
 
 <section class="feature-section">
 
   <div class="feature-grid">
 
     <div class="feature">
+
       <div class="feature-icon">✦</div>
+
       <h3>Ready to Create</h3>
+
       <p>
         Spend less time hunting for content and more time
         editing, posting and growing.
       </p>
+
     </div>
 
+
     <div class="feature">
+
       <div class="feature-icon">↗</div>
+
       <h3>Multiple Niches</h3>
+
       <p>
         Anime, luxury, cars, facts, AI, gaming, Hollywood
         and more.
       </p>
+
     </div>
 
+
     <div class="feature">
+
       <div class="feature-icon">⚡</div>
+
       <h3>Digital Delivery</h3>
+
       <p>
         After successful payment, your selected content
         access link is delivered digitally.
       </p>
+
     </div>
 
   </div>
@@ -973,54 +1048,92 @@ footer{
 </section>
 
 
-<!-- FAQ -->
+<!-- =========================
+     FAQ
+========================= -->
 
 <section class="faq" id="faq">
 
   <h2>Frequently Asked Questions</h2>
 
+
   <div class="faq-item">
+
     <button class="faq-question">
+
       What happens after I pay?
+
       <span>+</span>
+
     </button>
+
     <div class="faq-answer">
+
       After a successful payment, your product delivery
       link is sent digitally to the email address provided
       during checkout.
+
     </div>
+
   </div>
 
+
   <div class="faq-item">
+
     <button class="faq-question">
+
       How much does each bundle cost?
+
       <span>+</span>
+
     </button>
+
     <div class="faq-answer">
+
       Every listed bundle is currently ₹29.
+
     </div>
+
   </div>
 
+
   <div class="faq-item">
+
     <button class="faq-question">
+
       Are these physical products?
+
       <span>+</span>
+
     </button>
+
     <div class="faq-answer">
+
       No. These are digital content collections.
+
     </div>
+
   </div>
 
+
   <div class="faq-item">
+
     <button class="faq-question">
+
       Do you offer refunds?
+
       <span>+</span>
+
     </button>
+
     <div class="faq-answer">
+
       Digital purchases are generally non-refundable once
       access has been delivered, subject to applicable
       consumer laws.
+
     </div>
+
   </div>
 
 </section>
@@ -1028,13 +1141,16 @@ footer{
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
   <div class="footer-inner">
 
     <div class="footer-brand">
+
       <div class="logo">
         REEL<span>BUNDLES</span>
       </div>
@@ -1042,16 +1158,26 @@ footer{
       <p>
         Premium digital content collections for creators.
       </p>
+
     </div>
 
+
     <div class="footer-links">
+
       <a href="#">Home</a>
+
       <a href="#products">Products</a>
+
       <a href="#faq">FAQ</a>
-      <a href="mailto:businesscore28@gmail.com">Contact</a>
+
+      <a href="mailto:businesscore28@gmail.com">
+        Contact
+      </a>
+
     </div>
 
   </div>
+
 
   <div class="copyright">
     © 2026 Reel Bundles. All rights reserved.
@@ -1060,21 +1186,37 @@ footer{
 </footer>
 
 
-<!-- PRODUCT MODAL -->
+<!-- =========================
+     PRODUCT MODAL
+========================= -->
 
 <div class="modal" id="productModal">
 
   <div class="modal-box">
 
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button
+      class="modal-close"
+      onclick="closeModal()"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
 
     <div class="modal-content">
 
       <div class="modal-main">
 
         <div class="modal-image">
-          <img id="modalImage" src="" alt="">
+
+          <img
+            id="modalImage"
+            src=""
+            alt=""
+          >
+
         </div>
+
 
         <div class="modal-info">
 
@@ -1086,11 +1228,20 @@ footer{
             ₹29
           </div>
 
-          <button class="modal-buy" id="modalBuyButton">
+
+          <button
+            class="modal-buy"
+            id="modalBuyButton"
+          >
             Buy This Bundle — ₹29
           </button>
 
-          <div class="payment-area" id="paymentArea"></div>
+
+          <div
+            class="payment-area"
+            id="paymentArea"
+          ></div>
+
 
           <div class="payment-note">
             Secure digital checkout
@@ -1100,11 +1251,17 @@ footer{
 
       </div>
 
+
+      <!-- PREVIEWS -->
+
       <div class="previews">
 
         <h3>Preview</h3>
 
-        <div class="preview-grid" id="previewGrid"></div>
+        <div
+          class="preview-grid"
+          id="previewGrid"
+        ></div>
 
       </div>
 
@@ -1115,25 +1272,50 @@ footer{
 </div>
 
 
-<!-- CART -->
+<!-- =========================
+     CART
+========================= -->
 
-<div class="cart-overlay" id="cartOverlay">
+<div
+  class="cart-overlay"
+  id="cartOverlay"
+>
 
   <aside class="cart">
 
     <div class="cart-header">
+
       <h2>Your Cart</h2>
-      <button class="cart-close" onclick="closeCart()">×</button>
+
+      <button
+        class="cart-close"
+        onclick="closeCart()"
+        aria-label="Close cart"
+      >
+        ×
+      </button>
+
     </div>
+
 
     <div id="cartItems"></div>
 
+
     <div class="cart-total">
+
       <span>Total</span>
-      <span id="cartTotal">₹0</span>
+
+      <span id="cartTotal">
+        ₹0
+      </span>
+
     </div>
 
-    <button class="checkout-btn" onclick="checkoutCart()">
+
+    <button
+      class="checkout-btn"
+      onclick="checkoutCart()"
+    >
       Checkout
     </button>
 
@@ -1164,6 +1346,7 @@ const products = [
     razorpay:"pl_Tfft4QZ2ljyPXk"
   },
 
+
   {
     id:"anime",
     name:"20,000+ Anime Edits",
@@ -1177,6 +1360,7 @@ const products = [
     ],
     razorpay:"pl_Tffw1kYWz0nhwE"
   },
+
 
   {
     id:"crash",
@@ -1192,6 +1376,7 @@ const products = [
     razorpay:null
   },
 
+
   {
     id:"facts",
     name:"1000+ 3D Viral Facts",
@@ -1205,6 +1390,7 @@ const products = [
     ],
     razorpay:"pl_TffykYuBU7LcDR"
   },
+
 
   {
     id:"glow",
@@ -1220,6 +1406,7 @@ const products = [
     razorpay:"pl_TffzuTUu2tLOHz"
   },
 
+
   {
     id:"stickman",
     name:"2200+ Stickman",
@@ -1233,6 +1420,7 @@ const products = [
     ],
     razorpay:"pl_Tfg1BDkjqKx7M3"
   },
+
 
   {
     id:"mixed",
@@ -1248,6 +1436,7 @@ const products = [
     razorpay:"pl_Tfg2a5whC9PiwI"
   },
 
+
   {
     id:"ai",
     name:"AI Tech",
@@ -1261,6 +1450,7 @@ const products = [
     ],
     razorpay:"pl_Tfg3bWGoThxOpg"
   },
+
 
   {
     id:"cars",
@@ -1276,6 +1466,7 @@ const products = [
     razorpay:"pl_Tfg4YeWN8sgiHA"
   },
 
+
   {
     id:"games",
     name:"1900+ Car Game Reels",
@@ -1289,6 +1480,7 @@ const products = [
     ],
     razorpay:"pl_Tfg5iVsmVHws8x"
   },
+
 
   {
     id:"luxury",
@@ -1311,7 +1503,9 @@ const products = [
    RENDER PRODUCTS
 ========================================== */
 
-const productGrid = document.getElementById("productGrid");
+const productGrid =
+  document.getElementById("productGrid");
+
 
 function renderProducts(){
 
@@ -1320,13 +1514,15 @@ function renderProducts(){
     <article class="card">
 
       <div class="card-image">
+
         <img
           src="${product.image}"
           alt="${escapeHTML(product.name)}"
           loading="lazy"
-          onerror="this.style.opacity='.25'"
         >
+
       </div>
+
 
       <div class="card-body">
 
@@ -1334,16 +1530,24 @@ function renderProducts(){
           ${escapeHTML(product.name)}
         </div>
 
+
         <div class="card-description">
           ${escapeHTML(product.description)}
         </div>
 
+
         <div class="card-bottom">
 
           <div class="price">
+
             ₹29
-            <small>digital</small>
+
+            <small>
+              digital
+            </small>
+
           </div>
+
 
           <div class="card-actions">
 
@@ -1353,6 +1557,7 @@ function renderProducts(){
             >
               Details
             </button>
+
 
             <button
               class="buy-btn"
@@ -1380,61 +1585,113 @@ function renderProducts(){
 
 function openProduct(id){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
-  document.getElementById("modalImage").src = product.image;
-  document.getElementById("modalImage").alt = product.name;
 
-  document.getElementById("modalTitle").textContent = product.name;
-  document.getElementById("modalDescription").textContent = product.description;
+  document.getElementById("modalImage").src =
+    product.image;
 
-  const modalBuy = document.getElementById("modalBuyButton");
+  document.getElementById("modalImage").alt =
+    product.name;
 
-  modalBuy.onclick = () => buyProduct(product.id);
 
-  const previewGrid = document.getElementById("previewGrid");
+  document.getElementById("modalTitle").textContent =
+    product.name;
+
+
+  document.getElementById("modalDescription").textContent =
+    product.description;
+
+
+  const modalBuy =
+    document.getElementById("modalBuyButton");
+
+
+  modalBuy.onclick = () =>
+    buyProduct(product.id);
+
+
+  const previewGrid =
+    document.getElementById("previewGrid");
+
 
   if(product.videos){
 
-    previewGrid.innerHTML = product.videos.map(id => `
+    previewGrid.innerHTML =
+      product.videos.map(id => `
 
-      <div class="preview">
-        <iframe
-          src="https://drive.google.com/file/d/${id}/preview"
-          allow="autoplay"
-          loading="lazy"
-        ></iframe>
-      </div>
+        <div class="preview">
 
-    `).join("");
+          <iframe
+            src="https://drive.google.com/file/d/${id}/preview"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            loading="lazy"
+            title="Product video preview"
+          ></iframe>
 
-  }else if(product.images){
+        </div>
 
-    previewGrid.innerHTML = product.images.map(id => `
-
-      <div class="preview">
-        <img
-          src="https://drive.google.com/thumbnail?id=${id}&sz=w1000"
-          alt="Preview"
-          loading="lazy"
-        >
-      </div>
-
-    `).join("");
+      `).join("");
 
   }
 
-  document.getElementById("productModal").classList.add("active");
+  else if(product.images){
+
+    previewGrid.innerHTML =
+      product.images.map(id => `
+
+        <div class="preview">
+
+          <img
+            src="https://drive.google.com/thumbnail?id=${id}&sz=w1000"
+            alt="Product preview"
+            loading="lazy"
+          >
+
+        </div>
+
+      `).join("");
+
+  }
+
+  else{
+
+    previewGrid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        padding:30px;
+        text-align:center;
+        color:#777;
+        border:1px solid #242424;
+        border-radius:14px;
+      ">
+        Preview coming soon.
+      </div>
+    `;
+
+  }
+
+
+  document
+    .getElementById("productModal")
+    .classList.add("active");
+
 
   document.body.style.overflow="hidden";
+
 }
 
 
 function closeModal(){
 
-  document.getElementById("productModal").classList.remove("active");
+  document
+    .getElementById("productModal")
+    .classList.remove("active");
+
 
   document.body.style.overflow="";
 
@@ -1447,21 +1704,16 @@ function closeModal(){
 
 function buyProduct(id){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
-  /*
-    Existing Razorpay Payment Button IDs are connected
-    to the products where we have confirmed IDs.
-
-    Products without an ID are temporarily sent to the
-    cart until their Razorpay button is created.
-  */
 
   if(product.razorpay){
 
     closeModal();
+
 
     setTimeout(() => {
 
@@ -1469,9 +1721,11 @@ function buyProduct(id){
 
     },100);
 
+
     return;
 
   }
+
 
   alert(
     product.name +
@@ -1487,7 +1741,9 @@ function buyProduct(id){
 
 function createRazorpayButton(product){
 
-  const container = document.createElement("div");
+  const container =
+    document.createElement("div");
+
 
   container.style.position="fixed";
   container.style.inset="0";
@@ -1498,7 +1754,10 @@ function createRazorpayButton(product){
   container.style.justifyContent="center";
   container.style.padding="20px";
 
-  const box = document.createElement("div");
+
+  const box =
+    document.createElement("div");
+
 
   box.style.background="#fff";
   box.style.color="#111";
@@ -1507,9 +1766,13 @@ function createRazorpayButton(product){
   box.style.width="min(430px,100%)";
   box.style.position="relative";
 
-  const close = document.createElement("button");
+
+  const close =
+    document.createElement("button");
+
 
   close.textContent="×";
+
   close.style.position="absolute";
   close.style.right="12px";
   close.style.top="8px";
@@ -1518,24 +1781,30 @@ function createRazorpayButton(product){
   close.style.fontSize="28px";
   close.style.cursor="pointer";
 
+
   close.onclick=()=>{
     container.remove();
   };
 
-  const title=document.createElement("h2");
+
+  const title =
+    document.createElement("h2");
 
   title.textContent=product.name;
-
   title.style.marginBottom="8px";
 
-  const price=document.createElement("p");
+
+  const price =
+    document.createElement("p");
 
   price.textContent="₹29";
-
   price.style.fontWeight="800";
   price.style.marginBottom="18px";
 
-  const form=document.createElement("form");
+
+  const form =
+    document.createElement("form");
+
 
   form.innerHTML=`
 
@@ -1546,6 +1815,7 @@ function createRazorpayButton(product){
     <\/script>
 
   `;
+
 
   box.appendChild(close);
   box.appendChild(title);
@@ -1568,23 +1838,30 @@ let cart = [];
 
 function addToCart(id){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
+
   if(!cart.find(item => item.id === id)){
+
     cart.push(product);
+
   }
+
 
   updateCart();
 
   openCart();
+
 }
 
 
 function removeFromCart(id){
 
-  cart = cart.filter(item => item.id !== id);
+  cart =
+    cart.filter(item => item.id !== id);
 
   updateCart();
 
@@ -1593,43 +1870,68 @@ function removeFromCart(id){
 
 function updateCart(){
 
-  document.getElementById("cartCount").textContent = cart.length;
+  document.getElementById("cartCount").textContent =
+    cart.length;
 
-  const container=document.getElementById("cartItems");
+
+  const container =
+    document.getElementById("cartItems");
+
 
   if(cart.length===0){
 
     container.innerHTML=`
-      <p style="color:#777;font-size:14px">
+
+      <p style="
+        color:#777;
+        font-size:14px;
+      ">
         Your cart is empty.
       </p>
+
     `;
 
-  }else{
+  }
 
-    container.innerHTML=cart.map(product=>`
+  else{
 
-      <div class="cart-item">
+    container.innerHTML =
+      cart.map(product=>`
 
-        <img src="${product.image}" alt="">
+        <div class="cart-item">
 
-        <div class="cart-item-info">
-          <strong>${escapeHTML(product.name)}</strong>
-          <span>₹29</span>
+          <img
+            src="${product.image}"
+            alt=""
+          >
+
+
+          <div class="cart-item-info">
+
+            <strong>
+              ${escapeHTML(product.name)}
+            </strong>
+
+            <span>
+              ₹29
+            </span>
+
+          </div>
+
+
+          <button
+            class="remove-item"
+            onclick="removeFromCart('${product.id}')"
+          >
+            Remove
+          </button>
+
         </div>
 
-        <button
-          class="remove-item"
-          onclick="removeFromCart('${product.id}')"
-        >
-          Remove
-        </button>
-
-      </div>
-
-    `).join("");
+      `).join("");
 
   }
+
 
   document.getElementById("cartTotal").textContent =
     "₹" + (cart.length * 29);
@@ -1639,14 +1941,18 @@ function updateCart(){
 
 function openCart(){
 
-  document.getElementById("cartOverlay").classList.add("active");
+  document
+    .getElementById("cartOverlay")
+    .classList.add("active");
 
 }
 
 
 function closeCart(){
 
-  document.getElementById("cartOverlay").classList.remove("active");
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("active");
 
 }
 
@@ -1661,15 +1967,9 @@ function checkoutCart(){
 
   }
 
-  /*
-    For now the safest checkout route is the individual
-    Razorpay Payment Button for each product.
-
-    Multi-product cart checkout will be connected to the
-    backend after the individual product payments are tested.
-  */
 
   const product = cart[0];
+
 
   if(product.razorpay){
 
@@ -1677,7 +1977,9 @@ function checkoutCart(){
 
     createRazorpayButton(product);
 
-  }else{
+  }
+
+  else{
 
     alert(
       "This product's payment button is still being connected."
@@ -1692,22 +1994,31 @@ function checkoutCart(){
    FAQ
 ========================================== */
 
-document.querySelectorAll(".faq-question").forEach(button=>{
+document
+  .querySelectorAll(".faq-question")
+  .forEach(button=>{
 
-  button.addEventListener("click",()=>{
+    button.addEventListener("click",()=>{
 
-    const item=button.parentElement;
+      const item =
+        button.parentElement;
 
-    item.classList.toggle("open");
 
-    const symbol=button.querySelector("span");
+      item.classList.toggle("open");
 
-    symbol.textContent =
-      item.classList.contains("open") ? "−" : "+";
+
+      const symbol =
+        button.querySelector("span");
+
+
+      symbol.textContent =
+        item.classList.contains("open")
+          ? "−"
+          : "+";
+
+    });
 
   });
-
-});
 
 
 /* ==========================================
@@ -1726,27 +2037,59 @@ function escapeHTML(value){
 }
 
 
-document.getElementById("productModal")
+/* ==========================================
+   MODAL CLICK OUTSIDE
+========================================== */
+
+document
+  .getElementById("productModal")
   .addEventListener("click",function(event){
 
     if(event.target === this){
+
       closeModal();
+
     }
 
   });
 
 
-document.getElementById("cartOverlay")
+/* ==========================================
+   CART CLICK OUTSIDE
+========================================== */
+
+document
+  .getElementById("cartOverlay")
   .addEventListener("click",function(event){
 
     if(event.target === this){
+
       closeCart();
+
     }
 
   });
 
 
-/* INITIALIZE */
+/* ==========================================
+   ESC KEY
+========================================== */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    closeModal();
+    closeCart();
+
+  }
+
+});
+
+
+/* ==========================================
+   INITIALIZE
+========================================== */
 
 renderProducts();
 updateCart();
