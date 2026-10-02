@@ -643,8 +643,6 @@ footer{
   display:block;
 }
 
-/* VIDEO FALLBACK */
-
 .preview-error{
   position:absolute;
   inset:0;
@@ -1492,9 +1490,6 @@ modalBuy.onclick =
 const previewGrid =
 document.getElementById("previewGrid");
 
-
-/* VIDEO PREVIEWS */
-
 if(product.videos){
 
 previewGrid.innerHTML =
@@ -1523,9 +1518,6 @@ Your browser could not load this preview.
 
 }
 
-
-/* IMAGE PREVIEWS */
-
 else if(product.images){
 
 previewGrid.innerHTML =
@@ -1544,7 +1536,6 @@ loading="lazy">
 `).join("");
 
 }
-
 
 else{
 
@@ -1566,7 +1557,6 @@ Preview coming soon.
 `;
 
 }
-
 
 document
 .getElementById("productModal")
@@ -1682,15 +1672,27 @@ price.style.marginBottom="18px";
 const form =
 document.createElement("form");
 
-form.innerHTML=`
+/*
+   IMPORTANT:
+   Razorpay Payment Button scripts must be created
+   as actual script elements. Using innerHTML does
+   not execute the dynamically inserted script.
+*/
 
-<script
-src="https://checkout.razorpay.com/v1/payment-button.js"
-data-payment_button_id="${product.razorpay}"
-async>
-<\/script>
+const script =
+document.createElement("script");
 
-`;
+script.src =
+"https://checkout.razorpay.com/v1/payment-button.js";
+
+script.setAttribute(
+"data-payment_button_id",
+product.razorpay
+);
+
+script.async=true;
+
+form.appendChild(script);
 
 box.appendChild(close);
 box.appendChild(title);
@@ -1917,7 +1919,7 @@ closeCart();
 
 document.addEventListener("keydown",function(event){
 
-if(event.key === "Escape"){
+if(event.key==="Escape"){
 
 closeModal();
 closeCart();
