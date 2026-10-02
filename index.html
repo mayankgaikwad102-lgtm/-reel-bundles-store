@@ -537,7 +537,7 @@ footer{
 
 
 /* ==========================================
-   MODAL
+   PRODUCT MODAL
 ========================================== */
 
 .modal{
@@ -1190,7 +1190,7 @@ Digital
 </div>
 
 <div class="trust-label">
-Instant Delivery
+Delivery
 </div>
 
 </div>
@@ -2177,6 +2177,19 @@ return;
 }
 
 
+/*
+   CRITICAL:
+
+   Save the selected product BEFORE closing
+   the checkout modal.
+
+   closeCheckoutModal() clears selectedProduct.
+*/
+
+const product =
+selectedProduct;
+
+
 const confirmButton =
 document.getElementById(
 "checkoutConfirm"
@@ -2214,7 +2227,7 @@ headers:{
 body:JSON.stringify({
 
 product_id:
-selectedProduct.id,
+product.id,
 
 email:
 email
@@ -2267,6 +2280,17 @@ hideLoading();
    Open Razorpay Checkout.
 */
 
+if(
+typeof Razorpay === "undefined"
+){
+
+throw new Error(
+"Razorpay checkout could not load. Please refresh and try again."
+);
+
+}
+
+
 const options = {
 
 key:
@@ -2282,7 +2306,7 @@ name:
 "Reel Bundles",
 
 description:
-selectedProduct.name,
+product.name,
 
 order_id:
 data.order_id,
@@ -2294,10 +2318,10 @@ email
 
 notes:{
 product_id:
-selectedProduct.id,
+product.id,
 
 product_name:
-selectedProduct.name
+product.name
 },
 
 theme:{
@@ -2315,8 +2339,11 @@ function(response){
    We do NOT send the Drive link from the frontend.
 
    Razorpay's payment.captured webhook will reach
-   our backend and the backend will identify the
-   product from the Razorpay Order notes and send
+   our backend.
+
+   The backend fetches the Razorpay Order,
+   reads product_id from the Order notes,
+   identifies the correct product and sends
    the Google Drive link by Gmail.
 */
 
@@ -2346,6 +2373,11 @@ razorpay.on(
 function(response){
 
 hideLoading();
+
+console.error(
+"Razorpay payment failed:",
+response
+);
 
 alert(
 "Payment failed or was cancelled. Please try again."
@@ -2636,12 +2668,12 @@ document
 /*
    IMPORTANT:
 
-   Your current cart UI supports multiple products,
-   but the backend checkout currently creates one
-   product order at a time.
+   The cart UI supports multiple products,
+   but the backend checkout currently creates
+   one product order at a time.
 
-   Therefore we keep the cart safe by requiring
-   the user to checkout one selected bundle.
+   Therefore checkout requires one selected
+   bundle at a time.
 */
 
 function checkoutCart(){
