@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Reel Bundles — Premium Content for Creators</title>
 
-<meta name="description" content="Premium reel bundles for creators. 11 ready-to-use content collections at ₹29 each.">
-<meta name="theme-color" content="#080808">
+<meta
+name="description"
+content="Premium reel bundles for creators. 11 ready-to-use content collections at ₹29 each.">
+
+<meta
+name="theme-color"
+content="#080808">
 
 <style>
+
 :root{
   --bg:#070707;
   --surface:#0e0e0e;
@@ -59,7 +69,10 @@ a{
   text-decoration:none;
 }
 
-/* HEADER */
+
+/* ==========================================
+   HEADER
+========================================== */
 
 header{
   position:sticky;
@@ -122,7 +135,10 @@ header{
   font-weight:800;
 }
 
-/* HERO */
+
+/* ==========================================
+   HERO
+========================================== */
 
 .hero{
   width:min(1100px,92%);
@@ -211,7 +227,10 @@ header{
   border-color:#444;
 }
 
-/* TRUST */
+
+/* ==========================================
+   TRUST
+========================================== */
 
 .trust{
   width:min(1100px,92%);
@@ -245,7 +264,10 @@ header{
   margin-top:3px;
 }
 
-/* PRODUCTS */
+
+/* ==========================================
+   PRODUCTS
+========================================== */
 
 .section{
   width:min(1200px,92%);
@@ -369,7 +391,10 @@ header{
   color:#111;
 }
 
-/* FEATURES */
+
+/* ==========================================
+   FEATURES
+========================================== */
 
 .feature-section{
   width:min(1200px,92%);
@@ -412,7 +437,10 @@ header{
   margin-top:8px;
 }
 
-/* FAQ */
+
+/* ==========================================
+   FAQ
+========================================== */
 
 .faq{
   width:min(850px,92%);
@@ -453,7 +481,10 @@ header{
   display:block;
 }
 
-/* FOOTER */
+
+/* ==========================================
+   FOOTER
+========================================== */
 
 footer{
   margin-top:100px;
@@ -504,7 +535,10 @@ footer{
   font-size:12px;
 }
 
-/* MODAL */
+
+/* ==========================================
+   MODAL
+========================================== */
 
 .modal{
   position:fixed;
@@ -598,7 +632,10 @@ footer{
   cursor:pointer;
 }
 
-/* PREVIEWS */
+
+/* ==========================================
+   PREVIEWS
+========================================== */
 
 .previews{
   margin-top:38px;
@@ -643,20 +680,10 @@ footer{
   display:block;
 }
 
-.preview-error{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  color:#777;
-  font-size:12px;
-  background:#080808;
-}
 
-/* CART */
+/* ==========================================
+   CART
+========================================== */
 
 .cart-overlay{
   position:fixed;
@@ -757,20 +784,192 @@ footer{
   cursor:pointer;
 }
 
-/* PAYMENT */
 
-.payment-area{
-  margin-top:15px;
+/* ==========================================
+   CHECKOUT EMAIL MODAL
+========================================== */
+
+.checkout-modal{
+  position:fixed;
+  inset:0;
+  z-index:6000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(12px);
 }
 
-.payment-note{
-  margin-top:10px;
-  color:#666;
-  font-size:11px;
+.checkout-modal.active{
+  display:flex;
+}
+
+.checkout-box{
+  width:min(430px,100%);
+  background:#101010;
+  border:1px solid #303030;
+  border-radius:20px;
+  padding:25px;
+  position:relative;
+}
+
+.checkout-box h2{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.checkout-box p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.checkout-product{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin-bottom:18px;
+}
+
+.checkout-product img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:9px;
+}
+
+.checkout-product strong{
+  display:block;
+  font-size:14px;
+}
+
+.checkout-product span{
+  color:var(--gold2);
+  font-size:13px;
+}
+
+.email-label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.email-input{
+  width:100%;
+  padding:13px 14px;
+  background:#080808;
+  color:white;
+  border:1px solid #333;
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+}
+
+.email-input:focus{
+  border-color:var(--gold);
+}
+
+.checkout-confirm{
+  width:100%;
+  margin-top:14px;
+  padding:14px;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#111;
+  border-radius:11px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.checkout-confirm:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.checkout-cancel{
+  width:100%;
+  margin-top:8px;
+  padding:12px;
+  border:1px solid var(--border);
+  background:#151515;
+  color:white;
+  border-radius:11px;
+  cursor:pointer;
+}
+
+.checkout-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid #333;
+  background:#151515;
+  color:white;
+  cursor:pointer;
+  font-size:20px;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading-overlay{
+  position:fixed;
+  inset:0;
+  z-index:7000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(8px);
+}
+
+.loading-overlay.active{
+  display:flex;
+}
+
+.loading-box{
+  width:min(350px,90%);
+  padding:25px;
+  background:#101010;
+  border:1px solid #303030;
+  border-radius:18px;
   text-align:center;
 }
 
-/* RESPONSIVE */
+.spinner{
+  width:34px;
+  height:34px;
+  border:3px solid #333;
+  border-top-color:var(--gold);
+  border-radius:50%;
+  margin:0 auto 15px;
+  animation:spin .8s linear infinite;
+}
+
+.loading-box p{
+  color:#aaa;
+  font-size:13px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
 @media(max-width:900px){
 
@@ -867,12 +1066,19 @@ footer{
   }
 
 }
+
 </style>
+
+<!-- Razorpay Checkout -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 </head>
 
 <body>
 
+
 <header>
+
 <nav class="nav">
 
 <a href="#" class="logo">
@@ -881,23 +1087,38 @@ REEL<span>BUNDLES</span>
 
 <div class="nav-right">
 
-<button class="cart-button" onclick="openCart()">
+<button
+class="cart-button"
+onclick="openCart()">
+
 Cart
-<span class="cart-count" id="cartCount">0</span>
+
+<span
+class="cart-count"
+id="cartCount">
+0
+</span>
+
 </button>
 
 </div>
 
 </nav>
+
 </header>
 
+
 <main>
+
 
 <section class="hero">
 
 <div class="eyebrow">
+
 <span class="eyebrow-dot"></span>
+
 PREMIUM CREATOR CONTENT
+
 </div>
 
 <h1>
@@ -913,61 +1134,112 @@ spending hours finding it.
 
 <div class="hero-actions">
 
-<a href="#products" class="primary-btn">
+<a
+href="#products"
+class="primary-btn">
+
 Explore Bundles
+
 </a>
 
-<a href="#faq" class="secondary-btn">
+<a
+href="#faq"
+class="secondary-btn">
+
 How it works
+
 </a>
 
 </div>
 
 </section>
+
 
 <section class="trust">
 
 <div class="trust-item">
-<div class="trust-number">11+</div>
-<div class="trust-label">Content Collections</div>
+
+<div class="trust-number">
+11+
 </div>
 
-<div class="trust-item">
-<div class="trust-number">₹29</div>
-<div class="trust-label">Per Bundle</div>
+<div class="trust-label">
+Content Collections
 </div>
 
+</div>
+
+
 <div class="trust-item">
-<div class="trust-number">Digital</div>
-<div class="trust-label">Instant Delivery</div>
+
+<div class="trust-number">
+₹29
+</div>
+
+<div class="trust-label">
+Per Bundle
+</div>
+
+</div>
+
+
+<div class="trust-item">
+
+<div class="trust-number">
+Digital
+</div>
+
+<div class="trust-label">
+Instant Delivery
+</div>
+
 </div>
 
 </section>
 
-<section class="section" id="products">
+
+<section
+class="section"
+id="products">
 
 <div class="section-heading">
 
 <div>
-<h2>Content Collections</h2>
-<p>Choose a bundle and start creating.</p>
-</div>
+
+<h2>
+Content Collections
+</h2>
+
+<p>
+Choose a bundle and start creating.
+</p>
 
 </div>
 
-<div class="products" id="productGrid"></div>
+</div>
+
+<div
+class="products"
+id="productGrid">
+</div>
 
 </section>
+
 
 <section class="feature-section">
 
 <div class="feature-grid">
 
+
 <div class="feature">
 
-<div class="feature-icon">✦</div>
+<div class="feature-icon">
+✦
+</div>
 
-<h3>Ready to Create</h3>
+<h3>
+Ready to Create
+</h3>
 
 <p>
 Spend less time hunting for content and more time
@@ -976,11 +1248,16 @@ editing, posting and growing.
 
 </div>
 
+
 <div class="feature">
 
-<div class="feature-icon">↗</div>
+<div class="feature-icon">
+↗
+</div>
 
-<h3>Multiple Niches</h3>
+<h3>
+Multiple Niches
+</h3>
 
 <p>
 Anime, luxury, cars, facts, AI, gaming, Hollywood
@@ -989,11 +1266,16 @@ and more.
 
 </div>
 
+
 <div class="feature">
 
-<div class="feature-icon">⚡</div>
+<div class="feature-icon">
+⚡
+</div>
 
-<h3>Digital Delivery</h3>
+<h3>
+Digital Delivery
+</h3>
 
 <p>
 After successful payment, your selected content
@@ -1002,73 +1284,105 @@ access link is delivered digitally.
 
 </div>
 
+
 </div>
 
 </section>
 
-<section class="faq" id="faq">
 
-<h2>Frequently Asked Questions</h2>
+<section
+class="faq"
+id="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
 
 <div class="faq-item">
 
 <button class="faq-question">
+
 What happens after I pay?
+
 <span>+</span>
+
 </button>
 
 <div class="faq-answer">
+
 After a successful payment, your product delivery
 link is sent digitally to the email address provided
 during checkout.
+
 </div>
 
 </div>
+
 
 <div class="faq-item">
 
 <button class="faq-question">
+
 How much does each bundle cost?
+
 <span>+</span>
+
 </button>
 
 <div class="faq-answer">
+
 Every listed bundle is currently ₹29.
+
 </div>
 
 </div>
+
 
 <div class="faq-item">
 
 <button class="faq-question">
+
 Are these physical products?
+
 <span>+</span>
+
 </button>
 
 <div class="faq-answer">
+
 No. These are digital content collections.
+
 </div>
 
 </div>
+
 
 <div class="faq-item">
 
 <button class="faq-question">
+
 Do you offer refunds?
+
 <span>+</span>
+
 </button>
 
 <div class="faq-answer">
+
 Digital purchases are generally non-refundable once
 access has been delivered, subject to applicable
 consumer laws.
+
 </div>
 
 </div>
+
 
 </section>
 
 </main>
+
 
 <footer>
 
@@ -1086,26 +1400,46 @@ Premium digital content collections for creators.
 
 </div>
 
+
 <div class="footer-links">
 
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#faq">FAQ</a>
-<a href="mailto:businesscore28@gmail.com">Contact</a>
+<a href="#">
+Home
+</a>
+
+<a href="#products">
+Products
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+<a href="mailto:businesscore28@gmail.com">
+Contact
+</a>
 
 </div>
 
 </div>
+
 
 <div class="copyright">
+
 © 2026 Reel Bundles. All rights reserved.
+
 </div>
 
 </footer>
 
-<!-- PRODUCT MODAL -->
 
-<div class="modal" id="productModal">
+<!-- ==========================================
+     PRODUCT MODAL
+========================================== -->
+
+<div
+class="modal"
+id="productModal">
 
 <div class="modal-box">
 
@@ -1113,12 +1447,15 @@ Premium digital content collections for creators.
 class="modal-close"
 onclick="closeModal()"
 aria-label="Close">
+
 ×
+
 </button>
 
 <div class="modal-content">
 
 <div class="modal-main">
+
 
 <div class="modal-image">
 
@@ -1126,7 +1463,9 @@ aria-label="Close">
 id="modalImage"
 src=""
 alt="">
+
 </div>
+
 
 <div class="modal-info">
 
@@ -1141,25 +1480,21 @@ alt="">
 <button
 class="modal-buy"
 id="modalBuyButton">
+
 Buy This Bundle — ₹29
+
 </button>
 
-<div
-class="payment-area"
-id="paymentArea">
-</div>
-
-<div class="payment-note">
-Secure digital checkout
 </div>
 
 </div>
 
-</div>
 
 <div class="previews">
 
-<h3>Preview</h3>
+<h3>
+Preview
+</h3>
 
 <div
 class="preview-grid"
@@ -1174,7 +1509,10 @@ id="previewGrid">
 
 </div>
 
-<!-- CART -->
+
+<!-- ==========================================
+     CART
+========================================== -->
 
 <div
 class="cart-overlay"
@@ -1184,12 +1522,16 @@ id="cartOverlay">
 
 <div class="cart-header">
 
-<h2>Your Cart</h2>
+<h2>
+Your Cart
+</h2>
 
 <button
 class="cart-close"
 onclick="closeCart()">
+
 ×
+
 </button>
 
 </div>
@@ -1198,7 +1540,9 @@ onclick="closeCart()">
 
 <div class="cart-total">
 
-<span>Total</span>
+<span>
+Total
+</span>
 
 <span id="cartTotal">
 ₹0
@@ -1209,14 +1553,120 @@ onclick="closeCart()">
 <button
 class="checkout-btn"
 onclick="checkoutCart()">
+
 Checkout
+
 </button>
 
 </aside>
 
 </div>
 
+
+<!-- ==========================================
+     CHECKOUT EMAIL MODAL
+========================================== -->
+
+<div
+class="checkout-modal"
+id="checkoutModal">
+
+<div class="checkout-box">
+
+<button
+class="checkout-close"
+onclick="closeCheckoutModal()">
+
+×
+
+</button>
+
+<h2>
+Complete your purchase
+</h2>
+
+<p>
+Enter the email address where we'll send your
+product access link after successful payment.
+</p>
+
+
+<div
+class="checkout-product"
+id="checkoutProduct">
+</div>
+
+
+<label
+class="email-label"
+for="customerEmail">
+
+Email address
+
+</label>
+
+<input
+type="email"
+id="customerEmail"
+class="email-input"
+placeholder="you@example.com"
+autocomplete="email">
+
+
+<button
+class="checkout-confirm"
+id="checkoutConfirm"
+onclick="startRazorpayCheckout()">
+
+Continue to Payment — ₹29
+
+</button>
+
+
+<button
+class="checkout-cancel"
+onclick="closeCheckoutModal()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     LOADING
+========================================== -->
+
+<div
+class="loading-overlay"
+id="loadingOverlay">
+
+<div class="loading-box">
+
+<div class="spinner"></div>
+
+<p id="loadingText">
+Preparing secure checkout...
+</p>
+
+</div>
+
+</div>
+
+
 <script>
+
+
+/* ==========================================
+   CONFIG
+========================================== */
+
+const BACKEND_URL =
+"https://reel-bundles-backend.onrender.com";
+
 
 /* ==========================================
    PRODUCT DATA
@@ -1234,8 +1684,7 @@ videos:[
 "12kYt49Eh4VXdKKd9xZ44sT7HOsE8HmNB",
 "1J5SKq6MPZFcFLM3e80VycNR69jlGKFsY",
 "1lHbkqiJRrtCEaRWEp7wzAg_PYcKPI6hY"
-],
-razorpay:"pl_Tfft4QZ2ljyPXk"
+]
 },
 
 {
@@ -1248,8 +1697,7 @@ videos:[
 "1TYXkZ4KjmuiBgC7iLkr8EYkiFjaqTCWc",
 "1w7rwGGHzGl6zL2U8jvTiywlxmNXAU20n",
 "1FjFSg0a6rnC7VQgKkmmCG6s_KYJdnPAt"
-],
-razorpay:"pl_Tffw1kYWz0nhwE"
+]
 },
 
 {
@@ -1262,8 +1710,7 @@ videos:[
 "1ODG9K2HcF0thWZSy36eMZtv4V73a9GyC",
 "1T5dtJeSsdIKJCFK-xPgazUHD47M5ssS6",
 "1l6KdEMx1kmgGu8Sqt1j3NjoDgkPZJStn"
-],
-razorpay:"pl_Tifu927sgreuCp"
+]
 },
 
 {
@@ -1276,8 +1723,7 @@ videos:[
 "1FW0YBCw3qWuaVm7w9MDmiVeVGCE5TM4O",
 "1KZcXo8UUi9YDRhQyWtq0-aCVz8zS7qnu",
 "106Dqde7El1ZPu5eMXi2hVoz0v1QQsNOe"
-],
-razorpay:"pl_TffykYuBU7LcDR"
+]
 },
 
 {
@@ -1290,8 +1736,7 @@ videos:[
 "1cqXpMRUrrps-4S_o3sXI4R_hHOHQRXSh",
 "1G1zOeCXdlfPtx2wrjjl3FRT6r9r5w-84",
 "1xf31yMkjBnTxkqSb1IXG8ZhEq_-g1jqv"
-],
-razorpay:"pl_TffzuTUu2tLOHz"
+]
 },
 
 {
@@ -1304,8 +1749,7 @@ videos:[
 "11wEGUToLVKhKl8LbXhROYHMX4lTAurmO",
 "1pZCjswrn4oJUzuZX9AuOTfqnvaalXsft",
 "1sVOE8Xz7uZBdU6F4SuelWToa2XGnE3k4"
-],
-razorpay:"pl_Tfg1BDkjqKx7M3"
+]
 },
 
 {
@@ -1318,8 +1762,7 @@ images:[
 "1ciCWvF0tf4uGaPNlBqGM_o54QMXNaskZ",
 "1YpJGIvBGLc3iDkz-HBELF8lZpxTRlJXo",
 "1K25Ns24EUWvzwG9ZalPWKvdy26jskn-J"
-],
-razorpay:"pl_Tfg2a5whC9PiwI"
+]
 },
 
 {
@@ -1332,8 +1775,7 @@ videos:[
 "1ro6NXtsf64c5Evfr7PNa9Qfjw4NfeJ2h",
 "1oFSlYF8vM6Ma4WVNs9uVS5IvJ4-eyjkR",
 "1Y3LnSKNgXk7yStv6BrQhVKW98ZU6P-ZN"
-],
-razorpay:"pl_Tfg3bWGoThxOpg"
+]
 },
 
 {
@@ -1346,8 +1788,7 @@ videos:[
 "179T-Kci1ZQeyfTMyVLB0x4nNyE0kN5FU",
 "1E2jd7SAtVE9Tvqw9E2cKm6JKqJyVatg6",
 "1Yrb5gzJAojiiFIY7G270xg9TRSeC9p7b"
-],
-razorpay:"pl_Tfg4YeWN8sgiHA"
+]
 },
 
 {
@@ -1360,8 +1801,7 @@ videos:[
 "1rsr95-umwpBQCZG00kn2RX2qgaTfBoyj",
 "1MQrnOyEDehTCibB99he0Zsc7pJGL2I3Z",
 "1njzMg8T3Ii4-yPK-g66y1AW3M9k8_X5O"
-],
-razorpay:"pl_Tfg5iVsmVHws8x"
+]
 },
 
 {
@@ -1374,11 +1814,19 @@ videos:[
 "1Ai0_VXNjyOXnI8GyiqMGe4I5xy3k0-dI",
 "17y-Y8_ix0SOiWLurmj4_2qqYA2XnNEaj",
 "1EFZiuXwz3VgPcRCQ4MJ4YLwdgmv9VztI"
-],
-razorpay:"pl_TifvViaOiXQxhA"
+]
 }
 
 ];
+
+
+/* ==========================================
+   STATE
+========================================== */
+
+let cart = [];
+
+let selectedProduct = null;
 
 
 /* ==========================================
@@ -1388,9 +1836,11 @@ razorpay:"pl_TifvViaOiXQxhA"
 const productGrid =
 document.getElementById("productGrid");
 
+
 function renderProducts(){
 
-productGrid.innerHTML = products.map(product => `
+productGrid.innerHTML =
+products.map(product => `
 
 <article class="card">
 
@@ -1425,13 +1875,17 @@ ${escapeHTML(product.description)}
 <button
 class="details-btn"
 onclick="openProduct('${product.id}')">
+
 Details
+
 </button>
 
 <button
 class="buy-btn"
 onclick="buyProduct('${product.id}')">
+
 Buy
+
 </button>
 
 </div>
@@ -1448,7 +1902,7 @@ Buy
 
 
 /* ==========================================
-   DIRECT VIDEO URL
+   DRIVE VIDEO
 ========================================== */
 
 function driveVideoUrl(id){
@@ -1465,30 +1919,44 @@ return "https://drive.google.com/uc?export=download&id=" + id;
 function openProduct(id){
 
 const product =
-products.find(p => p.id === id);
+products.find(
+p => p.id === id
+);
 
 if(!product) return;
 
-document.getElementById("modalImage").src =
+document.getElementById(
+"modalImage"
+).src =
 product.image;
 
-document.getElementById("modalImage").alt =
+document.getElementById(
+"modalImage"
+).alt =
 product.name;
 
-document.getElementById("modalTitle").textContent =
+document.getElementById(
+"modalTitle"
+).textContent =
 product.name;
 
-document.getElementById("modalDescription").textContent =
+document.getElementById(
+"modalDescription"
+).textContent =
 product.description;
 
-const modalBuy =
-document.getElementById("modalBuyButton");
 
-modalBuy.onclick =
+document.getElementById(
+"modalBuyButton"
+).onclick =
 () => buyProduct(product.id);
 
+
 const previewGrid =
-document.getElementById("previewGrid");
+document.getElementById(
+"previewGrid"
+);
+
 
 if(product.videos){
 
@@ -1558,11 +2026,13 @@ Preview coming soon.
 
 }
 
+
 document
 .getElementById("productModal")
 .classList.add("active");
 
-document.body.style.overflow="hidden";
+document.body.style.overflow =
+"hidden";
 
 }
 
@@ -1573,135 +2043,450 @@ document
 .getElementById("productModal")
 .classList.remove("active");
 
-document.body.style.overflow="";
+document.body.style.overflow =
+"";
 
 }
 
 
 /* ==========================================
-   BUY
+   BUY PRODUCT
 ========================================== */
 
 function buyProduct(id){
 
 const product =
-products.find(p => p.id === id);
+products.find(
+p => p.id === id
+);
 
 if(!product) return;
 
-if(product.razorpay){
-
 closeModal();
 
-setTimeout(() => {
-
-createRazorpayButton(product);
-
-},100);
-
-return;
-
-}
-
-alert(
-product.name +
-" is ready on the store, but its Razorpay checkout is being connected."
-);
+openCheckoutModal(product);
 
 }
 
 
 /* ==========================================
-   RAZORPAY
+   CHECKOUT MODAL
 ========================================== */
 
-function createRazorpayButton(product){
+function openCheckoutModal(product){
 
-const container =
-document.createElement("div");
+selectedProduct =
+product;
 
-container.style.position="fixed";
-container.style.inset="0";
-container.style.zIndex="5000";
-container.style.background="rgba(0,0,0,.82)";
-container.style.display="flex";
-container.style.alignItems="center";
-container.style.justifyContent="center";
-container.style.padding="20px";
+const checkoutProduct =
+document.getElementById(
+"checkoutProduct"
+);
 
-const box =
-document.createElement("div");
+checkoutProduct.innerHTML = `
 
-box.style.background="#fff";
-box.style.color="#111";
-box.style.padding="25px";
-box.style.borderRadius="18px";
-box.style.width="min(430px,100%)";
-box.style.position="relative";
+<img
+src="${product.image}"
+alt="">
 
-const close =
-document.createElement("button");
+<div>
 
-close.textContent="×";
+<strong>
+${escapeHTML(product.name)}
+</strong>
 
-close.style.position="absolute";
-close.style.right="12px";
-close.style.top="8px";
-close.style.border="0";
-close.style.background="transparent";
-close.style.fontSize="28px";
-close.style.cursor="pointer";
+<span>
+₹29
+</span>
 
-close.onclick=()=>{
-container.remove();
-};
+</div>
 
-const title =
-document.createElement("h2");
+`;
 
-title.textContent=product.name;
-title.style.marginBottom="8px";
+document.getElementById(
+"customerEmail"
+).value = "";
 
-const price =
-document.createElement("p");
+document
+.getElementById(
+"checkoutModal"
+)
+.classList.add("active");
 
-price.textContent="₹29";
-price.style.fontWeight="800";
-price.style.marginBottom="18px";
+setTimeout(() => {
 
-const form =
-document.createElement("form");
+document
+.getElementById(
+"customerEmail"
+)
+.focus();
+
+},100);
+
+}
+
+
+function closeCheckoutModal(){
+
+document
+.getElementById(
+"checkoutModal"
+)
+.classList.remove("active");
+
+selectedProduct =
+null;
+
+}
+
+
+/* ==========================================
+   RAZORPAY CHECKOUT
+========================================== */
+
+async function startRazorpayCheckout(){
+
+if(!selectedProduct){
+
+alert(
+"Please select a product first."
+);
+
+return;
+
+}
+
+
+const email =
+document
+.getElementById(
+"customerEmail"
+)
+.value
+.trim();
+
+
+if(!isValidEmail(email)){
+
+alert(
+"Please enter a valid email address."
+);
+
+return;
+
+}
+
+
+const confirmButton =
+document.getElementById(
+"checkoutConfirm"
+);
+
+
+confirmButton.disabled =
+true;
+
+showLoading(
+"Preparing secure checkout..."
+);
+
+
+try{
+
+/*
+   STEP 1
+   Ask our backend to create a Razorpay Order.
+*/
+
+const response =
+await fetch(
+BACKEND_URL +
+"/api/create-product-order",
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+product_id:
+selectedProduct.id,
+
+email:
+email
+
+})
+
+});
+
+
+const data =
+await response.json();
+
+
+if(!response.ok){
+
+throw new Error(
+data.error ||
+"Unable to create payment order."
+);
+
+}
+
+
+if(
+!data.success ||
+!data.order_id ||
+!data.key_id
+){
+
+throw new Error(
+"Invalid checkout response from server."
+);
+
+}
+
+
+/*
+   STEP 2
+   Close our email modal.
+*/
+
+closeCheckoutModal();
+
+
+hideLoading();
+
+
+/*
+   STEP 3
+   Open Razorpay Checkout.
+*/
+
+const options = {
+
+key:
+data.key_id,
+
+amount:
+data.amount,
+
+currency:
+data.currency,
+
+name:
+"Reel Bundles",
+
+description:
+selectedProduct.name,
+
+order_id:
+data.order_id,
+
+prefill:{
+email:
+email
+},
+
+notes:{
+product_id:
+selectedProduct.id,
+
+product_name:
+selectedProduct.name
+},
+
+theme:{
+color:
+"#d6a85d"
+},
+
+
+handler:
+function(response){
 
 /*
    IMPORTANT:
-   Razorpay Payment Button scripts must be created
-   as actual script elements. Using innerHTML does
-   not execute the dynamically inserted script.
+
+   We do NOT send the Drive link from the frontend.
+
+   Razorpay's payment.captured webhook will reach
+   our backend and the backend will identify the
+   product from the Razorpay Order notes and send
+   the Google Drive link by Gmail.
 */
 
-const script =
-document.createElement("script");
+showSuccessMessage();
 
-script.src =
-"https://checkout.razorpay.com/v1/payment-button.js";
+},
 
-script.setAttribute(
-"data-payment_button_id",
-product.razorpay
+
+modal:{
+ondismiss:
+function(){
+
+hideLoading();
+
+}
+}
+
+};
+
+
+const razorpay =
+new Razorpay(options);
+
+
+razorpay.on(
+"payment.failed",
+function(response){
+
+hideLoading();
+
+alert(
+"Payment failed or was cancelled. Please try again."
 );
 
-script.async=true;
+});
 
-form.appendChild(script);
 
-box.appendChild(close);
-box.appendChild(title);
-box.appendChild(price);
-box.appendChild(form);
+razorpay.open();
 
-container.appendChild(box);
 
-document.body.appendChild(container);
+}
+catch(error){
+
+hideLoading();
+
+console.error(
+"Checkout error:",
+error
+);
+
+alert(
+error.message ||
+"Something went wrong while starting checkout."
+);
+
+}
+finally{
+
+confirmButton.disabled =
+false;
+
+}
+
+}
+
+
+/* ==========================================
+   PAYMENT SUCCESS MESSAGE
+========================================== */
+
+function showSuccessMessage(){
+
+const message =
+document.createElement(
+"div"
+);
+
+message.style.position =
+"fixed";
+
+message.style.inset =
+"0";
+
+message.style.zIndex =
+"9000";
+
+message.style.display =
+"flex";
+
+message.style.alignItems =
+"center";
+
+message.style.justifyContent =
+"center";
+
+message.style.padding =
+"20px";
+
+message.style.background =
+"rgba(0,0,0,.88)";
+
+message.innerHTML = `
+
+<div style="
+width:min(430px,100%);
+background:#101010;
+border:1px solid #303030;
+border-radius:20px;
+padding:30px;
+text-align:center;
+">
+
+<div style="
+font-size:42px;
+margin-bottom:15px;
+">
+✓
+</div>
+
+<h2 style="
+margin-bottom:10px;
+">
+Payment successful
+</h2>
+
+<p style="
+color:#999;
+font-size:14px;
+line-height:1.6;
+">
+Your payment was successful.
+Your product access link will be sent to
+your email shortly.
+</p>
+
+<button
+id="successCloseButton"
+style="
+margin-top:20px;
+width:100%;
+padding:14px;
+border:1px solid #d6a85d;
+background:#d6a85d;
+color:#111;
+border-radius:11px;
+font-weight:900;
+cursor:pointer;
+">
+
+Done
+
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(
+message
+);
+
+document
+.getElementById(
+"successCloseButton"
+)
+.onclick = () => {
+
+message.remove();
+
+};
 
 }
 
@@ -1710,58 +2495,79 @@ document.body.appendChild(container);
    CART
 ========================================== */
 
-let cart=[];
-
 function addToCart(id){
 
 const product =
-products.find(p => p.id === id);
+products.find(
+p => p.id === id
+);
 
 if(!product) return;
 
-if(!cart.find(item => item.id === id)){
+if(
+!cart.find(
+item => item.id === id
+)
+){
+
 cart.push(product);
+
 }
 
 updateCart();
+
 openCart();
 
 }
 
+
 function removeFromCart(id){
 
 cart =
-cart.filter(item => item.id !== id);
+cart.filter(
+item => item.id !== id
+);
 
 updateCart();
 
 }
 
+
 function updateCart(){
 
-document.getElementById("cartCount").textContent =
+document.getElementById(
+"cartCount"
+).textContent =
 cart.length;
 
+
 const container =
-document.getElementById("cartItems");
+document.getElementById(
+"cartItems"
+);
 
-if(cart.length===0){
 
-container.innerHTML=`
+if(cart.length === 0){
+
+container.innerHTML = `
 
 <p style="
 color:#777;
 font-size:14px;
 ">
+
 Your cart is empty.
+
 </p>
 
 `;
 
-}else{
+}
+
+else{
 
 container.innerHTML =
-cart.map(product=>`
+cart.map(product => `
 
 <div class="cart-item">
 
@@ -1775,14 +2581,18 @@ alt="">
 ${escapeHTML(product.name)}
 </strong>
 
-<span>₹29</span>
+<span>
+₹29
+</span>
 
 </div>
 
 <button
 class="remove-item"
 onclick="removeFromCart('${product.id}')">
+
 Remove
+
 </button>
 
 </div>
@@ -1791,50 +2601,79 @@ Remove
 
 }
 
-document.getElementById("cartTotal").textContent =
-"₹" + (cart.length * 29);
+
+document.getElementById(
+"cartTotal"
+).textContent =
+"₹" +
+(cart.length * 29);
 
 }
+
 
 function openCart(){
 
 document
-.getElementById("cartOverlay")
+.getElementById(
+"cartOverlay"
+)
 .classList.add("active");
 
 }
 
+
 function closeCart(){
 
 document
-.getElementById("cartOverlay")
+.getElementById(
+"cartOverlay"
+)
 .classList.remove("active");
 
 }
 
+
+/*
+   IMPORTANT:
+
+   Your current cart UI supports multiple products,
+   but the backend checkout currently creates one
+   product order at a time.
+
+   Therefore we keep the cart safe by requiring
+   the user to checkout one selected bundle.
+*/
+
 function checkoutCart(){
 
-if(cart.length===0){
+if(cart.length === 0){
 
-alert("Your cart is empty.");
+alert(
+"Your cart is empty."
+);
+
 return;
 
 }
 
-const product=cart[0];
-
-if(product.razorpay){
-
-closeCart();
-createRazorpayButton(product);
-
-}else{
+if(cart.length > 1){
 
 alert(
-"This product's payment button is still being connected."
+"For now, please purchase one bundle at a time."
 );
 
+return;
+
 }
+
+const product =
+cart[0];
+
+closeCart();
+
+openCheckoutModal(
+product
+);
 
 }
 
@@ -1844,21 +2683,31 @@ alert(
 ========================================== */
 
 document
-.querySelectorAll(".faq-question")
-.forEach(button=>{
+.querySelectorAll(
+".faq-question"
+)
+.forEach(button => {
 
-button.addEventListener("click",()=>{
+button.addEventListener(
+"click",
+() => {
 
 const item =
 button.parentElement;
 
-item.classList.toggle("open");
+item.classList.toggle(
+"open"
+);
 
 const symbol =
-button.querySelector("span");
+button.querySelector(
+"span"
+);
 
 symbol.textContent =
-item.classList.contains("open")
+item.classList.contains(
+"open"
+)
 ? "−"
 : "+";
 
@@ -1873,60 +2722,169 @@ item.classList.contains("open")
 
 function escapeHTML(value){
 
-return value
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+return String(value)
+
+.replaceAll(
+"&",
+"&amp;"
+)
+
+.replaceAll(
+"<",
+"&lt;"
+)
+
+.replaceAll(
+">",
+"&gt;"
+)
+
+.replaceAll(
+'"',
+"&quot;"
+)
+
+.replaceAll(
+"'",
+"&#039;"
+);
+
+}
+
+
+function isValidEmail(email){
+
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+.test(email);
 
 }
 
 
 /* ==========================================
-   CLOSE MODAL OUTSIDE
+   LOADING
+========================================== */
+
+function showLoading(text){
+
+document.getElementById(
+"loadingText"
+).textContent =
+text;
+
+document
+.getElementById(
+"loadingOverlay"
+)
+.classList.add("active");
+
+}
+
+
+function hideLoading(){
+
+document
+.getElementById(
+"loadingOverlay"
+)
+.classList.remove("active");
+
+}
+
+
+/* ==========================================
+   OUTSIDE CLICK — PRODUCT MODAL
 ========================================== */
 
 document
-.getElementById("productModal")
-.addEventListener("click",function(event){
+.getElementById(
+"productModal"
+)
+.addEventListener(
+"click",
+function(event){
 
-if(event.target === this){
+if(
+event.target === this
+){
+
 closeModal();
+
 }
 
-});
+}
+);
 
 
 /* ==========================================
-   CLOSE CART OUTSIDE
+   OUTSIDE CLICK — CART
 ========================================== */
 
 document
-.getElementById("cartOverlay")
-.addEventListener("click",function(event){
+.getElementById(
+"cartOverlay"
+)
+.addEventListener(
+"click",
+function(event){
 
-if(event.target === this){
+if(
+event.target === this
+){
+
 closeCart();
+
 }
 
-});
+}
+);
+
+
+/* ==========================================
+   OUTSIDE CLICK — CHECKOUT MODAL
+========================================== */
+
+document
+.getElementById(
+"checkoutModal"
+)
+.addEventListener(
+"click",
+function(event){
+
+if(
+event.target === this
+){
+
+closeCheckoutModal();
+
+}
+
+}
+);
 
 
 /* ==========================================
    ESC
 ========================================== */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener(
+"keydown",
+function(event){
 
-if(event.key==="Escape"){
+if(
+event.key === "Escape"
+){
 
 closeModal();
+
 closeCart();
+
+closeCheckoutModal();
 
 }
 
-});
+}
+);
 
 
 /* ==========================================
@@ -1934,6 +2892,7 @@ closeCart();
 ========================================== */
 
 renderProducts();
+
 updateCart();
 
 </script>
