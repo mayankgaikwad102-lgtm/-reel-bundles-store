@@ -1089,7 +1089,7 @@ REEL<span>BUNDLES</span>
 
 <button
 class="cart-button"
-onclick="openCart()">
+onclick="openCart">
 
 Cart
 
@@ -1676,6 +1676,7 @@ const products = [
 
 {
 id:"hollywood",
+backendId:"hollywood-4k",
 name:"4K Hollywood",
 image:"images/4k-hollywood.jpeg.jpg",
 description:"Premium Hollywood reel content for entertainment and cinematic pages.",
@@ -1689,6 +1690,7 @@ videos:[
 
 {
 id:"anime",
+backendId:"anime-edits",
 name:"20,000+ Anime Edits",
 image:"images/anime-edits.jpeg.jpg",
 description:"A huge anime-focused content collection for anime pages and editors.",
@@ -1702,6 +1704,7 @@ videos:[
 
 {
 id:"crash",
+backendId:"cars-crash",
 name:"500+ HD Car Crash",
 image:"images/car-crash.jpeg.jpg",
 description:"High-energy car crash content for automotive and viral pages.",
@@ -1715,6 +1718,7 @@ videos:[
 
 {
 id:"facts",
+backendId:"3d-viral-facts",
 name:"1000+ 3D Viral Facts",
 image:"images/3d-viral-facts.jpeg.jpg",
 description:"Visual 3D facts content made for educational and viral fact pages.",
@@ -1728,6 +1732,7 @@ videos:[
 
 {
 id:"glow",
+backendId:"glow-animated",
 name:"2200+ Glow Animated",
 image:"images/glow-animated.jpeg.jpg",
 description:"Animated visual content designed for motivation and aesthetic pages.",
@@ -1741,6 +1746,7 @@ videos:[
 
 {
 id:"stickman",
+backendId:"stickman",
 name:"2200+ Stickman",
 image:"images/stickman.jpeg.jpg",
 description:"Large collection of stickman animation content for short-form creators.",
@@ -1754,6 +1760,7 @@ videos:[
 
 {
 id:"mixed",
+backendId:"mixed-content",
 name:"2700+ Mixed Content",
 image:"images/mixed-content.jpeg.jpg",
 description:"A mixed collection covering motivation, business, forex, health, books, quotes and more.",
@@ -1767,6 +1774,7 @@ images:[
 
 {
 id:"ai",
+backendId:"ai-tech",
 name:"AI Tech",
 image:"images/ai-tech.jpeg.jpg",
 description:"AI and technology-focused short-form content for modern creator pages.",
@@ -1780,6 +1788,7 @@ videos:[
 
 {
 id:"cars",
+backendId:"cars",
 name:"Cars",
 image:"images/cars.jpeg.jpg",
 description:"Automotive reel content for luxury, performance and car pages.",
@@ -1793,6 +1802,7 @@ videos:[
 
 {
 id:"games",
+backendId:"game-reels",
 name:"1900+ Car Game Reels",
 image:"images/car-game-reels.jpeg.jpg",
 description:"Gaming and car-game reel content for gaming creators and pages.",
@@ -1806,6 +1816,7 @@ videos:[
 
 {
 id:"luxury",
+backendId:"luxury-reels",
 name:"20,000+ Luxury Reels",
 image:"images/luxury.jpeg.jpg",
 description:"Luxury lifestyle and high-end visual content for premium theme pages.",
@@ -2226,8 +2237,14 @@ headers:{
 
 body:JSON.stringify({
 
+/*
+   IMPORTANT:
+   Send the backend product ID,
+   not the frontend/UI ID.
+*/
+
 product_id:
-product.id,
+product.backendId,
 
 email:
 email
@@ -2317,8 +2334,14 @@ email
 },
 
 notes:{
+/*
+   IMPORTANT:
+   Keep the backend product ID
+   in the Razorpay order metadata.
+*/
+
 product_id:
-product.id,
+product.backendId,
 
 product_name:
 product.name
