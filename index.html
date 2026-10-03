@@ -1089,7 +1089,7 @@ REEL<span>BUNDLES</span>
 
 <button
 class="cart-button"
-onclick="openCart">
+onclick="openCart()">
 
 Cart
 
@@ -2353,24 +2353,168 @@ color:
 },
 
 
+/*
+   =================================================
+   NEW SECURE PAYMENT HANDLER
+   =================================================
+
+   Razorpay gives the browser three values:
+
+   razorpay_payment_id
+   razorpay_order_id
+   razorpay_signature
+
+   We DO NOT immediately show "Payment successful".
+
+   First we send those values to our backend.
+
+   The backend verifies the Razorpay signature.
+
+   Only after the backend says the payment is
+   verified do we show the success message.
+
+   The actual product delivery remains controlled
+   by the payment.captured webhook on the backend.
+*/
+
 handler:
-function(response){
+async function(response){
+
+showLoading(
+"Verifying your payment..."
+);
+
+try{
+
+/*
+   Make sure Razorpay actually returned
+   all three verification values.
+*/
+
+if(
+!response ||
+!response.razorpay_payment_id ||
+!response.razorpay_order_id ||
+!response.razorpay_signature
+){
+
+throw new Error(
+"Razorpay did not return complete payment verification data."
+);
+
+}
+
+
+/*
+   Send the Razorpay response to our backend.
+
+   IMPORTANT:
+   The frontend never receives or sends
+   the Google Drive delivery link.
+*/
+
+const verifyResponse =
+await fetch(
+BACKEND_URL +
+"/api/verify-payment",
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+razorpay_payment_id:
+response.razorpay_payment_id,
+
+razorpay_order_id:
+response.razorpay_order_id,
+
+razorpay_signature:
+response.razorpay_signature
+
+})
+
+});
+
+
+let verifyData = {};
+
+try{
+
+verifyData =
+await verifyResponse.json();
+
+}
+catch(parseError){
+
+throw new Error(
+"Could not read the payment verification response."
+);
+
+}
+
+
+/*
+   The success screen is ONLY allowed
+   when our backend confirms verification.
+*/
+
+if(
+!verifyResponse.ok ||
+!verifyData.success
+){
+
+throw new Error(
+verifyData.error ||
+"Payment could not be verified."
+);
+
+}
+
+
+/*
+   Backend verification passed.
+
+   NOW we are allowed to show the success
+   message to the customer.
+*/
+
+hideLoading();
+
+showSuccessMessage();
+
+
+}
+catch(error){
+
+console.error(
+"Payment verification error:",
+error
+);
+
+hideLoading();
+
 
 /*
    IMPORTANT:
 
-   We do NOT send the Drive link from the frontend.
+   Do NOT tell the customer to pay again.
 
-   Razorpay's payment.captured webhook will reach
-   our backend.
-
-   The backend fetches the Razorpay Order,
-   reads product_id from the Order notes,
-   identifies the correct product and sends
-   the Google Drive link by Gmail.
+   The payment may already exist at Razorpay
+   even if verification temporarily fails.
 */
 
-showSuccessMessage();
+alert(
+"Payment verification is still pending. Please do not pay again. " +
+"If money was deducted, contact us at businesscore28@gmail.com."
+);
+
+}
 
 },
 
@@ -2502,7 +2646,7 @@ color:#999;
 font-size:14px;
 line-height:1.6;
 ">
-Your payment was successful.
+Your payment has been verified.
 Your product access link will be sent to
 your email shortly.
 </p>
